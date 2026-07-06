@@ -247,37 +247,65 @@ def header(assets_prefix: str, current: str | None = None) -> str:
     return f"""      <header class="header">
         <nav class="header__nav" aria-label="Main navigation">
           <div class="header__nav-inner">
-            <a href="/" class="header__logo" aria-label="Commerce home">
-              <img
-                src="{assets_prefix}assets/8AqKoqpd46BD9YOzqNcyUyqY.avif"
-                alt="Commerce"
-                width="106"
-                height="30"
-              >
-            </a>
+            <div class="header__tab header__tab--logo">
+              <a href="/" class="header__logo" aria-label="Commerce home">
+                <img
+                  src="{assets_prefix}assets/8AqKoqpd46BD9YOzqNcyUyqY.avif"
+                  alt="Commerce"
+                  width="106"
+                  height="30"
+                >
+              </a>
+              <div class="header__corner header__corner--bl header__corner--tab" aria-hidden="true">
+                <svg viewBox="0 0 18 18" width="18" height="18">
+                  <path d="M 0 0 L 0 18 C 0 8.059 8.059 0 18 0 Z" fill="#ffffff"/>
+                </svg>
+              </div>
+              <div class="header__corner header__corner--tr header__corner--tab" aria-hidden="true">
+                <svg viewBox="0 0 18 18" width="18" height="18">
+                  <path d="M 0 0 L 0 18 C 0 8.059 8.059 0 18 0 Z" fill="#ffffff"/>
+                </svg>
+              </div>
+            </div>
 
             <ul class="header__links">
 {nav}
             </ul>
 
-            <div class="header__icons">
-              <button class="header__icon-btn" type="button" aria-label="Search">
-                <img class="header__icon-img" src="{assets_prefix}assets/icons/magnifying-glass.svg" alt="" width="20" height="20" aria-hidden="true">
-              </button>
+            <div class="header__tab header__tab--actions">
+              <div class="header__icons">
+                <button class="header__icon-btn" type="button" aria-label="Search">
+                  <img class="header__icon-img" src="{assets_prefix}assets/icons/magnifying-glass.svg" alt="" width="20" height="20" aria-hidden="true">
+                </button>
 
-              <button class="header__cart-btn" type="button" aria-label="Shopping cart, 0 items">
-                <span class="header__cart-icon" aria-hidden="true"></span>
-                <span class="header__cart-count">0</span>
-              </button>
+                <button class="header__cart-btn" type="button" aria-label="Shopping cart, 0 items">
+                  <span class="header__cart-icon" aria-hidden="true"></span>
+                  <span class="header__cart-count">0</span>
+                </button>
+
+                <button class="header__menu-btn" type="button" aria-label="Open menu">
+                  <img class="header__icon-img" src="{assets_prefix}assets/icons/list.svg" alt="" width="20" height="20" aria-hidden="true">
+                </button>
+              </div>
+              <div class="header__corner header__corner--bl header__corner--tab header__corner--tab-right" aria-hidden="true">
+                <svg viewBox="0 0 18 18" width="18" height="18">
+                  <path d="M 0 0 L 0 18 C 0 8.059 8.059 0 18 0 Z" fill="#ffffff"/>
+                </svg>
+              </div>
+              <div class="header__corner header__corner--tl header__corner--tab header__corner--tab-right" aria-hidden="true">
+                <svg viewBox="0 0 18 18" width="18" height="18">
+                  <path d="M 0 0 L 0 18 C 0 8.059 8.059 0 18 0 Z" fill="#ffffff"/>
+                </svg>
+              </div>
             </div>
           </div>
 
-          <div class="header__corner header__corner--bl" aria-hidden="true">
+          <div class="header__corner header__corner--bl header__corner--nav" aria-hidden="true">
             <svg viewBox="0 0 18 18" width="18" height="18">
               <path d="M 0 0 L 0 18 C 0 8.059 8.059 0 18 0 Z" fill="#ffffff"/>
             </svg>
           </div>
-          <div class="header__corner header__corner--tr" aria-hidden="true">
+          <div class="header__corner header__corner--tr header__corner--nav" aria-hidden="true">
             <svg viewBox="0 0 18 18" width="18" height="18">
               <path d="M 0 0 L 0 18 C 0 8.059 8.059 0 18 0 Z" fill="#ffffff"/>
             </svg>
@@ -394,7 +422,9 @@ def product_card(slug: str, assets_prefix: str) -> str:
 def shop_sidebar() -> str:
     categories = [
         ("all", "All", True),
-        *[(slug, data["name"], False) for slug, data in COLLECTIONS.items()],
+        ("technology", "Technology", False),
+        ("footwear", "Footwear", False),
+        ("home", "Home", False),
     ]
     buttons = []
     for slug, label, active in categories:
@@ -816,7 +846,7 @@ def shop_page() -> str:
 </head>
 <body>
   <div class="page">
-    <section class="page-hero" aria-labelledby="shop-page-title">
+    <section class="page-hero page-hero--shop" aria-labelledby="shop-page-title">
 {header(assets, "Shop")}
 
       <div class="page-hero__intro">
