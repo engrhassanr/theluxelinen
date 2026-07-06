@@ -98,8 +98,8 @@ PRODUCTS = {
     },
     "retro-handheld-console": {
         "name": "Retro Handheld Console",
-        "price": "59.99",
-        "compare": "49.99",
+        "price": "49.99",
+        "compare": "59.99",
         "collection": "technology",
         "image": "oCDAVYb409OovtE2SNLVIPK7zxk.png",
         "description": "Relive the golden era of gaming with this portable Retro Handheld Console. With preloaded classic games and intuitive controls, it's perfect for gamers of all ages. The lightweight design ensures fun wherever you go.",
@@ -163,6 +163,18 @@ COLLECTIONS = {
 
 COLLECTION_NAMES = {slug: data["name"] for slug, data in COLLECTIONS.items()}
 
+SHOP_ORDER = [
+    "retro-handheld-console",
+    "horizon-glow-sneakers",
+    "tropical-paradise-plant",
+    "classic-off-white-trainers",
+    "vibrant-work-boots",
+    "vintage-mechanical-keyboard",
+    "pro-audio-mixer",
+    "potted-succulent-plant",
+    "modern-lounge-armchair",
+]
+
 PRODUCT_MEDIA = {
     "tropical-paradise-plant": {
         "gallery": ["tElJe5z6jmy6md1MRCKy40PRUc.png", "ButktGzkIv0yKhRg6NCyfcPkhU.png", "V2fytFa0Y7CuBzmFIdX87rybb4k.png"],
@@ -212,10 +224,10 @@ PRODUCT_MEDIA = {
 }
 
 PERKS = [
-    ("30 Day Returns", "Enjoy hassle-free returns with our 30-day policy for peace of mind.", "arrows-counter-clockwise.svg"),
-    ("Next Day Delivery", "Get your order delivered fast with our reliable next-day delivery service.", "truck.svg"),
-    ("International Shipping", "Shop from anywhere with convenient worldwide shipping.", "globe-hemisphere-west.svg"),
-    ("0% Finance Available", "Spread the cost of your purchase with 0% interest finance plans.", "percent.svg"),
+    ("30 Day Returns", "Enjoy hassle-free returns with our 30-day policy for peace of mind.", "arrow-clockwise.svg"),
+    ("Next Day Delivery", "Get your order delivered fast with our reliable next-day delivery service.", "lightning.svg"),
+    ("International Shipping", "Shop from anywhere with convenient worldwide shipping.", "globe.svg"),
+    ("0% Finance Available", "Spread the cost of your purchase with 0% interest finance plans.", "credit-card.svg"),
 ]
 
 STAR_SVG = '<svg viewBox="0 0 40 40" width="20" height="20" aria-hidden="true"><path d="M 18.097 2.289 C 18.693 0.441 21.307 0.441 21.903 2.289 L 25.136 12.312 C 25.403 13.14 26.174 13.7 27.044 13.698 L 37.575 13.675 C 39.517 13.671 40.325 16.158 38.751 17.296 L 30.218 23.467 C 29.513 23.977 29.219 24.884 29.489 25.71 L 32.765 35.719 C 33.37 37.565 31.254 39.101 29.686 37.957 L 21.179 31.748 C 20.477 31.235 19.523 31.235 18.821 31.748 L 10.314 37.957 C 8.746 39.101 6.63 37.565 7.235 35.719 L 10.511 25.71 C 10.781 24.884 10.487 23.977 9.782 23.467 L 1.249 17.296 C -0.325 16.158 0.483 13.671 2.425 13.675 L 12.956 13.698 C 13.826 13.7 14.597 13.14 14.864 12.312 Z" fill="currentColor"/></svg>'
@@ -340,7 +352,7 @@ def footer(assets_prefix: str) -> str:
 def product_card(slug: str, assets_prefix: str) -> str:
     p = PRODUCTS[slug]
     col = COLLECTION_NAMES[p["collection"]]
-    return f"""          <article class="product-card">
+    return f"""          <article class="product-card" data-category="{p['collection']}">
             <a href="/shop/{slug}" class="product-card__image-link card-hover">
               <img
                 src="{assets_prefix}assets/{p['image']}"
@@ -377,6 +389,33 @@ def product_card(slug: str, assets_prefix: str) -> str:
               </a>
             </div>
           </article>"""
+
+
+def shop_sidebar() -> str:
+    categories = [
+        ("all", "All", True),
+        *[(slug, data["name"], False) for slug, data in COLLECTIONS.items()],
+    ]
+    buttons = []
+    for slug, label, active in categories:
+        state = ' class="shop-sidebar__category is-active"' if active else ' class="shop-sidebar__category"'
+        pressed = "true" if active else "false"
+        buttons.append(
+            f"""            <button type="button"{state} data-category="{slug}" aria-pressed="{pressed}">
+              <span class="shop-sidebar__dot" aria-hidden="true"></span>
+              <span class="shop-sidebar__label">{label}</span>
+            </button>"""
+        )
+    category_buttons = "\n".join(buttons)
+    return f"""        <aside class="shop-sidebar reveal" data-reveal-delay="80" aria-label="Shop categories">
+          <div class="shop-sidebar__intro">
+            <h2 class="shop-sidebar__title">Shop</h2>
+            <p class="shop-sidebar__desc">Split your products into categories so visitors can easily navigate.</p>
+          </div>
+          <nav class="shop-sidebar__categories" aria-label="Filter by category">
+{category_buttons}
+          </nav>
+        </aside>"""
 
 
 def collection_page(slug: str) -> str:
@@ -654,57 +693,61 @@ def product_page(slug: str) -> str:
               <a href="/collections/{col_slug}">{col_name}</a>
             </nav>
 
-            <div class="product-detail__heading">
-              <h1 class="product-detail__title" id="product-title">{p['name']}</h1>
+            <div class="product-detail__content">
+              <div class="product-detail__main-info">
+                <div class="product-detail__heading">
+                  <h1 class="product-detail__title" id="product-title">{p['name']}</h1>
 {price_html(p['price'], p['compare'])}
-            </div>
+                </div>
 
-            <p class="product-detail__description">{p['description']}</p>
+                <p class="product-detail__description">{p['description']}</p>
 
-            <div class="product-detail__options">
-              <p class="product-detail__option-label">{p['variant_label']}</p>
-              <div class="product-detail__variants">
+                <div class="product-detail__options">
+                  <p class="product-detail__option-label">{p['variant_label']}</p>
+                  <div class="product-detail__variants">
 {variant_buttons(p['variants'])}
+                  </div>
+                </div>
               </div>
-            </div>
 
-            <div class="product-detail__actions">
-              <button type="button" class="product-detail__btn product-detail__btn--cart">Add to Cart</button>
-              <button type="button" class="product-detail__btn product-detail__btn--buy">Buy Now</button>
-            </div>
+              <div class="product-detail__purchase">
+                <div class="product-detail__actions">
+                  <button type="button" class="product-detail__btn product-detail__btn--cart">Add to Cart</button>
+                  <button type="button" class="product-detail__btn product-detail__btn--buy">Buy Now</button>
+                </div>
 
-            <div class="product-detail__accordion">
-              <details class="product-detail__accordion-item" open>
-                <summary class="product-detail__accordion-summary">Warranty</summary>
-                <p class="product-detail__accordion-body">Every purchase is backed by our commitment to quality. Enjoy peace of mind with a 90-day warranty, ensuring your product delivers satisfaction and reliability.</p>
-              </details>
-              <details class="product-detail__accordion-item">
-                <summary class="product-detail__accordion-summary">Shipping Information</summary>
-                <p class="product-detail__accordion-body">We offer reliable and fast shipping to ensure your order reaches you on time. All orders are processed within 1&ndash;2 business days, with tracking provided for a seamless delivery experience.</p>
-              </details>
-              <details class="product-detail__accordion-item">
-                <summary class="product-detail__accordion-summary">Support</summary>
-                <p class="product-detail__accordion-body">Need assistance? Our support team is here to help. Contact us anytime for quick and reliable solutions to your questions or concerns.</p>
-              </details>
+                <div class="product-detail__accordion">
+                  <details class="product-detail__accordion-item" open>
+                    <summary class="product-detail__accordion-summary">Warranty</summary>
+                    <p class="product-detail__accordion-body">Every purchase is backed by our commitment to quality. Enjoy peace of mind with a 90-day warranty, ensuring your product delivers satisfaction and reliability.</p>
+                  </details>
+                  <details class="product-detail__accordion-item">
+                    <summary class="product-detail__accordion-summary">Shipping Information</summary>
+                    <p class="product-detail__accordion-body">We offer reliable and fast shipping to ensure your order reaches you on time. All orders are processed within 1&ndash;2 business days, with tracking provided for a seamless delivery experience.</p>
+                  </details>
+                  <details class="product-detail__accordion-item">
+                    <summary class="product-detail__accordion-summary">Support</summary>
+                    <p class="product-detail__accordion-body">Need assistance? Our support team is here to help. Contact us anytime for quick and reliable solutions to your questions or concerns.</p>
+                  </details>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
 
-    <section class="features features--product" aria-label="Shopping benefits">
-      <div class="features__inner">
-        <div class="features__grid reveal" data-reveal-delay="120">
+      <section class="features features--product" aria-label="Shopping benefits">
+        <div class="features__inner">
+          <div class="features__grid reveal" data-reveal-delay="120">
 {perk_cards(assets)}
+          </div>
         </div>
-      </div>
+      </section>
     </section>
-
-    <div class="spacer" aria-hidden="true"></div>
 
     <section class="product-featured reveal" aria-label="Product highlight">
       <div class="product-featured__media">
-        <img src="{assets}assets/{media['featured1']}" alt="" width="600" height="400" loading="lazy">
+        <img src="{assets}assets/{media['featured1']}" alt="" width="600" height="600" loading="lazy">
       </div>
       <div class="product-featured__text">
         <h2 class="product-featured__title">{p['section1_title']}</h2>
@@ -712,11 +755,7 @@ def product_page(slug: str) -> str:
       </div>
     </section>
 
-    <div class="spacer" aria-hidden="true"></div>
-
 {testimonials_section(assets)}
-
-    <div class="spacer" aria-hidden="true"></div>
 
     <section class="product-featured product-featured--reverse reveal" aria-label="Product highlight">
       <div class="product-featured__text">
@@ -724,11 +763,9 @@ def product_page(slug: str) -> str:
         <p class="product-featured__desc">{p['section2_text']}</p>
       </div>
       <div class="product-featured__media">
-        <img src="{assets}assets/{media['featured2']}" alt="" width="600" height="400" loading="lazy">
+        <img src="{assets}assets/{media['featured2']}" alt="" width="600" height="600" loading="lazy">
       </div>
     </section>
-
-    <div class="spacer" aria-hidden="true"></div>
 
     <section class="popular popular--product" aria-labelledby="browse-more-title">
       <div class="popular__inner">
@@ -751,8 +788,6 @@ def product_page(slug: str) -> str:
       </div>
     </section>
 
-    <div class="spacer" aria-hidden="true"></div>
-
 {footer(assets)}
   </div>
 
@@ -766,8 +801,7 @@ def product_page(slug: str) -> str:
 
 def shop_page() -> str:
     assets = "../"
-    all_products = list(PRODUCTS.keys())
-    cards = "\n".join(product_card(slug, assets) for slug in all_products)
+    cards = "\n".join(product_card(slug, assets) for slug in SHOP_ORDER)
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -799,10 +833,14 @@ def shop_page() -> str:
       </div>
     </section>
 
-    <section class="popular popular--collection" aria-label="All products">
-      <div class="popular__inner">
-        <div class="popular__grid reveal" data-reveal-delay="120">
+    <section class="popular popular--page shop" aria-label="All products">
+      <div class="shop__layout">
+{shop_sidebar()}
+
+        <div class="shop__products">
+          <div class="popular__grid reveal" id="shop-grid" data-reveal-delay="120">
 {cards}
+          </div>
         </div>
       </div>
     </section>
@@ -817,6 +855,102 @@ def shop_page() -> str:
 </body>
 </html>
 """
+
+
+def legal_pages() -> dict[str, str]:
+    assets = "../"
+    terms_body = """
+            <p class="legal__updated">Last Updated: January 2025</p>
+            <p>Welcome to Commerce. By using our website and services, you agree to comply with and be bound by the following terms and conditions. Please read them carefully before using our site.</p>
+            <p>By accessing our website, you confirm that you are at least 18 years old or have the legal authority to agree to these terms. You agree to use the site only for lawful purposes and in compliance with all applicable laws and regulations.</p>
+            <p>All content on this website, including text, images, logos, graphics, and designs, is the property of Commerce or its licensors and is protected by copyright and intellectual property laws. You may not reproduce, distribute, or use any content without prior written consent.</p>
+            <p>If you submit content to us, such as feedback or testimonials, you grant Commerce a non-exclusive, royalty-free, and irrevocable license to use, modify, and display the content for promotional or operational purposes.</p>
+            <p>Our website and services are provided &ldquo;as is&rdquo; without any guarantees or warranties. While we strive to provide accurate and up-to-date information, we do not warrant the accuracy, reliability, or completeness of the content on our website.</p>
+            <p>Commerce is not liable for any indirect, incidental, or consequential damages arising from your use of our website or services. This includes, but is not limited to, loss of data, revenue, or profits.</p>
+            <p>Our website may contain links to third-party websites. These links are provided for convenience, and Commerce does not endorse or assume responsibility for the content or practices of these external sites.</p>
+            <p>We reserve the right to terminate or suspend your access to our website without notice if you violate these terms or engage in any conduct that we consider harmful to our business or users.</p>
+            <p>We may update these terms and conditions periodically to reflect changes in our practices or legal requirements. Your continued use of the website constitutes acceptance of any changes.</p>
+            <p>These terms and conditions are governed by and construed in accordance with the laws of [Insert Jurisdiction]. Any disputes will be resolved in the courts of [Insert Jurisdiction].</p>"""
+
+    privacy_body = """
+            <p class="legal__updated">Last Updated: January 2025</p>
+            <p>Commerce (&ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;us&rdquo;) respects your privacy and is committed to protecting your personal information. This Privacy Policy explains how we collect, use, and protect your data when you interact with our website and services.</p>
+            <p>We may collect the following types of information when you use our website or contact us:</p>
+            <p><strong>Personal Information:</strong> Name, email address, phone number, and other information you provide through forms or correspondence.</p>
+            <p><strong>Usage Data:</strong> Information about how you interact with our website, including your IP address, browser type, pages visited, and time spent on our site.</p>
+            <p><strong>Cookies and Tracking Technologies:</strong> We use cookies to enhance your experience, analyze website traffic, and improve our services.</p>
+            <p>We use the information collected to respond to inquiries and provide customer support, improve and optimize our website and services, send updates, newsletters, or promotional content (only with your consent), and comply with legal obligations.</p>
+            <p>We do not sell or rent your personal information to third parties. However, we may share your information with service providers who assist us in operating our website or providing services, and with legal authorities if required by law or to protect our legal rights.</p>
+            <p>You have the right to access the personal information we hold about you, request corrections to inaccurate or incomplete information, opt out of receiving marketing communications, and request the deletion of your data, subject to legal or contractual obligations.</p>
+            <p>We implement reasonable security measures to protect your personal information from unauthorized access, alteration, or disclosure. However, no method of online transmission is completely secure, and we cannot guarantee absolute security.</p>
+            <p>Our website may contain links to external websites. We are not responsible for the privacy practices of these third parties, and we encourage you to review their privacy policies.</p>
+            <p>We may update this Privacy Policy from time to time to reflect changes in our practices or legal requirements. We encourage you to review this page periodically for updates.</p>"""
+
+    def page(title: str, description: str, heading: str, body: str) -> str:
+        return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title} - Commerce</title>
+  <meta name="description" content="{description}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{assets}css/style.css">
+</head>
+<body>
+  <div class="page">
+    <section class="page-hero page-hero--legal" aria-labelledby="legal-page-title">
+{header(assets)}
+
+      <div class="page-hero__intro">
+        <div class="page-hero__text">
+          <h1 class="page-hero__title" id="legal-page-title">{heading}</h1>
+        </div>
+      </div>
+    </section>
+
+    <section class="legal" aria-label="{heading}">
+      <div class="legal__inner reveal">
+        <div class="legal__content">
+{body}
+        </div>
+      </div>
+    </section>
+
+    <div class="spacer" aria-hidden="true"></div>
+
+{footer(assets)}
+  </div>
+
+  <script src="{assets}js/animations.js"></script>
+  <script src="{assets}js/main.js"></script>
+</body>
+</html>"""
+
+    return {
+        "terms-and-conditions": page(
+            "Terms & Conditions",
+            "Terms and conditions for using the Commerce website and services.",
+            "Terms &amp; Conditions",
+            terms_body,
+        ),
+        "privacy-policy": page(
+            "Privacy Policy",
+            "Privacy policy explaining how Commerce collects, uses, and protects your data.",
+            "Privacy Policy",
+            privacy_body,
+        ),
+        "404": page(
+            "404",
+            "Page not found.",
+            "Page not found",
+            """
+            <p>The page you&rsquo;re looking for doesn&rsquo;t exist or may have been moved.</p>
+            <p><a href="/">Return to home</a> or <a href="/shop">browse the shop</a> to keep exploring.</p>""",
+        ),
+    }
 
 
 def main() -> None:
@@ -834,6 +968,12 @@ def main() -> None:
         path = ROOT / "shop" / slug / "index.html"
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(product_page(slug), encoding="utf-8")
+        print(f"Wrote {path.relative_to(ROOT)}")
+
+    for slug, page_html in legal_pages().items():
+        path = ROOT / slug / "index.html"
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(page_html, encoding="utf-8")
         print(f"Wrote {path.relative_to(ROOT)}")
 
 

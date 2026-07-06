@@ -1,5 +1,6 @@
 (function () {
   const header = document.querySelector(".header");
+  const mobileNavQuery = window.matchMedia("(max-width: 809.98px)");
 
   if (header) {
     const page = document.querySelector(".page");
@@ -7,13 +8,35 @@
     let anchorTop = 0;
     let anchorLeft = 0;
 
+    function isMobileNav() {
+      return mobileNavQuery.matches;
+    }
+
+    function clearInlineHeaderStyles() {
+      header.style.removeProperty("top");
+      header.style.removeProperty("left");
+      header.style.removeProperty("right");
+      header.style.removeProperty("width");
+      header.style.removeProperty("max-width");
+      header.style.removeProperty("transform");
+    }
+
+    function applyMobileNav() {
+      header.classList.add("header--fixed");
+      header.style.top = "24px";
+      header.style.left = "12px";
+      header.style.right = "12px";
+      header.style.width = "auto";
+      header.style.maxWidth = "none";
+      header.style.transform = "none";
+    }
+
     function measureAnchor() {
       const wasFixed = header.classList.contains("header--fixed");
 
       if (wasFixed) {
         header.classList.remove("header--fixed");
-        header.style.removeProperty("top");
-        header.style.removeProperty("left");
+        clearInlineHeaderStyles();
       }
 
       const rect = header.getBoundingClientRect();
@@ -26,7 +49,7 @@
     }
 
     function updateAnchorForResize() {
-      if (!page) return;
+      if (!page || isMobileNav()) return;
 
       const padding = parseFloat(getComputedStyle(page).paddingLeft);
       anchorTop = padding;
@@ -39,18 +62,28 @@
     }
 
     function applyFixed() {
+      if (isMobileNav()) {
+        applyMobileNav();
+        return;
+      }
+
       header.style.top = `${anchorTop}px`;
       header.style.left = `${anchorLeft}px`;
       header.classList.add("header--fixed");
     }
 
     function updateHeaderFixed() {
+      if (isMobileNav()) {
+        applyMobileNav();
+        ticking = false;
+        return;
+      }
+
       if (window.scrollY > 0) {
         applyFixed();
       } else {
         header.classList.remove("header--fixed");
-        header.style.removeProperty("top");
-        header.style.removeProperty("left");
+        clearInlineHeaderStyles();
         measureAnchor();
       }
 
@@ -60,12 +93,28 @@
     measureAnchor();
 
     window.addEventListener("resize", () => {
+      if (isMobileNav()) {
+        applyMobileNav();
+        return;
+      }
+
+      clearInlineHeaderStyles();
+      header.classList.remove("header--fixed");
+
       if (window.scrollY === 0) {
         measureAnchor();
         return;
       }
 
       updateAnchorForResize();
+      applyFixed();
+    });
+
+    mobileNavQuery.addEventListener("change", () => {
+      clearInlineHeaderStyles();
+      header.classList.remove("header--fixed");
+      measureAnchor();
+      updateHeaderFixed();
     });
 
     window.addEventListener(

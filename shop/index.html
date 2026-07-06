@@ -71,14 +71,40 @@
       </div>
     </section>
 
-    <section class="popular popular--collection" aria-label="All products">
-      <div class="popular__inner">
-        <div class="popular__grid reveal" data-reveal-delay="120">
-          <article class="product-card">
-            <a href="/shop/tropical-paradise-plant" class="product-card__image-link card-hover">
+    <section class="popular popular--page shop" aria-label="All products">
+      <div class="shop__layout">
+        <aside class="shop-sidebar reveal" data-reveal-delay="80" aria-label="Shop categories">
+          <div class="shop-sidebar__intro">
+            <h2 class="shop-sidebar__title">Shop</h2>
+            <p class="shop-sidebar__desc">Split your products into categories so visitors can easily navigate.</p>
+          </div>
+          <nav class="shop-sidebar__categories" aria-label="Filter by category">
+            <button type="button" class="shop-sidebar__category is-active" data-category="all" aria-pressed="true">
+              <span class="shop-sidebar__dot" aria-hidden="true"></span>
+              <span class="shop-sidebar__label">All</span>
+            </button>
+            <button type="button" class="shop-sidebar__category" data-category="home" aria-pressed="false">
+              <span class="shop-sidebar__dot" aria-hidden="true"></span>
+              <span class="shop-sidebar__label">Home</span>
+            </button>
+            <button type="button" class="shop-sidebar__category" data-category="footwear" aria-pressed="false">
+              <span class="shop-sidebar__dot" aria-hidden="true"></span>
+              <span class="shop-sidebar__label">Footwear</span>
+            </button>
+            <button type="button" class="shop-sidebar__category" data-category="technology" aria-pressed="false">
+              <span class="shop-sidebar__dot" aria-hidden="true"></span>
+              <span class="shop-sidebar__label">Technology</span>
+            </button>
+          </nav>
+        </aside>
+
+        <div class="shop__products">
+          <div class="popular__grid reveal" id="shop-grid" data-reveal-delay="120">
+          <article class="product-card" data-category="technology">
+            <a href="/shop/retro-handheld-console" class="product-card__image-link card-hover">
               <img
-                src="../assets/tElJe5z6jmy6md1MRCKy40PRUc.png"
-                alt="Tropical Paradise Plant"
+                src="../assets/oCDAVYb409OovtE2SNLVIPK7zxk.png"
+                alt="Retro Handheld Console"
                 width="400"
                 height="400"
                 loading="lazy"
@@ -102,90 +128,16 @@
               </div>
             </a>
             <div class="product-card__content">
-              <a href="/shop/tropical-paradise-plant" class="product-card__info">
-                <h3 class="product-card__name">Tropical Paradise Plant</h3>
+              <a href="/shop/retro-handheld-console" class="product-card__info">
+                <h3 class="product-card__name">Retro Handheld Console</h3>
                 <div class="product-card__meta">
-                  <span class="product-card__category">Home</span>
-                  <span class="product-card__price">USD $39.99</span>
+                  <span class="product-card__category">Technology</span>
+                  <span class="product-card__price">USD $49.99</span>
                 </div>
               </a>
             </div>
           </article>
-          <article class="product-card">
-            <a href="/shop/potted-succulent-plant" class="product-card__image-link card-hover">
-              <img
-                src="../assets/jSqxgKoxQZr1zZomzhjmmO2ew.png"
-                alt="Potted Succulent Plant"
-                width="400"
-                height="400"
-                loading="lazy"
-              >
-              <div class="card-action card-action--product" aria-hidden="true">
-                <div class="card-action__shape">
-                  <span class="card-action__scoop card-action__scoop--a" aria-hidden="true">
-                    <img src="../assets/icons/corner-scoop.svg" alt="" width="18" height="18">
-                  </span>
-                  <span class="card-action__scoop card-action__scoop--b" aria-hidden="true">
-                    <img src="../assets/icons/corner-scoop.svg" alt="" width="18" height="18">
-                  </span>
-                  <span class="card-action__btn">
-                    <span class="card-action__icon">
-                      <span class="card-action__icon-rotate">
-                        <img src="../assets/icons/arrow-right.svg" alt="" width="20" height="20" aria-hidden="true">
-                      </span>
-                    </span>
-                  </span>
-                </div>
-              </div>
-            </a>
-            <div class="product-card__content">
-              <a href="/shop/potted-succulent-plant" class="product-card__info">
-                <h3 class="product-card__name">Potted Succulent Plant</h3>
-                <div class="product-card__meta">
-                  <span class="product-card__category">Home</span>
-                  <span class="product-card__price">USD $24.99</span>
-                </div>
-              </a>
-            </div>
-          </article>
-          <article class="product-card">
-            <a href="/shop/modern-lounge-armchair" class="product-card__image-link card-hover">
-              <img
-                src="../assets/wQCYenRpKmc9i0iVibBrrmx47s.png"
-                alt="Modern Lounge Armchair"
-                width="400"
-                height="400"
-                loading="lazy"
-              >
-              <div class="card-action card-action--product" aria-hidden="true">
-                <div class="card-action__shape">
-                  <span class="card-action__scoop card-action__scoop--a" aria-hidden="true">
-                    <img src="../assets/icons/corner-scoop.svg" alt="" width="18" height="18">
-                  </span>
-                  <span class="card-action__scoop card-action__scoop--b" aria-hidden="true">
-                    <img src="../assets/icons/corner-scoop.svg" alt="" width="18" height="18">
-                  </span>
-                  <span class="card-action__btn">
-                    <span class="card-action__icon">
-                      <span class="card-action__icon-rotate">
-                        <img src="../assets/icons/arrow-right.svg" alt="" width="20" height="20" aria-hidden="true">
-                      </span>
-                    </span>
-                  </span>
-                </div>
-              </div>
-            </a>
-            <div class="product-card__content">
-              <a href="/shop/modern-lounge-armchair" class="product-card__info">
-                <h3 class="product-card__name">Modern Lounge Armchair</h3>
-                <div class="product-card__meta">
-                  <span class="product-card__category">Home</span>
-                  <span class="product-card__price">USD $299.99</span>
-                </div>
-              </a>
-            </div>
-          </article>
-          <article class="product-card">
+          <article class="product-card" data-category="footwear">
             <a href="/shop/horizon-glow-sneakers" class="product-card__image-link card-hover">
               <img
                 src="../assets/TaiLqg44CMxGOXKWtD4HkafU.png"
@@ -222,7 +174,44 @@
               </a>
             </div>
           </article>
-          <article class="product-card">
+          <article class="product-card" data-category="home">
+            <a href="/shop/tropical-paradise-plant" class="product-card__image-link card-hover">
+              <img
+                src="../assets/tElJe5z6jmy6md1MRCKy40PRUc.png"
+                alt="Tropical Paradise Plant"
+                width="400"
+                height="400"
+                loading="lazy"
+              >
+              <div class="card-action card-action--product" aria-hidden="true">
+                <div class="card-action__shape">
+                  <span class="card-action__scoop card-action__scoop--a" aria-hidden="true">
+                    <img src="../assets/icons/corner-scoop.svg" alt="" width="18" height="18">
+                  </span>
+                  <span class="card-action__scoop card-action__scoop--b" aria-hidden="true">
+                    <img src="../assets/icons/corner-scoop.svg" alt="" width="18" height="18">
+                  </span>
+                  <span class="card-action__btn">
+                    <span class="card-action__icon">
+                      <span class="card-action__icon-rotate">
+                        <img src="../assets/icons/arrow-right.svg" alt="" width="20" height="20" aria-hidden="true">
+                      </span>
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </a>
+            <div class="product-card__content">
+              <a href="/shop/tropical-paradise-plant" class="product-card__info">
+                <h3 class="product-card__name">Tropical Paradise Plant</h3>
+                <div class="product-card__meta">
+                  <span class="product-card__category">Home</span>
+                  <span class="product-card__price">USD $39.99</span>
+                </div>
+              </a>
+            </div>
+          </article>
+          <article class="product-card" data-category="footwear">
             <a href="/shop/classic-off-white-trainers" class="product-card__image-link card-hover">
               <img
                 src="../assets/9q9O56lpqUqJPoXiJkikhJuOb4M.png"
@@ -259,7 +248,7 @@
               </a>
             </div>
           </article>
-          <article class="product-card">
+          <article class="product-card" data-category="footwear">
             <a href="/shop/vibrant-work-boots" class="product-card__image-link card-hover">
               <img
                 src="../assets/qdOdeRgSwlmLF7en894gIMaP2r8.png"
@@ -296,44 +285,7 @@
               </a>
             </div>
           </article>
-          <article class="product-card">
-            <a href="/shop/retro-handheld-console" class="product-card__image-link card-hover">
-              <img
-                src="../assets/oCDAVYb409OovtE2SNLVIPK7zxk.png"
-                alt="Retro Handheld Console"
-                width="400"
-                height="400"
-                loading="lazy"
-              >
-              <div class="card-action card-action--product" aria-hidden="true">
-                <div class="card-action__shape">
-                  <span class="card-action__scoop card-action__scoop--a" aria-hidden="true">
-                    <img src="../assets/icons/corner-scoop.svg" alt="" width="18" height="18">
-                  </span>
-                  <span class="card-action__scoop card-action__scoop--b" aria-hidden="true">
-                    <img src="../assets/icons/corner-scoop.svg" alt="" width="18" height="18">
-                  </span>
-                  <span class="card-action__btn">
-                    <span class="card-action__icon">
-                      <span class="card-action__icon-rotate">
-                        <img src="../assets/icons/arrow-right.svg" alt="" width="20" height="20" aria-hidden="true">
-                      </span>
-                    </span>
-                  </span>
-                </div>
-              </div>
-            </a>
-            <div class="product-card__content">
-              <a href="/shop/retro-handheld-console" class="product-card__info">
-                <h3 class="product-card__name">Retro Handheld Console</h3>
-                <div class="product-card__meta">
-                  <span class="product-card__category">Technology</span>
-                  <span class="product-card__price">USD $59.99</span>
-                </div>
-              </a>
-            </div>
-          </article>
-          <article class="product-card">
+          <article class="product-card" data-category="technology">
             <a href="/shop/vintage-mechanical-keyboard" class="product-card__image-link card-hover">
               <img
                 src="../assets/Jd50Ch6OeddkkWevou3JF5i44.png"
@@ -370,7 +322,7 @@
               </a>
             </div>
           </article>
-          <article class="product-card">
+          <article class="product-card" data-category="technology">
             <a href="/shop/pro-audio-mixer" class="product-card__image-link card-hover">
               <img
                 src="../assets/d0WfiurbzWveXWLHiSEUzCwvLM.png"
@@ -407,6 +359,81 @@
               </a>
             </div>
           </article>
+          <article class="product-card" data-category="home">
+            <a href="/shop/potted-succulent-plant" class="product-card__image-link card-hover">
+              <img
+                src="../assets/jSqxgKoxQZr1zZomzhjmmO2ew.png"
+                alt="Potted Succulent Plant"
+                width="400"
+                height="400"
+                loading="lazy"
+              >
+              <div class="card-action card-action--product" aria-hidden="true">
+                <div class="card-action__shape">
+                  <span class="card-action__scoop card-action__scoop--a" aria-hidden="true">
+                    <img src="../assets/icons/corner-scoop.svg" alt="" width="18" height="18">
+                  </span>
+                  <span class="card-action__scoop card-action__scoop--b" aria-hidden="true">
+                    <img src="../assets/icons/corner-scoop.svg" alt="" width="18" height="18">
+                  </span>
+                  <span class="card-action__btn">
+                    <span class="card-action__icon">
+                      <span class="card-action__icon-rotate">
+                        <img src="../assets/icons/arrow-right.svg" alt="" width="20" height="20" aria-hidden="true">
+                      </span>
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </a>
+            <div class="product-card__content">
+              <a href="/shop/potted-succulent-plant" class="product-card__info">
+                <h3 class="product-card__name">Potted Succulent Plant</h3>
+                <div class="product-card__meta">
+                  <span class="product-card__category">Home</span>
+                  <span class="product-card__price">USD $24.99</span>
+                </div>
+              </a>
+            </div>
+          </article>
+          <article class="product-card" data-category="home">
+            <a href="/shop/modern-lounge-armchair" class="product-card__image-link card-hover">
+              <img
+                src="../assets/wQCYenRpKmc9i0iVibBrrmx47s.png"
+                alt="Modern Lounge Armchair"
+                width="400"
+                height="400"
+                loading="lazy"
+              >
+              <div class="card-action card-action--product" aria-hidden="true">
+                <div class="card-action__shape">
+                  <span class="card-action__scoop card-action__scoop--a" aria-hidden="true">
+                    <img src="../assets/icons/corner-scoop.svg" alt="" width="18" height="18">
+                  </span>
+                  <span class="card-action__scoop card-action__scoop--b" aria-hidden="true">
+                    <img src="../assets/icons/corner-scoop.svg" alt="" width="18" height="18">
+                  </span>
+                  <span class="card-action__btn">
+                    <span class="card-action__icon">
+                      <span class="card-action__icon-rotate">
+                        <img src="../assets/icons/arrow-right.svg" alt="" width="20" height="20" aria-hidden="true">
+                      </span>
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </a>
+            <div class="product-card__content">
+              <a href="/shop/modern-lounge-armchair" class="product-card__info">
+                <h3 class="product-card__name">Modern Lounge Armchair</h3>
+                <div class="product-card__meta">
+                  <span class="product-card__category">Home</span>
+                  <span class="product-card__price">USD $299.99</span>
+                </div>
+              </a>
+            </div>
+          </article>
+          </div>
         </div>
       </div>
     </section>
