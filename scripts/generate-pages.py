@@ -499,6 +499,7 @@ def collection_page(slug: str) -> str:
 
   <script src="{assets}js/animations.js"></script>
   <script src="{assets}js/main.js"></script>
+  <script src="/js/search-cart.js"></script>
 </body>
 </html>
 """
@@ -576,12 +577,12 @@ def testimonials_section(assets: str) -> str:
         <div class="testimonials__nav-inner">
           <button class="testimonials__nav-btn testimonials__nav-btn--prev" type="button" aria-label="Previous testimonial">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="20" height="20" aria-hidden="true">
-              <path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z" fill="currentColor"/>
+              <path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z" fill="currentColor"/>
             </svg>
           </button>
           <button class="testimonials__nav-btn testimonials__nav-btn--next" type="button" aria-label="Next testimonial">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="20" height="20" aria-hidden="true">
-              <path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z" fill="currentColor"/>
+              <path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z" fill="currentColor"/>
             </svg>
           </button>
         </div>
@@ -807,7 +808,7 @@ def product_page(slug: str) -> str:
           <a href="/shop" class="popular__link">
             View All
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" width="16" height="16" aria-hidden="true">
-              <path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/>
+              <path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"/>
             </svg>
           </a>
         </div>
@@ -824,6 +825,7 @@ def product_page(slug: str) -> str:
   <script src="{assets}js/animations.js"></script>
   <script src="{assets}js/main.js"></script>
   <script src="{assets}js/product.js"></script>
+  <script src="/js/search-cart.js"></script>
 </body>
 </html>
 """
@@ -882,6 +884,7 @@ def shop_page() -> str:
 
   <script src="{assets}js/animations.js"></script>
   <script src="{assets}js/main.js"></script>
+  <script src="/js/search-cart.js"></script>
 </body>
 </html>
 """
@@ -956,6 +959,7 @@ def legal_pages() -> dict[str, str]:
 
   <script src="{assets}js/animations.js"></script>
   <script src="{assets}js/main.js"></script>
+  <script src="/js/search-cart.js"></script>
 </body>
 </html>"""
 

@@ -8,18 +8,19 @@
   function setOpen(item, open) {
     const toggle = item.querySelector(".faq-item__toggle");
     const panel = item.querySelector(".faq-item__answer-wrap");
-    const icon = toggle.querySelector(".faq-item__toggle-icon svg");
 
     item.classList.toggle("is-open", open);
     toggle.setAttribute("aria-expanded", open ? "true" : "false");
-    panel.hidden = !open;
-
-    if (icon) {
-      icon.innerHTML = open
-        ? '<path d="M3 8h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>'
-        : '<path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>';
-    }
+    panel.setAttribute("aria-hidden", open ? "false" : "true");
   }
+
+  items.forEach(function (entry) {
+    const panel = entry.querySelector(".faq-item__answer-wrap");
+    const isOpen = entry.classList.contains("is-open");
+    if (panel) {
+      panel.setAttribute("aria-hidden", isOpen ? "false" : "true");
+    }
+  });
 
   accordion.addEventListener("click", function (event) {
     const toggle = event.target.closest(".faq-item__toggle");

@@ -1,0 +1,213 @@
+{
+  "items": [
+    {
+      "title": "Retro Handheld Console",
+      "url": "/shop/retro-handheld-console",
+      "type": "Product",
+      "image": "/assets/oCDAVYb409OovtE2SNLVIPK7zxk.png",
+      "keywords": ["retro", "handheld", "console", "gaming", "technology"],
+      "price": 49.99,
+      "slug": "retro-handheld-console"
+    },
+    {
+      "title": "Horizon Glow Sneakers",
+      "url": "/shop/horizon-glow-sneakers",
+      "type": "Product",
+      "image": "/assets/TaiLqg44CMxGOXKWtD4HkafU.png",
+      "keywords": ["horizon", "glow", "sneakers", "footwear", "shoes"],
+      "price": 129.99,
+      "slug": "horizon-glow-sneakers"
+    },
+    {
+      "title": "Tropical Paradise Plant",
+      "url": "/shop/tropical-paradise-plant",
+      "type": "Product",
+      "image": "/assets/tElJe5z6jmy6md1MRCKy40PRUc.png",
+      "keywords": ["tropical", "paradise", "plant", "home", "greenery"],
+      "price": 39.99,
+      "slug": "tropical-paradise-plant"
+    },
+    {
+      "title": "Classic Off-White Trainers",
+      "url": "/shop/classic-off-white-trainers",
+      "type": "Product",
+      "image": "/assets/9q9O56lpqUqJPoXiJkikhJuOb4M.png",
+      "keywords": ["classic", "off-white", "trainers", "footwear", "shoes"],
+      "price": 99.99,
+      "slug": "classic-off-white-trainers"
+    },
+    {
+      "title": "Vibrant Work Boots",
+      "url": "/shop/vibrant-work-boots",
+      "type": "Product",
+      "image": "/assets/qdOdeRgSwlmLF7en894gIMaP2r8.png",
+      "keywords": ["vibrant", "work", "boots", "footwear", "yellow"],
+      "price": 129.99,
+      "slug": "vibrant-work-boots"
+    },
+    {
+      "title": "Vintage Mechanical Keyboard",
+      "url": "/shop/vintage-mechanical-keyboard",
+      "type": "Product",
+      "image": "/assets/Jd50Ch6OeddkkWevou3JF5i44.png",
+      "keywords": ["vintage", "mechanical", "keyboard", "technology", "typing"],
+      "price": 149.99,
+      "slug": "vintage-mechanical-keyboard"
+    },
+    {
+      "title": "Pro Audio Mixer",
+      "url": "/shop/pro-audio-mixer",
+      "type": "Product",
+      "image": "/assets/d0WfiurbzWveXWLHiSEUzCwvLM.png",
+      "keywords": ["pro", "audio", "mixer", "technology", "music"],
+      "price": 219.99,
+      "slug": "pro-audio-mixer"
+    },
+    {
+      "title": "Potted Succulent Plant",
+      "url": "/shop/potted-succulent-plant",
+      "type": "Product",
+      "image": "/assets/jSqxgKoxQZr1zZomzhjmmO2ew.png",
+      "keywords": ["potted", "succulent", "plant", "home"],
+      "price": 24.99,
+      "slug": "potted-succulent-plant"
+    },
+    {
+      "title": "Modern Lounge Armchair",
+      "url": "/shop/modern-lounge-armchair",
+      "type": "Product",
+      "image": "/assets/wQCYenRpKmc9i0iVibBrrmx47s.png",
+      "keywords": ["modern", "lounge", "armchair", "home", "furniture"],
+      "price": 299.99,
+      "slug": "modern-lounge-armchair"
+    },
+    {
+      "title": "Home Collection",
+      "url": "/collections/home",
+      "type": "Collection",
+      "keywords": ["home", "collection", "plants", "furniture"],
+      "price": null,
+      "slug": "home"
+    },
+    {
+      "title": "Footwear Collection",
+      "url": "/collections/footwear",
+      "type": "Collection",
+      "keywords": ["footwear", "collection", "shoes", "sneakers", "boots"],
+      "price": null,
+      "slug": "footwear"
+    },
+    {
+      "title": "Technology Collection",
+      "url": "/collections/technology",
+      "type": "Collection",
+      "keywords": ["technology", "collection", "gadgets", "electronics"],
+      "price": null,
+      "slug": "technology"
+    },
+    {
+      "title": "Collections",
+      "url": "/collections",
+      "type": "Page",
+      "keywords": ["collections", "shop", "categories"],
+      "price": null,
+      "slug": "collections"
+    },
+    {
+      "title": "Shop",
+      "url": "/shop",
+      "type": "Page",
+      "keywords": ["shop", "products", "store"],
+      "price": null,
+      "slug": "shop"
+    },
+    {
+      "title": "Blog",
+      "url": "/blog",
+      "type": "Page",
+      "keywords": ["blog", "articles", "posts"],
+      "price": null,
+      "slug": "blog"
+    },
+    {
+      "title": "Support",
+      "url": "/support",
+      "type": "Page",
+      "keywords": ["support", "help", "faq", "questions"],
+      "price": null,
+      "slug": "support"
+    },
+    {
+      "title": "How to Make Your Social Media Posts Stand Out with Templates",
+      "url": "/blog/social-media-templates",
+      "type": "Blog",
+      "keywords": ["social media", "templates", "productivity", "posts"],
+      "price": null,
+      "slug": "social-media-templates"
+    },
+    {
+      "title": "The Beginner's Guide to Using Mockups for Your Brand",
+      "url": "/blog/mockups-beginners-guide",
+      "type": "Blog",
+      "keywords": ["mockups", "brand", "guides", "beginner"],
+      "price": null,
+      "slug": "mockups-beginners-guide"
+    },
+    {
+      "title": "Why a Fast, Mobile-Friendly Store Matters for Your Customers",
+      "url": "/blog/mobile-friendly-store",
+      "type": "Blog",
+      "keywords": ["mobile", "store", "trends", "customers"],
+      "price": null,
+      "slug": "mobile-friendly-store"
+    },
+    {
+      "title": "Top Trends in Digital and Physical Product Design",
+      "url": "/blog/physical-product-design-trends",
+      "type": "Blog",
+      "keywords": ["trends", "product design", "digital", "physical"],
+      "price": null,
+      "slug": "physical-product-design-trends"
+    },
+    {
+      "title": "Behind the Scenes: How We Create Our Products",
+      "url": "/blog/behind-the-scenes",
+      "type": "Blog",
+      "keywords": ["behind the scenes", "products", "process"],
+      "price": null,
+      "slug": "behind-the-scenes"
+    },
+    {
+      "title": "Why High-Quality Digital Assets Are Worth It",
+      "url": "/blog/digital-assets",
+      "type": "Blog",
+      "keywords": ["digital assets", "quality", "guides"],
+      "price": null,
+      "slug": "digital-assets"
+    },
+    {
+      "title": "10 Creative Ways to Use Digital Backgrounds in Your Projects",
+      "url": "/blog/10-ways-to-use-digital-backgrounds",
+      "type": "Blog",
+      "keywords": ["digital backgrounds", "creative", "design"],
+      "price": null,
+      "slug": "10-ways-to-use-digital-backgrounds"
+    },
+    {
+      "title": "Privacy Policy",
+      "url": "/privacy-policy",
+      "type": "Page",
+      "keywords": ["privacy", "policy", "legal"],
+      "price": null,
+      "slug": "privacy-policy"
+    },
+    {
+      "title": "Terms & Conditions",
+      "url": "/terms-and-conditions",
+      "type": "Page",
+      "keywords": ["terms", "conditions", "legal"],
+      "price": null,
+      "slug": "terms-and-conditions"
+    }
+  ]
+}
