@@ -597,7 +597,7 @@ body.cart-open .header__cart-btn {
   font-feature-settings: var(--font-features);
   letter-spacing: -0.04em;
   line-height: 150%;
-  color: var(--black);
+  color: var(--black-56);
   word-break: break-word;
 }
 
