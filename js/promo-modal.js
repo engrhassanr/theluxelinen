@@ -1,8 +1,7 @@
 (function () {
   const STORAGE_KEY = "commerce-promo-dismissed";
   const SHOW_DELAY_MS = 20000;
-
-  if (localStorage.getItem(STORAGE_KEY) === "1") return;
+  const RETRY_WHEN_BLOCKED_MS = 500;
 
   let isOpen = false;
   let showTimer = null;
@@ -66,6 +65,10 @@
   const badge = modal.querySelector(".promo-modal__badge");
   const submitBtn = modal.querySelector(".promo-modal__submit");
 
+  function isDismissed() {
+    return sessionStorage.getItem(STORAGE_KEY) === "1";
+  }
+
   function isAnotherPanelOpen() {
     return (
       document.body.classList.contains("search-open") ||
@@ -98,7 +101,7 @@
   }
 
   function dismiss() {
-    localStorage.setItem(STORAGE_KEY, "1");
+    sessionStorage.setItem(STORAGE_KEY, "1");
     window.clearTimeout(showTimer);
     setOpen(false);
   }
@@ -112,11 +115,22 @@
     closeBtn.textContent = "Close";
   }
 
+  function tryShow() {
+    if (isDismissed() || isOpen) return;
+
+    if (isAnotherPanelOpen()) {
+      showTimer = window.setTimeout(tryShow, RETRY_WHEN_BLOCKED_MS);
+      return;
+    }
+
+    setOpen(true);
+  }
+
   function scheduleShow() {
-    showTimer = window.setTimeout(() => {
-      if (localStorage.getItem(STORAGE_KEY) === "1" || isAnotherPanelOpen()) return;
-      setOpen(true);
-    }, SHOW_DELAY_MS);
+    if (isDismissed()) return;
+
+    window.clearTimeout(showTimer);
+    showTimer = window.setTimeout(tryShow, SHOW_DELAY_MS);
   }
 
   overlay.addEventListener("click", dismiss);
@@ -135,7 +149,7 @@
       return;
     }
     showSuccess();
-    localStorage.setItem(STORAGE_KEY, "1");
+    sessionStorage.setItem(STORAGE_KEY, "1");
     window.setTimeout(() => setOpen(false), 1800);
   });
 
@@ -143,5 +157,9 @@
     if (event.key === "Escape" && isOpen) dismiss();
   });
 
-  scheduleShow();
+  if (document.readyState === "complete") {
+    scheduleShow();
+  } else {
+    window.addEventListener("load", scheduleShow, { once: true });
+  }
 })();
