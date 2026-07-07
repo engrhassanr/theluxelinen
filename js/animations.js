@@ -70,7 +70,18 @@
       .catch(() => null);
   }
 
+  function nextFrame(callback) {
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(callback);
+    });
+  }
+
   function splitWords(element) {
+    if (element.dataset.wordsSplit === "true" || element.querySelector(".reveal-word")) {
+      element.dataset.wordsSplit = "true";
+      return;
+    }
+
     const nodes = Array.from(element.childNodes);
 
     nodes.forEach((node) => {
@@ -100,6 +111,8 @@
         splitWords(node);
       }
     });
+
+    element.dataset.wordsSplit = "true";
   }
 
   function setRevealDelay(element, delayMs) {
@@ -115,7 +128,7 @@
       setRevealDelay(word, baseDelay + index * stagger);
     });
 
-    window.requestAnimationFrame(() => {
+    nextFrame(() => {
       words.forEach((word) => {
         word.classList.add("is-visible");
       });
@@ -133,10 +146,7 @@
       return;
     }
 
-    if (!element.dataset.wordsSplit) {
-      splitWords(element);
-      element.dataset.wordsSplit = "true";
-    }
+    splitWords(element);
 
     revealWords(element, {
       baseDelay: extraDelay + (Number(element.dataset.revealWordsBaseDelay) || 0),
@@ -148,7 +158,7 @@
     const delay = Number(element.dataset.revealDelay) || 0;
     setRevealDelay(element, delay);
 
-    window.requestAnimationFrame(() => {
+    nextFrame(() => {
       element.classList.add("is-visible");
       revealWordsOnElement(element, 0);
       triggerNestedWordReveals(element, 0);
@@ -160,7 +170,7 @@
       setRevealDelay(child, baseDelay + index * stagger);
     });
 
-    window.requestAnimationFrame(() => {
+    nextFrame(() => {
       children.forEach((child) => {
         child.classList.add("is-visible");
         revealWordsOnElement(child, 0);
@@ -171,9 +181,7 @@
 
   function initScrollWordSplits() {
     document.querySelectorAll("[data-reveal-words]:not([data-reveal-words='hero'])").forEach((element) => {
-      if (element.dataset.wordsSplit) return;
       splitWords(element);
-      element.dataset.wordsSplit = "true";
     });
   }
 
@@ -182,7 +190,6 @@
 
     document.querySelectorAll("[data-reveal-words='hero']").forEach((element) => {
       splitWords(element);
-      element.dataset.wordsSplit = "true";
       revealWords(element, {
         baseDelay: Number(element.dataset.revealWordsBaseDelay) || 150,
         stagger: 50,
@@ -260,5 +267,10 @@
   }
 
   initSmoothScroll();
-  initRevealAnimations();
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initRevealAnimations, { once: true });
+  } else {
+    initRevealAnimations();
+  }
 })();

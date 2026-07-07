@@ -2,8 +2,37 @@
 """Generate collection detail and product detail pages."""
 
 from pathlib import Path
+import re
 
 ROOT = Path(__file__).resolve().parent.parent
+
+REVEAL_TAG_PATTERN = re.compile(
+    r"<(?P<tag>h1|h2|p)\b(?P<attrs>[^>]*\bdata-reveal-words[^>]*)>(?P<body>.*?)</(?P=tag)>",
+    re.DOTALL | re.IGNORECASE,
+)
+
+
+def split_reveal_words(content: str) -> str:
+    if "reveal-word" in content:
+        return content.strip()
+    if re.search(r"<[a-zA-Z]", content):
+        return content.strip()
+
+    def replacer(match: re.Match[str]) -> str:
+        text = match.group(0)
+        parts = re.split(r"(\s+)", text)
+        out: list[str] = []
+        for part in parts:
+            if not part:
+                continue
+            if re.match(r"^\s+$", part):
+                out.append(part)
+            else:
+                out.append(f'<span class="reveal-word">{part}</span>')
+        return "".join(out)
+
+    return re.sub(r"[^<]+", replacer, content.strip())
+
 
 PRODUCTS = {
     "tropical-paradise-plant": {
@@ -468,14 +497,14 @@ def collection_page(slug: str) -> str:
 
       <div class="page-hero__intro">
         <div class="page-hero__text">
-          <div class="page-hero__title-row reveal reveal--hero" data-reveal-delay="200">
-            <a href="/collections" class="page-hero__title-prefix">Collection /</a>
-            <h1 class="page-hero__title" id="collection-page-title" data-reveal-words="hero" data-reveal-words-base-delay="150">
-              {col['name']}
+          <div class="page-hero__title-row">
+            <a href="/collections" class="page-hero__title-prefix reveal reveal--hero" data-reveal-delay="200">Collection /</a>
+            <h1 class="page-hero__title" id="collection-page-title" data-reveal-words="hero" data-reveal-words-base-delay="150" data-words-split="true">
+              {split_reveal_words(col['name'])}
             </h1>
           </div>
-          <p class="page-hero__subtitle" data-reveal-words="hero" data-reveal-words-base-delay="500">
-            {col['description']}
+          <p class="page-hero__subtitle" data-reveal-words="hero" data-reveal-words-base-delay="500" data-words-split="true">
+            {split_reveal_words(col['description'])}
           </p>
         </div>
       </div>
@@ -848,11 +877,11 @@ def shop_page() -> str:
         <span class="page-hero__badge reveal reveal--hero" data-reveal-delay="200">Shop</span>
 
         <div class="page-hero__text">
-          <h1 class="page-hero__title" id="shop-page-title" data-reveal-words="hero" data-reveal-words-base-delay="150">
-            Showcase all your products in one place.
+          <h1 class="page-hero__title" id="shop-page-title" data-reveal-words="hero" data-reveal-words-base-delay="150" data-words-split="true">
+            {split_reveal_words("Showcase all your products in one place.")}
           </h1>
-          <p class="page-hero__subtitle" data-reveal-words="hero" data-reveal-words-base-delay="500">
-            Use this page to display your full product collection, making it easy for customers to browse and shop.
+          <p class="page-hero__subtitle" data-reveal-words="hero" data-reveal-words-base-delay="500" data-words-split="true">
+            {split_reveal_words("Use this page to display your full product collection, making it easy for customers to browse and shop.")}
           </p>
         </div>
       </div>
@@ -930,13 +959,13 @@ def legal_pages() -> dict[str, str]:
 
       <div class="page-hero__intro">
         <div class="page-hero__text">
-          <h1 class="page-hero__title" id="legal-page-title">{heading}</h1>
+          <h1 class="page-hero__title" id="legal-page-title" data-reveal-words="hero" data-reveal-words-base-delay="150" data-words-split="true">{split_reveal_words(heading)}</h1>
         </div>
       </div>
     </section>
 
     <section class="legal" aria-label="{heading}">
-      <div class="legal__inner reveal">
+      <div class="legal__inner reveal" data-reveal-delay="120">
         <div class="legal__content">
 {body}
         </div>
@@ -967,14 +996,6 @@ def legal_pages() -> dict[str, str]:
             "Privacy policy explaining how Commerce collects, uses, and protects your data.",
             "Privacy Policy",
             privacy_body,
-        ),
-        "404": page(
-            "404",
-            "Page not found.",
-            "Page not found",
-            """
-            <p>The page you&rsquo;re looking for doesn&rsquo;t exist or may have been moved.</p>
-            <p><a href="/">Return to home</a> or <a href="/shop">browse the shop</a> to keep exploring.</p>""",
         ),
     }
 

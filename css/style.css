@@ -4204,6 +4204,10 @@ body.cart-open .header__cart-btn {
 /* ============================================
    Page Animations — commerce.framer.media
    ============================================ */
+[data-reveal-words]:not([data-words-split]) {
+  opacity: 0;
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(var(--reveal-distance));
