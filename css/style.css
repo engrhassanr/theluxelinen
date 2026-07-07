@@ -2942,6 +2942,7 @@ body.cart-open .header__cart-btn {
     position: relative;
     pointer-events: auto;
     background-color: var(--white);
+    border-radius: 0;
     box-shadow:
       0 0.6px 0.6px -1.25px rgba(0, 0, 0, 0.18),
       0 2.29px 2.29px -2.5px rgba(0, 0, 0, 0.16),
