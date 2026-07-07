@@ -249,7 +249,12 @@
     });
   }
 
+  let revealInitialized = false;
+
   function initRevealAnimations() {
+    if (revealInitialized) return;
+    revealInitialized = true;
+
     if (prefersReducedMotion) {
       document.querySelectorAll(".reveal, [data-reveal-words]").forEach((el) => {
         el.classList.add("is-visible");
@@ -267,10 +272,5 @@
   }
 
   initSmoothScroll();
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initRevealAnimations, { once: true });
-  } else {
-    initRevealAnimations();
-  }
+  initRevealAnimations();
 })();
