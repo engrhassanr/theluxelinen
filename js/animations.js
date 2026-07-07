@@ -1,14 +1,73 @@
 (function () {
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  if (prefersReducedMotion) {
-    document.querySelectorAll(".reveal, [data-reveal-words]").forEach((el) => {
-      el.classList.add("is-visible");
+  function getScriptBase() {
+    const current = document.currentScript;
+    if (current?.src) {
+      return current.src.replace(/\/[^/]*$/, "/");
+    }
+
+    return "/js/";
+  }
+
+  function loadLenis() {
+    return new Promise((resolve, reject) => {
+      if (window.Lenis) {
+        resolve(window.Lenis);
+        return;
+      }
+
+      const script = document.createElement("script");
+      script.src = `${getScriptBase()}vendor/lenis.min.js`;
+      script.onload = () => resolve(window.Lenis);
+      script.onerror = reject;
+      document.head.appendChild(script);
     });
-    document.querySelectorAll(".reveal-word").forEach((el) => {
-      el.classList.add("is-visible");
-    });
-    return;
+  }
+
+  function shouldStopSmoothScroll() {
+    const body = document.body;
+
+    return (
+      body.classList.contains("commerce-panel-open") ||
+      body.classList.contains("mobile-nav-open") ||
+      body.classList.contains("promo-modal-open")
+    );
+  }
+
+  function initSmoothScroll() {
+    return loadLenis()
+      .then((Lenis) => {
+        const lenis = new Lenis({
+          autoRaf: true,
+          smoothWheel: true,
+          lerp: 0.1,
+          wheelMultiplier: 1,
+          touchMultiplier: 1.15,
+        });
+
+        window.__lenis = lenis;
+
+        const syncScrollState = () => {
+          if (shouldStopSmoothScroll()) {
+            lenis.stop();
+            return;
+          }
+
+          lenis.start();
+        };
+
+        syncScrollState();
+
+        const bodyObserver = new MutationObserver(syncScrollState);
+        bodyObserver.observe(document.body, {
+          attributes: true,
+          attributeFilter: ["class"],
+        });
+
+        return lenis;
+      })
+      .catch(() => null);
   }
 
   function splitWords(element) {
@@ -43,16 +102,23 @@
     });
   }
 
+  function setRevealDelay(element, delayMs) {
+    element.style.setProperty("--reveal-delay", `${delayMs}ms`);
+  }
+
   function revealWords(element, options) {
     const baseDelay = Number(options.baseDelay) || 0;
     const stagger = Number(options.stagger) || 45;
     const words = element.querySelectorAll(".reveal-word");
 
     words.forEach((word, index) => {
-      word.style.setProperty("--reveal-delay", `${baseDelay + index * stagger}ms`);
-      window.setTimeout(() => {
+      setRevealDelay(word, baseDelay + index * stagger);
+    });
+
+    window.requestAnimationFrame(() => {
+      words.forEach((word) => {
         word.classList.add("is-visible");
-      }, baseDelay + index * stagger);
+      });
     });
   }
 
@@ -80,12 +146,27 @@
 
   function revealElement(element) {
     const delay = Number(element.dataset.revealDelay) || 0;
+    setRevealDelay(element, delay);
 
-    window.setTimeout(() => {
+    window.requestAnimationFrame(() => {
       element.classList.add("is-visible");
       revealWordsOnElement(element, 0);
       triggerNestedWordReveals(element, 0);
-    }, delay);
+    });
+  }
+
+  function revealStaggeredChildren(children, baseDelay, stagger) {
+    children.forEach((child, index) => {
+      setRevealDelay(child, baseDelay + index * stagger);
+    });
+
+    window.requestAnimationFrame(() => {
+      children.forEach((child) => {
+        child.classList.add("is-visible");
+        revealWordsOnElement(child, 0);
+        triggerNestedWordReveals(child, 0);
+      });
+    });
   }
 
   function initScrollWordSplits() {
@@ -110,8 +191,8 @@
   }
 
   const observerOptions = {
-    threshold: 0.15,
-    rootMargin: "0px 0px -8% 0px",
+    threshold: 0.08,
+    rootMargin: "0px 0px -4% 0px",
   };
 
   function initStaggerGroups() {
@@ -130,11 +211,7 @@
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
 
-          children.forEach((child, index) => {
-            child.dataset.revealDelay = String(baseDelay + index * stagger);
-            revealElement(child);
-          });
-
+          revealStaggeredChildren(children, baseDelay, stagger);
           observer.unobserve(entry.target);
         });
       }, observerOptions);
@@ -165,8 +242,23 @@
     });
   }
 
-  initScrollWordSplits();
-  initHeroAnimations();
-  initStaggerGroups();
-  initScrollReveals();
+  function initRevealAnimations() {
+    if (prefersReducedMotion) {
+      document.querySelectorAll(".reveal, [data-reveal-words]").forEach((el) => {
+        el.classList.add("is-visible");
+      });
+      document.querySelectorAll(".reveal-word").forEach((el) => {
+        el.classList.add("is-visible");
+      });
+      return;
+    }
+
+    initScrollWordSplits();
+    initHeroAnimations();
+    initStaggerGroups();
+    initScrollReveals();
+  }
+
+  initSmoothScroll();
+  initRevealAnimations();
 })();

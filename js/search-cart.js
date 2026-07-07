@@ -18,6 +18,7 @@
 
   const searchPanel = document.createElement("div");
   searchPanel.className = "search-panel";
+  searchPanel.setAttribute("data-lenis-prevent", "");
   searchPanel.setAttribute("role", "dialog");
   searchPanel.setAttribute("aria-modal", "true");
   searchPanel.setAttribute("aria-label", "Search");
@@ -41,6 +42,7 @@
 
   const cartDrawer = document.createElement("aside");
   cartDrawer.className = "cart-drawer";
+  cartDrawer.setAttribute("data-lenis-prevent", "");
   cartDrawer.setAttribute("role", "dialog");
   cartDrawer.setAttribute("aria-modal", "true");
   cartDrawer.setAttribute("aria-label", "Shopping cart");
@@ -309,6 +311,7 @@
 
     if (isOpen) {
       if (cartOpen) setCartOpen(false);
+      window.dispatchEvent(new CustomEvent("commerce:close-mobile-nav"));
       document.body.classList.add("search-open");
       searchClear.hidden = false;
       window.requestAnimationFrame(() => {
@@ -332,6 +335,7 @@
 
     if (isOpen) {
       if (searchOpen) setSearchOpen(false);
+      window.dispatchEvent(new CustomEvent("commerce:close-mobile-nav"));
       document.body.classList.add("cart-open");
       renderCart();
       window.requestAnimationFrame(() => {
@@ -460,6 +464,11 @@
 
   window.addEventListener("keydown", (event) => {
     if (event.key !== "Escape") return;
+    if (searchOpen) setSearchOpen(false);
+    if (cartOpen) setCartOpen(false);
+  });
+
+  window.addEventListener("commerce:close-panels", () => {
     if (searchOpen) setSearchOpen(false);
     if (cartOpen) setCartOpen(false);
   });

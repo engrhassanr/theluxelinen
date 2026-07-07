@@ -8,6 +8,12 @@
     let anchorTop = 0;
     let anchorLeft = 0;
 
+    const MOBILE_HEADER_SCROLL_THRESHOLD = 100;
+    const MOBILE_HEADER_TRANSITION_MS = 420;
+
+    let mobileHeaderFixed = false;
+    let mobileExitTimer = null;
+
     function isMobileNav() {
       return mobileNavQuery.matches;
     }
@@ -38,25 +44,47 @@
       }
     }
 
-    function updateAnchorForResize() {
-      if (!page || isMobileNav()) return;
+    function shouldFixMobileHeader() {
+      return window.scrollY >= MOBILE_HEADER_SCROLL_THRESHOLD;
+    }
 
-      const padding = parseFloat(getComputedStyle(page).paddingLeft);
-      anchorTop = padding;
-      anchorLeft = page.getBoundingClientRect().left + padding;
+    function isHeaderFixedScroll() {
+      return window.scrollY > 0;
+    }
 
-      if (header.classList.contains("header--fixed")) {
-        header.style.top = `${anchorTop}px`;
-        header.style.left = `${anchorLeft}px`;
+    function cancelMobileExit() {
+      if (mobileExitTimer) {
+        window.clearTimeout(mobileExitTimer);
+        mobileExitTimer = null;
       }
+
+      header.classList.remove("header--exiting");
     }
 
     function applyMobileFixed() {
-      header.style.top = "24px";
-      header.style.left = "12px";
-      header.style.right = "12px";
-      header.style.width = "auto";
-      header.classList.add("header--fixed");
+      cancelMobileExit();
+      header.classList.add("header--fixed", "header--entering");
+      void header.offsetHeight;
+      window.requestAnimationFrame(() => {
+        header.classList.remove("header--entering");
+      });
+      mobileHeaderFixed = true;
+    }
+
+    function clearMobileFixed() {
+      if (!mobileHeaderFixed || header.classList.contains("header--exiting")) {
+        return;
+      }
+
+      header.classList.add("header--exiting");
+      void header.offsetHeight;
+      window.dispatchEvent(new CustomEvent("commerce:close-mobile-nav"));
+
+      mobileExitTimer = window.setTimeout(() => {
+        header.classList.remove("header--fixed", "header--exiting", "header--entering");
+        mobileHeaderFixed = false;
+        mobileExitTimer = null;
+      }, MOBILE_HEADER_TRANSITION_MS);
     }
 
     function applyFixed() {
@@ -72,17 +100,21 @@
 
     function updateHeaderFixed() {
       if (isMobileNav()) {
-        if (window.scrollY > 0) {
-          applyMobileFixed();
-        } else {
-          header.classList.remove("header--fixed");
-          clearInlineHeaderStyles();
+        const shouldFix = shouldFixMobileHeader();
+
+        if (shouldFix) {
+          if (!mobileHeaderFixed || header.classList.contains("header--exiting")) {
+            applyMobileFixed();
+          }
+        } else if (mobileHeaderFixed) {
+          clearMobileFixed();
         }
+
         ticking = false;
         return;
       }
 
-      if (window.scrollY > 0) {
+      if (isHeaderFixedScroll()) {
         applyFixed();
       } else {
         header.classList.remove("header--fixed");
@@ -97,11 +129,10 @@
 
     window.addEventListener("resize", () => {
       if (isMobileNav()) {
-        if (window.scrollY > 0) {
+        if (shouldFixMobileHeader()) {
           applyMobileFixed();
         } else {
-          header.classList.remove("header--fixed");
-          clearInlineHeaderStyles();
+          clearMobileFixed();
         }
         return;
       }
@@ -109,18 +140,19 @@
       clearInlineHeaderStyles();
       header.classList.remove("header--fixed");
 
-      if (window.scrollY === 0) {
+      if (!isHeaderFixedScroll()) {
         measureAnchor();
         return;
       }
 
-      updateAnchorForResize();
+      measureAnchor();
       applyFixed();
     });
 
     mobileNavQuery.addEventListener("change", () => {
-      clearInlineHeaderStyles();
-      header.classList.remove("header--fixed");
+      cancelMobileExit();
+      header.classList.remove("header--fixed", "header--entering", "header--exiting");
+      mobileHeaderFixed = false;
       measureAnchor();
       updateHeaderFixed();
     });
@@ -141,13 +173,24 @@
 
   (function initMobileNav() {
     const menuBtn = document.querySelector(".header__menu-btn");
-    if (!menuBtn) return;
+    const headerNav = document.querySelector(".header__nav");
+    if (!menuBtn || !headerNav) return;
 
-    const overlay = document.createElement("div");
-    overlay.className = "mobile-nav__overlay";
-    overlay.setAttribute("aria-hidden", "true");
+    if (!menuBtn.querySelector(".header__menu-icon")) {
+      const sampleIcon = document.querySelector(".header__icon-img");
+      const iconDir = sampleIcon
+        ? sampleIcon.getAttribute("src").replace(/[^/]+$/, "")
+        : "/assets/icons/";
+      menuBtn.innerHTML = `
+        <span class="header__menu-icon header__menu-icon--list" aria-hidden="true">
+          <img src="${iconDir}list.svg" alt="" width="20" height="20">
+        </span>
+        <span class="header__menu-icon header__menu-icon--x" aria-hidden="true">
+          <img src="${iconDir}x-bold.svg" alt="" width="20" height="20">
+        </span>`;
+    }
 
-    const panel = document.createElement("nav");
+    const panel = document.createElement("div");
     panel.className = "mobile-nav";
     panel.setAttribute("aria-label", "Mobile navigation");
     panel.setAttribute("aria-hidden", "true");
@@ -162,22 +205,29 @@
 
     panel.innerHTML = `<ul class="mobile-nav__links">${items}</ul>`;
 
-    document.body.appendChild(overlay);
-    document.body.appendChild(panel);
+    const navInner = headerNav.querySelector(".header__nav-inner");
+    if (navInner) {
+      navInner.insertAdjacentElement("afterend", panel);
+    } else {
+      headerNav.appendChild(panel);
+    }
 
     function setOpen(isOpen) {
+      if (isOpen) {
+        window.dispatchEvent(new CustomEvent("commerce:close-panels"));
+      }
+
       document.body.classList.toggle("mobile-nav-open", isOpen);
-      overlay.setAttribute("aria-hidden", String(!isOpen));
       panel.setAttribute("aria-hidden", String(!isOpen));
       menuBtn.setAttribute("aria-expanded", String(isOpen));
       menuBtn.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
     }
 
     menuBtn.addEventListener("click", () => {
+      const headerEl = document.querySelector(".header");
+      if (!headerEl?.classList.contains("header--fixed")) return;
       setOpen(!document.body.classList.contains("mobile-nav-open"));
     });
-
-    overlay.addEventListener("click", () => setOpen(false));
 
     panel.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => setOpen(false));
@@ -186,6 +236,10 @@
     window.addEventListener("keydown", (event) => {
       if (event.key === "Escape") setOpen(false);
     });
+
+    window.addEventListener("commerce:close-mobile-nav", () => setOpen(false));
+
+    mobileNavQuery.addEventListener("change", () => setOpen(false));
   })();
 
   const avatars = Array.from(document.querySelectorAll(".testimonials__avatar"));
