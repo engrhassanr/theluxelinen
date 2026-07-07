@@ -2,6 +2,24 @@
    Commerce — Design Tokens
    ============================================ */
 @font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/assets/fonts/InterVariable.woff2") format("woff2 supports variations"),
+    url("/assets/fonts/InterVariable.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/assets/fonts/InterVariable-Italic.woff2") format("woff2 supports variations"),
+    url("/assets/fonts/InterVariable-Italic.woff2") format("woff2");
+}
+
+@font-face {
   font-family: "Inter Placeholder";
   src: local("Arial");
   ascent-override: 89.79%;
@@ -28,6 +46,7 @@
   --font-features: "blwf" on, "cv09" on, "cv03" on, "cv04" on, "cv11" on;
   --page-padding: 24px;
   --page-max: 1440px;
+  --page-outer-max: calc(var(--page-max) + (var(--page-padding) * 2));
   --content-max: 1440px;
   --ease-spring: cubic-bezier(0.27, 0, 0.51, 1);
   --ease-panel: cubic-bezier(0.32, 0.72, 0, 1);
@@ -56,6 +75,7 @@
 html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: 100%;
 }
 
 body {
@@ -64,6 +84,8 @@ body {
   font-feature-settings: var(--font-features);
   background: var(--white);
   color: var(--black);
+  width: 100%;
+  overflow-x: hidden;
 }
 
 a {
@@ -96,7 +118,7 @@ img {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-width: var(--page-max);
+  max-width: var(--page-outer-max);
   min-height: 100vh;
   margin: 0 auto;
   padding: var(--page-padding);
@@ -475,11 +497,11 @@ body.cart-open .header__cart-btn {
   width: 20px;
   height: 20px;
   background-color: var(--black);
-  mask-image: url("../assets/icons/shopping-cart.svg");
+  mask-image: url("/assets/icons/shopping-cart.svg");
   mask-size: contain;
   mask-position: center;
   mask-repeat: no-repeat;
-  -webkit-mask-image: url("../assets/icons/shopping-cart.svg");
+  -webkit-mask-image: url("/assets/icons/shopping-cart.svg");
   -webkit-mask-size: contain;
   -webkit-mask-position: center;
   -webkit-mask-repeat: no-repeat;
@@ -579,10 +601,12 @@ body.cart-open .header__cart-btn {
   word-break: break-word;
 }
 
-.hero__title em {
-  font-family: var(--framer-font-family-bold-italic);
-  font-style: var(--framer-font-style-bold-italic);
+.hero__title em,
+.hero__title em .reveal-word {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
   font-weight: 500;
+  font-variation-settings: "wght" 500;
   color: var(--purple-primary);
   font-synthesis: none;
 }
@@ -2790,6 +2814,7 @@ body.cart-open .header__cart-btn {
 @media (max-width: 809.98px) {
   .page {
     padding: 24px 12px;
+    max-width: calc(var(--page-max) + 24px);
   }
 
   .hero {
@@ -3908,11 +3933,11 @@ body.cart-open .header__cart-btn {
   width: 16px;
   height: 16px;
   background-color: var(--black-56);
-  mask-image: url("../assets/icons/caret-down.svg");
+  mask-image: url("/assets/icons/caret-down.svg");
   mask-size: contain;
   mask-repeat: no-repeat;
   mask-position: center;
-  -webkit-mask-image: url("../assets/icons/caret-down.svg");
+  -webkit-mask-image: url("/assets/icons/caret-down.svg");
   -webkit-mask-size: contain;
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: center;

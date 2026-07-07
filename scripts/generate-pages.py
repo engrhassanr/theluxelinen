@@ -250,7 +250,7 @@ def header(assets_prefix: str, current: str | None = None) -> str:
             <div class="header__tab header__tab--logo">
               <a href="/" class="header__logo" aria-label="Commerce home">
                 <img
-                  src="{assets_prefix}assets/8AqKoqpd46BD9YOzqNcyUyqY.avif"
+                  src="/assets/8AqKoqpd46BD9YOzqNcyUyqY.avif"
                   alt="Commerce"
                   width="106"
                   height="30"
@@ -275,7 +275,7 @@ def header(assets_prefix: str, current: str | None = None) -> str:
             <div class="header__tab header__tab--actions">
               <div class="header__icons">
                 <button class="header__icon-btn" type="button" aria-label="Search">
-                  <img class="header__icon-img" src="{assets_prefix}assets/icons/magnifying-glass.svg" alt="" width="20" height="20" aria-hidden="true">
+                  <img class="header__icon-img" src="/assets/icons/magnifying-glass.svg" alt="" width="20" height="20" aria-hidden="true">
                 </button>
 
                 <button class="header__cart-btn" type="button" aria-label="Shopping cart, 0 items">
@@ -284,7 +284,7 @@ def header(assets_prefix: str, current: str | None = None) -> str:
                 </button>
 
                 <button class="header__menu-btn" type="button" aria-label="Open menu">
-                  <img class="header__icon-img" src="{assets_prefix}assets/icons/list.svg" alt="" width="20" height="20" aria-hidden="true">
+                  <img class="header__icon-img" src="/assets/icons/list.svg" alt="" width="20" height="20" aria-hidden="true">
                 </button>
               </div>
               <div class="header__corner header__corner--bl header__corner--tab header__corner--tab-right" aria-hidden="true">
@@ -348,7 +348,7 @@ def footer(assets_prefix: str) -> str:
               </form>
             </div>
             <p class="footer__credit">
-              Created by <a href="https://x.com/hxmzaehsan" target="_blank" rel="noopener">Hamza Ehsan</a> &copy; 2024
+              Created by &copy; 2024
             </p>
           </div>
 
@@ -383,7 +383,7 @@ def product_card(slug: str, assets_prefix: str) -> str:
     return f"""          <article class="product-card" data-category="{p['collection']}">
             <a href="/shop/{slug}" class="product-card__image-link card-hover">
               <img
-                src="{assets_prefix}assets/{p['image']}"
+                src="/assets/{p['image']}"
                 alt="{p['name']}"
                 width="400"
                 height="400"
@@ -392,15 +392,15 @@ def product_card(slug: str, assets_prefix: str) -> str:
               <div class="card-action card-action--product" aria-hidden="true">
                 <div class="card-action__shape">
                   <span class="card-action__scoop card-action__scoop--a" aria-hidden="true">
-                    <img src="{assets_prefix}assets/icons/corner-scoop.svg" alt="" width="18" height="18">
+                    <img src="/assets/icons/corner-scoop.svg" alt="" width="18" height="18">
                   </span>
                   <span class="card-action__scoop card-action__scoop--b" aria-hidden="true">
-                    <img src="{assets_prefix}assets/icons/corner-scoop.svg" alt="" width="18" height="18">
+                    <img src="/assets/icons/corner-scoop.svg" alt="" width="18" height="18">
                   </span>
                   <span class="card-action__btn">
                     <span class="card-action__icon">
                       <span class="card-action__icon-rotate">
-                        <img src="{assets_prefix}assets/icons/arrow-right.svg" alt="" width="20" height="20" aria-hidden="true">
+                        <img src="/assets/icons/arrow-right.svg" alt="" width="20" height="20" aria-hidden="true">
                       </span>
                     </span>
                   </span>
@@ -450,7 +450,7 @@ def shop_sidebar() -> str:
 
 def collection_page(slug: str) -> str:
     col = COLLECTIONS[slug]
-    assets = "../../"
+    assets = "/"
     cards = "\n".join(product_card(p, assets) for p in col["products"])
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -459,9 +459,6 @@ def collection_page(slug: str) -> str:
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{col['name']} - Commerce</title>
   <meta name="description" content="{col['description']}">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{assets}css/style.css">
 </head>
 <body>
@@ -660,7 +657,7 @@ def product_page(slug: str) -> str:
     media = PRODUCT_MEDIA[slug]
     col_slug = p["collection"]
     col_name = COLLECTION_NAMES[col_slug]
-    assets = "../../"
+    assets = "/"
     main_image = media["gallery"][0]
     related = "\n".join(product_card(r, assets) for r in p["related"])
 
@@ -671,9 +668,6 @@ def product_page(slug: str) -> str:
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{p['name']} - Commerce</title>
   <meta name="description" content="{p['description']}">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{assets}css/style.css">
 </head>
 <body>
@@ -834,7 +828,7 @@ def product_page(slug: str) -> str:
 
 
 def shop_page() -> str:
-    assets = "../"
+    assets = "/"
     cards = "\n".join(product_card(slug, assets) for slug in SHOP_ORDER)
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -843,9 +837,6 @@ def shop_page() -> str:
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shop - Commerce</title>
   <meta name="description" content="Use this page to display your full product collection, making it easy for customers to browse and shop.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{assets}css/style.css">
 </head>
 <body>
@@ -894,7 +885,7 @@ def shop_page() -> str:
 
 
 def legal_pages() -> dict[str, str]:
-    assets = "../"
+    assets = "/"
     terms_body = """
             <p class="legal__updated">Last Updated: January 2025</p>
             <p>Welcome to Commerce. By using our website and services, you agree to comply with and be bound by the following terms and conditions. Please read them carefully before using our site.</p>
@@ -930,9 +921,6 @@ def legal_pages() -> dict[str, str]:
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{title} - Commerce</title>
   <meta name="description" content="{description}">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{assets}css/style.css">
 </head>
 <body>
