@@ -58,15 +58,23 @@
 
   function triggerNestedWordReveals(container, delay) {
     container.querySelectorAll("[data-reveal-words]:not([data-reveal-words='hero'])").forEach((element) => {
-      if (!element.dataset.wordsSplit) {
-        splitWords(element);
-        element.dataset.wordsSplit = "true";
-      }
+      revealWordsOnElement(element, delay);
+    });
+  }
 
-      revealWords(element, {
-        baseDelay: delay + (Number(element.dataset.revealWordsBaseDelay) || 0),
-        stagger: 40,
-      });
+  function revealWordsOnElement(element, extraDelay) {
+    if (!element.hasAttribute("data-reveal-words") || element.dataset.revealWords === "hero") {
+      return;
+    }
+
+    if (!element.dataset.wordsSplit) {
+      splitWords(element);
+      element.dataset.wordsSplit = "true";
+    }
+
+    revealWords(element, {
+      baseDelay: extraDelay + (Number(element.dataset.revealWordsBaseDelay) || 0),
+      stagger: 40,
     });
   }
 
@@ -75,8 +83,17 @@
 
     window.setTimeout(() => {
       element.classList.add("is-visible");
+      revealWordsOnElement(element, 0);
       triggerNestedWordReveals(element, 0);
     }, delay);
+  }
+
+  function initScrollWordSplits() {
+    document.querySelectorAll("[data-reveal-words]:not([data-reveal-words='hero'])").forEach((element) => {
+      if (element.dataset.wordsSplit) return;
+      splitWords(element);
+      element.dataset.wordsSplit = "true";
+    });
   }
 
   function initHeroAnimations() {
@@ -92,28 +109,64 @@
     });
   }
 
+  const observerOptions = {
+    threshold: 0.15,
+    rootMargin: "0px 0px -8% 0px",
+  };
+
+  function initStaggerGroups() {
+    const groups = document.querySelectorAll("[data-reveal-stagger]");
+
+    groups.forEach((group) => {
+      const stagger = Number(group.dataset.revealStagger) || 80;
+      const baseDelay = Number(group.dataset.revealStaggerBase) || 0;
+      const children = Array.from(group.children);
+
+      children.forEach((child) => {
+        child.classList.add("reveal");
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          children.forEach((child, index) => {
+            child.dataset.revealDelay = String(baseDelay + index * stagger);
+            revealElement(child);
+          });
+
+          observer.unobserve(entry.target);
+        });
+      }, observerOptions);
+
+      observer.observe(group);
+    });
+  }
+
   function initScrollReveals() {
     const revealItems = document.querySelectorAll(".reveal:not(.reveal--hero)");
 
     if (!revealItems.length) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          revealElement(entry.target);
-          observer.unobserve(entry.target);
-        });
-      },
-      {
-        threshold: 0.15,
-        rootMargin: "0px 0px -8% 0px",
-      }
-    );
+    const observed = new Set();
 
-    revealItems.forEach((item) => observer.observe(item));
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting || observed.has(entry.target)) return;
+        observed.add(entry.target);
+        revealElement(entry.target);
+        observer.unobserve(entry.target);
+      });
+    }, observerOptions);
+
+    revealItems.forEach((item) => {
+      if (item.closest("[data-reveal-stagger]")) return;
+      observer.observe(item);
+    });
   }
 
+  initScrollWordSplits();
   initHeroAnimations();
+  initStaggerGroups();
   initScrollReveals();
 })();

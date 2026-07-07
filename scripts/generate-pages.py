@@ -500,6 +500,7 @@ def collection_page(slug: str) -> str:
   <script src="{assets}js/animations.js"></script>
   <script src="{assets}js/main.js"></script>
   <script src="/js/search-cart.js"></script>
+  <script src="/js/promo-modal.js"></script>
 </body>
 </html>
 """
@@ -826,6 +827,7 @@ def product_page(slug: str) -> str:
   <script src="{assets}js/main.js"></script>
   <script src="{assets}js/product.js"></script>
   <script src="/js/search-cart.js"></script>
+  <script src="/js/promo-modal.js"></script>
 </body>
 </html>
 """
@@ -885,6 +887,7 @@ def shop_page() -> str:
   <script src="{assets}js/animations.js"></script>
   <script src="{assets}js/main.js"></script>
   <script src="/js/search-cart.js"></script>
+  <script src="/js/promo-modal.js"></script>
 </body>
 </html>
 """
@@ -960,6 +963,7 @@ def legal_pages() -> dict[str, str]:
   <script src="{assets}js/animations.js"></script>
   <script src="{assets}js/main.js"></script>
   <script src="/js/search-cart.js"></script>
+  <script src="/js/promo-modal.js"></script>
 </body>
 </html>"""
 

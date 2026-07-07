@@ -101,13 +101,13 @@
 
     <section class="support" aria-label="Support">
       <div class="support__inner">
-        <div class="support__block reveal" data-reveal-delay="80">
+        <div class="support__block">
           <div class="support__header">
-            <h2 class="support__title" id="support-faq-title">Frequently asked questions</h2>
+            <h2 class="support__title reveal reveal--text" id="support-faq-title" data-reveal-words data-reveal-words-base-delay="0">Frequently asked questions</h2>
             <p class="support__desc">Give your visitors quick answers to common questions about your store like these.</p>
           </div>
 
-          <div class="support__faq" data-support-accordion>
+          <div class="support__faq" data-support-accordion data-reveal-stagger="80">
             <article class="faq-item is-open">
               <button class="faq-item__toggle" type="button" aria-expanded="true" aria-controls="faq-panel-1">
                 <span class="faq-item__toggle-icon" aria-hidden="true">
@@ -220,13 +220,13 @@
           </div>
         </div>
 
-        <div class="support__block reveal" data-reveal-delay="120">
+        <div class="support__block">
           <div class="support__header">
-            <h2 class="support__title">Still got questions?</h2>
+            <h2 class="support__title reveal reveal--text" data-reveal-words data-reveal-words-base-delay="0">Still got questions?</h2>
             <p class="support__desc">Send us a message below and we&rsquo;ll get back to you in 1 business day.</p>
           </div>
 
-          <form class="support__form" action="#" method="post">
+          <form class="support__form reveal" data-reveal-delay="120" action="#" method="post">
             <div class="support__fields">
               <label class="support__field">
                 <span class="support__label">Name</span>
@@ -317,6 +317,7 @@
   <script src="../js/animations.js"></script>
   <script src="../js/main.js"></script>
   <script src="/js/search-cart.js"></script>
+  <script src="/js/promo-modal.js"></script>
   <script src="../js/support.js"></script>
 </body>
 </html>
