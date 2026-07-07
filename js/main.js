@@ -9,10 +9,8 @@
     let anchorLeft = 0;
 
     const MOBILE_HEADER_SCROLL_THRESHOLD = 100;
-    const MOBILE_HEADER_TRANSITION_MS = 420;
 
     let mobileHeaderFixed = false;
-    let mobileExitTimer = null;
 
     function isMobileNav() {
       return mobileNavQuery.matches;
@@ -53,38 +51,23 @@
     }
 
     function cancelMobileExit() {
-      if (mobileExitTimer) {
-        window.clearTimeout(mobileExitTimer);
-        mobileExitTimer = null;
-      }
-
-      header.classList.remove("header--exiting");
+      header.classList.remove("header--exiting", "header--entering");
     }
 
     function applyMobileFixed() {
       cancelMobileExit();
-      header.classList.add("header--fixed", "header--entering");
-      void header.offsetHeight;
-      window.requestAnimationFrame(() => {
-        header.classList.remove("header--entering");
-      });
+      header.classList.add("header--fixed");
       mobileHeaderFixed = true;
     }
 
     function clearMobileFixed() {
-      if (!mobileHeaderFixed || header.classList.contains("header--exiting")) {
+      if (!mobileHeaderFixed) {
         return;
       }
 
-      header.classList.add("header--exiting");
-      void header.offsetHeight;
       window.dispatchEvent(new CustomEvent("commerce:close-mobile-nav"));
-
-      mobileExitTimer = window.setTimeout(() => {
-        header.classList.remove("header--fixed", "header--exiting", "header--entering");
-        mobileHeaderFixed = false;
-        mobileExitTimer = null;
-      }, MOBILE_HEADER_TRANSITION_MS);
+      header.classList.remove("header--fixed", "header--exiting", "header--entering");
+      mobileHeaderFixed = false;
     }
 
     function applyFixed() {
@@ -103,7 +86,7 @@
         const shouldFix = shouldFixMobileHeader();
 
         if (shouldFix) {
-          if (!mobileHeaderFixed || header.classList.contains("header--exiting")) {
+          if (!mobileHeaderFixed) {
             applyMobileFixed();
           }
         } else if (mobileHeaderFixed) {

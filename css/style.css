@@ -2948,20 +2948,6 @@ body.cart-open .header__cart-btn {
       0 2.29px 2.29px -2.5px rgba(0, 0, 0, 0.16),
       0 10px 10px -3.75px rgba(0, 0, 0, 0.06);
     transform: translateY(0);
-    transition: transform 0.42s var(--ease-spring);
-  }
-
-  .header--fixed.header--entering .header__nav,
-  .header--fixed.header--exiting .header__nav {
-    transform: translateY(-100%);
-  }
-
-  .header--fixed.header--entering .header__nav {
-    transition: none;
-  }
-
-  .header--fixed:not(.header--entering) .header__nav {
-    transition: transform 0.42s var(--ease-spring);
   }
 
   .header--fixed .header__nav-inner {
@@ -2999,9 +2985,7 @@ body.cart-open .header__cart-btn {
 
   .header__icon-btn,
   .header__menu-btn {
-    transition:
-      opacity 0.28s var(--ease-spring),
-      visibility 0.28s var(--ease-spring);
+    transition: none;
   }
 
   .mobile-nav {
