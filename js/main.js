@@ -9,11 +9,17 @@
     let anchorLeft = 0;
 
     const MOBILE_HEADER_SCROLL_THRESHOLD = 100;
+    const DESKTOP_HEADER_SCROLL_THRESHOLD = 120;
 
     let mobileHeaderFixed = false;
+    let desktopHeaderFixed = false;
 
     function isMobileNav() {
       return mobileNavQuery.matches;
+    }
+
+    function getScrollY() {
+      return window.__lenis?.scroll ?? window.scrollY;
     }
 
     function clearInlineHeaderStyles() {
@@ -26,36 +32,44 @@
     }
 
     function measureAnchor() {
-      const wasFixed = header.classList.contains("header--fixed");
+      const wasDesktopFixed = desktopHeaderFixed;
+      const wasMobileFixed = mobileHeaderFixed;
 
-      if (wasFixed) {
+      if (wasDesktopFixed || wasMobileFixed) {
         header.classList.remove("header--fixed");
         clearInlineHeaderStyles();
       }
 
       const rect = header.getBoundingClientRect();
-      anchorTop = rect.top;
+      const scrollY = getScrollY();
+
+      // Resting viewport offset — stable even when measured mid-scroll.
+      anchorTop = rect.top + scrollY;
       anchorLeft = rect.left;
 
-      if (wasFixed) {
-        applyFixed();
+      if (wasDesktopFixed) {
+        header.style.top = `${anchorTop}px`;
+        header.style.left = `${anchorLeft}px`;
+        header.classList.add("header--fixed");
+      } else if (wasMobileFixed) {
+        header.classList.add("header--fixed");
       }
     }
 
     function shouldFixMobileHeader() {
-      return window.scrollY >= MOBILE_HEADER_SCROLL_THRESHOLD;
+      return getScrollY() >= MOBILE_HEADER_SCROLL_THRESHOLD;
     }
 
-    function isHeaderFixedScroll() {
-      return window.scrollY > 0;
+    function shouldFixDesktopHeader() {
+      return getScrollY() >= DESKTOP_HEADER_SCROLL_THRESHOLD;
     }
 
-    function cancelMobileExit() {
+    function cancelHeaderMotion() {
       header.classList.remove("header--exiting", "header--entering");
     }
 
     function applyMobileFixed() {
-      cancelMobileExit();
+      cancelHeaderMotion();
       header.classList.add("header--fixed");
       mobileHeaderFixed = true;
     }
@@ -70,15 +84,34 @@
       mobileHeaderFixed = false;
     }
 
-    function applyFixed() {
-      if (isMobileNav()) {
-        applyMobileFixed();
-        return;
-      }
+    function applyDesktopFixed() {
+      cancelHeaderMotion();
+
+      const rect = header.getBoundingClientRect();
+      anchorTop = rect.top + getScrollY();
+      anchorLeft = rect.left;
 
       header.style.top = `${anchorTop}px`;
       header.style.left = `${anchorLeft}px`;
-      header.classList.add("header--fixed");
+      header.classList.add("header--fixed", "header--entering");
+      header.offsetHeight;
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          header.classList.remove("header--entering");
+        });
+      });
+      desktopHeaderFixed = true;
+    }
+
+    function clearDesktopFixed() {
+      if (!desktopHeaderFixed) {
+        return;
+      }
+
+      cancelHeaderMotion();
+      header.classList.remove("header--fixed");
+      clearInlineHeaderStyles();
+      desktopHeaderFixed = false;
     }
 
     function updateHeaderFixed() {
@@ -97,15 +130,35 @@
         return;
       }
 
-      if (isHeaderFixedScroll()) {
-        applyFixed();
-      } else {
-        header.classList.remove("header--fixed");
-        clearInlineHeaderStyles();
-        measureAnchor();
+      const shouldFix = shouldFixDesktopHeader();
+
+      if (shouldFix) {
+        if (!desktopHeaderFixed) {
+          applyDesktopFixed();
+        }
+      } else if (desktopHeaderFixed) {
+        clearDesktopFixed();
       }
 
       ticking = false;
+    }
+
+    function scheduleHeaderUpdate() {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(updateHeaderFixed);
+      }
+    }
+
+    function bindLenisScroll() {
+      const lenis = window.__lenis;
+      if (!lenis || lenis.__commerceHeaderScroll) {
+        return;
+      }
+
+      lenis.on("scroll", scheduleHeaderUpdate);
+      lenis.__commerceHeaderScroll = true;
+      scheduleHeaderUpdate();
     }
 
     measureAnchor();
@@ -120,36 +173,53 @@
         return;
       }
 
-      clearInlineHeaderStyles();
-      header.classList.remove("header--fixed");
-
-      if (!isHeaderFixedScroll()) {
+      if (desktopHeaderFixed) {
         measureAnchor();
+        header.style.top = `${anchorTop}px`;
+        header.style.left = `${anchorLeft}px`;
         return;
       }
 
+      clearInlineHeaderStyles();
+      header.classList.remove("header--fixed");
       measureAnchor();
-      applyFixed();
     });
 
     mobileNavQuery.addEventListener("change", () => {
-      cancelMobileExit();
+      cancelHeaderMotion();
       header.classList.remove("header--fixed", "header--entering", "header--exiting");
       mobileHeaderFixed = false;
+      desktopHeaderFixed = false;
+      clearInlineHeaderStyles();
       measureAnchor();
       updateHeaderFixed();
     });
 
     window.addEventListener(
       "scroll",
-      () => {
-        if (!ticking) {
-          ticking = true;
-          requestAnimationFrame(updateHeaderFixed);
-        }
-      },
+      scheduleHeaderUpdate,
       { passive: true }
     );
+
+    window.addEventListener("commerce:lenis-ready", bindLenisScroll);
+    bindLenisScroll();
+
+    if (!window.__lenis) {
+      const lenisPoll = window.setInterval(() => {
+        if (window.__lenis) {
+          bindLenisScroll();
+          window.clearInterval(lenisPoll);
+        }
+      }, 32);
+      window.setTimeout(() => window.clearInterval(lenisPoll), 10000);
+    }
+
+    window.addEventListener("load", () => {
+      if (!desktopHeaderFixed && !mobileHeaderFixed) {
+        measureAnchor();
+        updateHeaderFixed();
+      }
+    });
 
     updateHeaderFixed();
   }

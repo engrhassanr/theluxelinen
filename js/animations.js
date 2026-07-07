@@ -47,6 +47,7 @@
         });
 
         window.__lenis = lenis;
+        window.dispatchEvent(new CustomEvent("commerce:lenis-ready", { detail: lenis }));
 
         const syncScrollState = () => {
           if (shouldStopSmoothScroll()) {

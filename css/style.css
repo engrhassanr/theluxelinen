@@ -266,6 +266,17 @@ img {
   z-index: 100;
 }
 
+@media (min-width: 810px) {
+  .header--fixed {
+    transition: transform 0.35s var(--ease-spring);
+    transform: translateY(0);
+  }
+
+  .header--fixed.header--entering {
+    transform: translateY(calc(-100% - var(--page-padding)));
+  }
+}
+
 .header--fixed .header__nav {
   border-radius: var(--radius-lg);
   background-color: #f9f6fe;
@@ -987,6 +998,7 @@ body.cart-open .header__cart-btn {
   line-height: 150%;
   color: var(--black);
   transition: opacity 0.15s ease;
+  padding-right: 12px;
 }
 
 .popular__link:hover {
@@ -3128,7 +3140,6 @@ body.cart-open .header__cart-btn {
     flex-direction: row;
     align-items: center;
     gap: 16px;
-    padding-right: 10px;
   }
 
   .popular__grid,
