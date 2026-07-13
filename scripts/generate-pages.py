@@ -6,6 +6,23 @@ import re
 
 ROOT = Path(__file__).resolve().parent.parent
 
+BRAND_HEAD = """  <link rel="icon" href="/assets/favicon.png" type="image/png" sizes="192x192">
+  <link rel="shortcut icon" href="/assets/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/favicon.png" sizes="192x192">
+  <meta property="og:site_name" content="APC Containers">
+  <meta property="og:image" content="/assets/favicon.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="/assets/favicon.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "APC Containers",
+    "url": "/",
+    "logo": "/assets/favicon.png"
+  }
+  </script>"""
+
 REVEAL_TAG_PATTERN = re.compile(
     r"<(?P<tag>h1|h2|p)\b(?P<attrs>[^>]*\bdata-reveal-words[^>]*)>(?P<body>.*?)</(?P=tag)>",
     re.DOTALL | re.IGNORECASE,
@@ -277,12 +294,12 @@ def header(assets_prefix: str, current: str | None = None) -> str:
         <nav class="header__nav" aria-label="Main navigation">
           <div class="header__nav-inner">
             <div class="header__tab header__tab--logo">
-              <a href="/" class="header__logo" aria-label="Commerce home">
+              <a href="/" class="header__logo" aria-label="APC Containers home">
                 <img
-                  src="/assets/8AqKoqpd46BD9YOzqNcyUyqY.avif"
-                  alt="Commerce"
-                  width="106"
-                  height="30"
+                  src="/assets/apc-logo.png"
+                  alt="APC Containers"
+                  width="84"
+                  height="56"
                 >
               </a>
               <div class="header__corner header__corner--bl header__corner--tab" aria-hidden="true">
@@ -346,7 +363,7 @@ def header(assets_prefix: str, current: str | None = None) -> str:
 def footer(assets_prefix: str) -> str:
     return f"""    <footer class="footer reveal">
       <div class="footer__logo-tab">
-        <span class="footer__logo-text">Commerce_</span>
+        <a href="/" class="footer__logo" aria-label="APC Containers home"><img src="/assets/apc-logo.png" alt="APC Containers" width="84" height="56"></a>
         <div class="footer__corner footer__corner--bl" aria-hidden="true">
           <svg viewBox="0 0 18 18" width="18" height="18">
             <path d="M 0 0 L 0 18 C 0 8.059 8.059 0 18 0 Z" fill="#ffffff"/>
@@ -486,8 +503,9 @@ def collection_page(slug: str) -> str:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{col['name']} - Commerce</title>
+  <title>{col['name']} - APC Containers Pvt. Ltd.</title>
   <meta name="description" content="{col['description']}">
+{BRAND_HEAD}
   <link rel="stylesheet" href="{assets}css/style.css">
 </head>
 <body>
@@ -695,8 +713,9 @@ def product_page(slug: str) -> str:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{p['name']} - Commerce</title>
+  <title>{p['name']} - APC Containers Pvt. Ltd.</title>
   <meta name="description" content="{p['description']}">
+{BRAND_HEAD}
   <link rel="stylesheet" href="{assets}css/style.css">
 </head>
 <body>
@@ -864,8 +883,9 @@ def shop_page() -> str:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shop - Commerce</title>
+  <title>Shop - APC Containers Pvt. Ltd.</title>
   <meta name="description" content="Use this page to display your full product collection, making it easy for customers to browse and shop.">
+{BRAND_HEAD}
   <link rel="stylesheet" href="{assets}css/style.css">
 </head>
 <body>
@@ -917,20 +937,20 @@ def legal_pages() -> dict[str, str]:
     assets = "/"
     terms_body = """
             <p class="legal__updated">Last Updated: January 2025</p>
-            <p>Welcome to Commerce. By using our website and services, you agree to comply with and be bound by the following terms and conditions. Please read them carefully before using our site.</p>
+            <p>Welcome to APC Containers. By using our website and services, you agree to comply with and be bound by the following terms and conditions. Please read them carefully before using our site.</p>
             <p>By accessing our website, you confirm that you are at least 18 years old or have the legal authority to agree to these terms. You agree to use the site only for lawful purposes and in compliance with all applicable laws and regulations.</p>
-            <p>All content on this website, including text, images, logos, graphics, and designs, is the property of Commerce or its licensors and is protected by copyright and intellectual property laws. You may not reproduce, distribute, or use any content without prior written consent.</p>
-            <p>If you submit content to us, such as feedback or testimonials, you grant Commerce a non-exclusive, royalty-free, and irrevocable license to use, modify, and display the content for promotional or operational purposes.</p>
+            <p>All content on this website, including text, images, logos, graphics, and designs, is the property of APC Containers or its licensors and is protected by copyright and intellectual property laws. You may not reproduce, distribute, or use any content without prior written consent.</p>
+            <p>If you submit content to us, such as feedback or testimonials, you grant APC Containers a non-exclusive, royalty-free, and irrevocable license to use, modify, and display the content for promotional or operational purposes.</p>
             <p>Our website and services are provided &ldquo;as is&rdquo; without any guarantees or warranties. While we strive to provide accurate and up-to-date information, we do not warrant the accuracy, reliability, or completeness of the content on our website.</p>
-            <p>Commerce is not liable for any indirect, incidental, or consequential damages arising from your use of our website or services. This includes, but is not limited to, loss of data, revenue, or profits.</p>
-            <p>Our website may contain links to third-party websites. These links are provided for convenience, and Commerce does not endorse or assume responsibility for the content or practices of these external sites.</p>
+            <p>APC Containers is not liable for any indirect, incidental, or consequential damages arising from your use of our website or services. This includes, but is not limited to, loss of data, revenue, or profits.</p>
+            <p>Our website may contain links to third-party websites. These links are provided for convenience, and APC Containers does not endorse or assume responsibility for the content or practices of these external sites.</p>
             <p>We reserve the right to terminate or suspend your access to our website without notice if you violate these terms or engage in any conduct that we consider harmful to our business or users.</p>
             <p>We may update these terms and conditions periodically to reflect changes in our practices or legal requirements. Your continued use of the website constitutes acceptance of any changes.</p>
             <p>These terms and conditions are governed by and construed in accordance with the laws of [Insert Jurisdiction]. Any disputes will be resolved in the courts of [Insert Jurisdiction].</p>"""
 
     privacy_body = """
             <p class="legal__updated">Last Updated: January 2025</p>
-            <p>Commerce (&ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;us&rdquo;) respects your privacy and is committed to protecting your personal information. This Privacy Policy explains how we collect, use, and protect your data when you interact with our website and services.</p>
+            <p>APC Containers (&ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;us&rdquo;) respects your privacy and is committed to protecting your personal information. This Privacy Policy explains how we collect, use, and protect your data when you interact with our website and services.</p>
             <p>We may collect the following types of information when you use our website or contact us:</p>
             <p><strong>Personal Information:</strong> Name, email address, phone number, and other information you provide through forms or correspondence.</p>
             <p><strong>Usage Data:</strong> Information about how you interact with our website, including your IP address, browser type, pages visited, and time spent on our site.</p>
@@ -948,8 +968,9 @@ def legal_pages() -> dict[str, str]:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{title} - Commerce</title>
+  <title>{title} - APC Containers Pvt. Ltd.</title>
   <meta name="description" content="{description}">
+{BRAND_HEAD}
   <link rel="stylesheet" href="{assets}css/style.css">
 </head>
 <body>
@@ -987,13 +1008,13 @@ def legal_pages() -> dict[str, str]:
     return {
         "terms-and-conditions": page(
             "Terms & Conditions",
-            "Terms and conditions for using the Commerce website and services.",
+            "Terms and conditions for using the APC Containers website and services.",
             "Terms &amp; Conditions",
             terms_body,
         ),
         "privacy-policy": page(
             "Privacy Policy",
-            "Privacy policy explaining how Commerce collects, uses, and protects your data.",
+            "Privacy policy explaining how APC Containers collects, uses, and protects your data.",
             "Privacy Policy",
             privacy_body,
         ),
