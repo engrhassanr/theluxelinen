@@ -6,9 +6,9 @@ import re
 
 ROOT = Path(__file__).resolve().parent.parent
 
-BRAND_HEAD = """  <link rel="icon" href="/assets/favicon.png" type="image/png" sizes="192x192">
+BRAND_HEAD = """  <link rel="icon" href="/assets/favicon.png" type="image/png" sizes="512x512">
   <link rel="shortcut icon" href="/assets/favicon.png" type="image/png">
-  <link rel="apple-touch-icon" href="/assets/favicon.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/assets/favicon.png" sizes="512x512">
   <meta property="og:site_name" content="APC Containers">
   <meta property="og:image" content="/assets/favicon.png">
   <meta name="twitter:card" content="summary">
