@@ -103,13 +103,13 @@
   --white: #ffffff;
   --black: #000000;
   --black-56: rgba(0, 0, 0, 0.56);
-  /* Brand — sampled from logo/favicon gold (#ad9960) */
+  /* Brand — gold accents on cool light grey surfaces */
   --brand-gold: #ad9960;
   --brand-gold-deep: #8f7a42;
-  --brand-cream: #f7f4ec;
-  --brand-cream-deep: #efe9dc;
-  --token-ee5ffa32-176c-49f9-ad45-dd55368bee3b: #efe9dc;
-  --purple-light: #f7f4ec;
+  --brand-cream: #f3f3f5;
+  --brand-cream-deep: #e8e8eb;
+  --token-ee5ffa32-176c-49f9-ad45-dd55368bee3b: #e8e8eb;
+  --purple-light: #f3f3f5;
   --purple-footer: var(--token-ee5ffa32-176c-49f9-ad45-dd55368bee3b);
   --purple-primary: #ad9960;
   --white-56: rgba(255, 255, 255, 0.56);
@@ -266,7 +266,7 @@ img {
   min-height: min(78vh, 760px);
   height: min(78vh, 760px);
   padding: 0;
-  background: linear-gradient(180deg, #ebe4d4 0%, #f3efe6 42%, #f8f6f1 100%);
+  background: linear-gradient(180deg, #e4e4e7 0%, #eeeeef 42%, #f5f5f6 100%);
   overflow: hidden;
 }
 
@@ -3061,7 +3061,7 @@ body.cart-open .header__cart-btn {
     min-height: min(72vh, 680px);
     height: min(72vh, 680px);
     overflow: hidden;
-    background: linear-gradient(180deg, #ebe4d4 0%, #f3efe6 42%, #f8f6f1 100%);
+    background: linear-gradient(180deg, #e4e4e7 0%, #eeeeef 42%, #f5f5f6 100%);
   }
 
   .hero.hero--carousel > .header {
@@ -3254,7 +3254,7 @@ body.cart-open .header__cart-btn {
     min-height: 420px;
     height: 420px;
     overflow: hidden;
-    background: linear-gradient(180deg, #ebe4d4 0%, #f3efe6 42%, #f8f6f1 100%);
+    background: linear-gradient(180deg, #e4e4e7 0%, #eeeeef 42%, #f5f5f6 100%);
   }
 
   .hero.hero--carousel .hero-bg--carousel {
@@ -6299,11 +6299,11 @@ body.commerce-panel-open {
    Product lightbox gallery
    ============================================ */
 .product-lightbox {
-  --lb-ink: #f6f1e8;
-  --lb-muted: rgba(246, 241, 232, 0.58);
+  --lb-ink: #f4f4f5;
+  --lb-muted: rgba(244, 244, 245, 0.58);
   --lb-glass: rgba(255, 255, 255, 0.08);
   --lb-glass-strong: rgba(255, 255, 255, 0.14);
-  --lb-line: rgba(246, 241, 232, 0.16);
+  --lb-line: rgba(244, 244, 245, 0.16);
 
   position: fixed;
   inset: 0;
@@ -6332,10 +6332,10 @@ body.commerce-panel-open {
   inset: 0;
   z-index: 0;
   background:
-    radial-gradient(ellipse 70% 55% at 50% 35%, rgba(173, 153, 96, 0.18), transparent 70%),
-    linear-gradient(180deg, rgba(12, 11, 9, 0.72), rgba(8, 7, 6, 0.92));
-  backdrop-filter: blur(18px) saturate(1.15);
-  -webkit-backdrop-filter: blur(18px) saturate(1.15);
+    radial-gradient(ellipse 70% 55% at 50% 35%, rgba(160, 160, 168, 0.14), transparent 70%),
+    linear-gradient(180deg, rgba(18, 18, 20, 0.76), rgba(10, 10, 12, 0.94));
+  backdrop-filter: blur(18px) saturate(1.05);
+  -webkit-backdrop-filter: blur(18px) saturate(1.05);
 }
 
 .product-lightbox__glow {
@@ -6347,7 +6347,7 @@ body.commerce-panel-open {
   max-width: 100%;
   height: min(420px, 42vh);
   transform: translateX(-50%);
-  background: radial-gradient(circle, rgba(247, 244, 236, 0.12), transparent 68%);
+  background: radial-gradient(circle, rgba(244, 244, 245, 0.1), transparent 68%);
   pointer-events: none;
 }
 
@@ -6862,7 +6862,7 @@ body.product-lightbox-open .product-lightbox {
     height: min(78vh, 760px);
     padding: 0;
     overflow: hidden;
-    background: linear-gradient(180deg, #ebe4d4 0%, #f3efe6 42%, #f8f6f1 100%);
+    background: linear-gradient(180deg, #e4e4e7 0%, #eeeeef 42%, #f5f5f6 100%);
   }
 
   .hero.hero--carousel > .header {

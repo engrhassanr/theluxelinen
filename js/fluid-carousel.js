@@ -338,10 +338,11 @@
     }
   }
 
-  // Product cards sync the carousel — no href / no hash / no page jump
+  // Product info syncs the carousel; image links open the lightbox instead
   document.querySelectorAll("[data-slide]").forEach((el) => {
     const id = el.getAttribute("data-slide");
     if (!id || findSlideIndex(id) < 0) return;
+    if (el.classList.contains("product-card__image-link")) return;
 
     el.addEventListener("click", (e) => {
       e.preventDefault();
