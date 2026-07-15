@@ -22,9 +22,19 @@
       </button>
     </header>
     <div class="product-lightbox__stage">
+      <button class="product-lightbox__nav product-lightbox__nav--prev" type="button" aria-label="Previous product">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="20" height="20" aria-hidden="true">
+          <path d="${arrowPath}" fill="currentColor"/>
+        </svg>
+      </button>
       <div class="product-lightbox__frame">
         <img class="product-lightbox__image" src="" alt="" decoding="async">
       </div>
+      <button class="product-lightbox__nav product-lightbox__nav--next" type="button" aria-label="Next product">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="20" height="20" aria-hidden="true">
+          <path d="${arrowPath}" fill="currentColor"/>
+        </svg>
+      </button>
     </div>
     <footer class="product-lightbox__bottom">
       <div class="product-lightbox__meta">
@@ -33,18 +43,6 @@
       </div>
       <div class="product-lightbox__progress" aria-hidden="true">
         <span class="product-lightbox__progress-bar"></span>
-      </div>
-      <div class="product-lightbox__controls">
-        <button class="product-lightbox__nav product-lightbox__nav--prev" type="button" aria-label="Previous product">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="20" height="20" aria-hidden="true">
-            <path d="${arrowPath}" fill="currentColor"/>
-          </svg>
-        </button>
-        <button class="product-lightbox__nav product-lightbox__nav--next" type="button" aria-label="Next product">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="20" height="20" aria-hidden="true">
-            <path d="${arrowPath}" fill="currentColor"/>
-          </svg>
-        </button>
       </div>
       <div class="product-lightbox__thumbs" role="tablist" aria-label="Product thumbnails"></div>
     </footer>
@@ -145,8 +143,6 @@
     const multi = group.length > 1;
     prevBtn.hidden = !multi;
     nextBtn.hidden = !multi;
-    const controls = lightbox.querySelector(".product-lightbox__controls");
-    if (controls) controls.hidden = !multi;
 
     thumbsEl.querySelectorAll(".product-lightbox__thumb").forEach((thumb, i) => {
       const active = i === index;

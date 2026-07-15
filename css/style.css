@@ -6411,17 +6411,17 @@ body.commerce-panel-open {
 }
 
 .product-lightbox__nav {
-  position: static;
-  top: auto;
-  z-index: 2;
+  position: absolute;
+  top: 50%;
+  z-index: 3;
   width: 52px;
   height: 52px;
-  transform: none;
+  transform: translateY(-50%);
   flex: 0 0 auto;
 }
 
 .product-lightbox__nav--prev {
-  left: auto;
+  left: clamp(8px, 2vw, 24px);
 }
 
 .product-lightbox__nav--prev svg {
@@ -6429,17 +6429,17 @@ body.commerce-panel-open {
 }
 
 .product-lightbox__nav--next {
-  right: auto;
+  right: clamp(8px, 2vw, 24px);
 }
 
 .product-lightbox__close:hover,
 .product-lightbox__nav:hover {
   background: var(--lb-glass-strong);
-  border-color: rgba(246, 241, 232, 0.34);
+  border-color: rgba(244, 244, 245, 0.34);
 }
 
 .product-lightbox__nav:hover {
-  transform: scale(1.04);
+  transform: translateY(-50%) scale(1.04);
 }
 
 .product-lightbox__close:hover {
@@ -6447,13 +6447,14 @@ body.commerce-panel-open {
 }
 
 .product-lightbox__stage {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   min-width: 0;
   min-height: 0;
-  padding: clamp(12px, 2.5vh, 28px) clamp(16px, 4vw, 40px);
+  padding: clamp(12px, 2.5vh, 28px) clamp(64px, 8vw, 96px);
   box-sizing: border-box;
   touch-action: pan-y;
   cursor: grab;
@@ -6571,14 +6572,6 @@ body.commerce-panel-open {
   transition: width 0.35s var(--ease-panel);
 }
 
-.product-lightbox__controls {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  width: 100%;
-}
-
 .product-lightbox__thumbs {
   display: flex;
   align-items: center;
@@ -6690,7 +6683,7 @@ body.product-lightbox-open .product-lightbox {
   }
 
   .product-lightbox__stage {
-    padding: 6px 0;
+    padding: 6px 52px;
     width: 100%;
   }
 
@@ -6709,15 +6702,18 @@ body.product-lightbox-open .product-lightbox {
   .product-lightbox__nav {
     width: 44px;
     height: 44px;
-    transform: none;
+  }
+
+  .product-lightbox__nav--prev {
+    left: 4px;
+  }
+
+  .product-lightbox__nav--next {
+    right: 4px;
   }
 
   .product-lightbox__nav:hover {
-    transform: scale(1.04);
-  }
-
-  .product-lightbox__controls {
-    gap: 10px;
+    transform: translateY(-50%) scale(1.04);
   }
 
   .product-lightbox__bottom {
@@ -6808,10 +6804,6 @@ body.product-lightbox-open .product-lightbox {
   .product-lightbox__nav {
     width: 40px;
     height: 40px;
-  }
-
-  .product-lightbox__controls {
-    gap: 8px;
   }
 
   .product-lightbox__title {
