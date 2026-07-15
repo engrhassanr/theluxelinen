@@ -277,8 +277,6 @@
     }
 
     menuBtn.addEventListener("click", () => {
-      const headerEl = document.querySelector(".header");
-      if (!headerEl?.classList.contains("header--fixed")) return;
       setOpen(!document.body.classList.contains("mobile-nav-open"));
     });
 
@@ -333,25 +331,6 @@
     nextBtn.addEventListener("click", () => showSlide(current + 1));
 
     showSlide(0);
-  }
-
-  const showcaseVideo = document.getElementById("showcase-video");
-  const showcasePlay = document.getElementById("showcase-play");
-
-  if (showcaseVideo && showcasePlay) {
-    showcaseVideo.play().catch(() => {});
-
-    showcasePlay.addEventListener("click", () => {
-      if (showcaseVideo.paused) {
-        showcaseVideo.play();
-        showcasePlay.classList.add("is-playing");
-        showcasePlay.setAttribute("aria-label", "Pause video");
-      } else {
-        showcaseVideo.pause();
-        showcasePlay.classList.remove("is-playing");
-        showcasePlay.setAttribute("aria-label", "Play video");
-      }
-    });
   }
 
   const shopGrid = document.getElementById("shop-grid");

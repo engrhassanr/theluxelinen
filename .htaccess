@@ -1,9 +1,15 @@
-# APC Containers static site — Apache / cPanel / Hostinger
+# The Luxe Linen static site — Apache / cPanel / Hostinger
 
 DirectoryIndex index.html
 
 # Custom 404 page
 ErrorDocument 404 /404/
+
+# Removed commerce routes — send old URLs home
+RedirectMatch 301 ^/blog(/.*)?$ /
+RedirectMatch 301 ^/shop(/.*)?$ /
+RedirectMatch 301 ^/collections(/.*)?$ /
+RedirectMatch 301 ^/cart(/.*)?$ /
 
 # Disable directory listings
 Options -Indexes

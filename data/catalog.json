@@ -1,213 +1,372 @@
 {
   "items": [
     {
-      "title": "Retro Handheld Console",
-      "url": "/shop/retro-handheld-console",
+      "title": "Plush Baffle-Box Mattress Topper",
+      "url": "/#topper-plush",
       "type": "Product",
-      "image": "/assets/oCDAVYb409OovtE2SNLVIPK7zxk.png",
-      "keywords": ["retro", "handheld", "console", "gaming", "technology"],
-      "price": 49.99,
-      "slug": "retro-handheld-console"
+      "image": "/assets/products/topper-plush.png",
+      "keywords": [
+        "plush",
+        "baffle",
+        "box",
+        "mattress",
+        "topper",
+        "wholesale",
+        "linen",
+        "bestseller"
+      ],
+      "description": "Thick baffle-box topper with secure elastic straps \u2014 cloud loft comfort for beds that need a luxury upgrade.",
+      "slug": "topper-plush",
+      "bestseller": true,
+      "category": "Toppers"
     },
     {
-      "title": "Horizon Glow Sneakers",
-      "url": "/shop/horizon-glow-sneakers",
+      "title": "10cm Thick Quilted Mattress Topper",
+      "url": "/#topper-10cm",
       "type": "Product",
-      "image": "/assets/TaiLqg44CMxGOXKWtD4HkafU.png",
-      "keywords": ["horizon", "glow", "sneakers", "footwear", "shoes"],
-      "price": 129.99,
-      "slug": "horizon-glow-sneakers"
+      "image": "/assets/products/topper-10cm.png",
+      "keywords": [
+        "10cm",
+        "thick",
+        "quilted",
+        "mattress",
+        "topper",
+        "wholesale",
+        "linen",
+        "bestseller"
+      ],
+      "description": "Best-selling 10cm quilted topper with non-slip straps and square stitching \u2014 cloud loft that stays put all night.",
+      "slug": "topper-10cm",
+      "bestseller": true,
+      "category": "Toppers"
     },
     {
-      "title": "Tropical Paradise Plant",
-      "url": "/shop/tropical-paradise-plant",
+      "title": "Easy-Fit Mattress Topper",
+      "url": "/#topper-easy-fit",
       "type": "Product",
-      "image": "/assets/tElJe5z6jmy6md1MRCKy40PRUc.png",
-      "keywords": ["tropical", "paradise", "plant", "home", "greenery"],
-      "price": 39.99,
-      "slug": "tropical-paradise-plant"
+      "image": "/assets/products/topper-easy-fit.png",
+      "keywords": [
+        "easy",
+        "fit",
+        "mattress",
+        "topper",
+        "wholesale",
+        "linen",
+        "bestseller"
+      ],
+      "description": "Quilted mattress topper with elasticated straps for a fast, secure fit \u2014 more comfort, less fuss.",
+      "slug": "topper-easy-fit",
+      "bestseller": true,
+      "category": "Toppers"
     },
     {
-      "title": "Classic Off-White Trainers",
-      "url": "/shop/classic-off-white-trainers",
+      "title": "V-Shape Support Pillow",
+      "url": "/#v-shape-pillow",
       "type": "Product",
-      "image": "/assets/9q9O56lpqUqJPoXiJkikhJuOb4M.png",
-      "keywords": ["classic", "off-white", "trainers", "footwear", "shoes"],
-      "price": 99.99,
-      "slug": "classic-off-white-trainers"
+      "image": "/assets/products/v-shape-pillow.jpg",
+      "keywords": [
+        "v",
+        "shape",
+        "support",
+        "pillow",
+        "wholesale",
+        "linen",
+        "bestseller"
+      ],
+      "description": "Ergonomic V-shape pillow for reading, recovery, and lounge support \u2014 plush fill with lasting comfort.",
+      "slug": "v-shape-pillow",
+      "bestseller": true,
+      "category": "V Shape"
     },
     {
-      "title": "Vibrant Work Boots",
-      "url": "/shop/vibrant-work-boots",
+      "title": "Chocolate V-Shape Pillowcase",
+      "url": "/#v-shape-pillowcase",
       "type": "Product",
-      "image": "/assets/qdOdeRgSwlmLF7en894gIMaP2r8.png",
-      "keywords": ["vibrant", "work", "boots", "footwear", "yellow"],
-      "price": 129.99,
-      "slug": "vibrant-work-boots"
+      "image": "/assets/products/v-shape-pillowcase.png",
+      "keywords": [
+        "chocolate",
+        "v",
+        "shape",
+        "pillowcase",
+        "wholesale",
+        "linen",
+        "bestseller"
+      ],
+      "description": "Matching V-shape cover in rich chocolate brown \u2014 soft, form-fitting, and ready for trade colour ranges.",
+      "slug": "v-shape-pillowcase",
+      "bestseller": true,
+      "category": "V Shape"
     },
     {
-      "title": "Vintage Mechanical Keyboard",
-      "url": "/shop/vintage-mechanical-keyboard",
+      "title": "Navy V-Shape Pillowcase",
+      "url": "/#v-shape-pillowcase-navy",
       "type": "Product",
-      "image": "/assets/Jd50Ch6OeddkkWevou3JF5i44.png",
-      "keywords": ["vintage", "mechanical", "keyboard", "technology", "typing"],
-      "price": 149.99,
-      "slug": "vintage-mechanical-keyboard"
+      "image": "/assets/products/v-shape-pillowcase-navy.png",
+      "keywords": [
+        "navy",
+        "v",
+        "shape",
+        "pillowcase",
+        "wholesale",
+        "linen",
+        "bestseller"
+      ],
+      "description": "Deep navy V-shape cover with matching form \u2014 a clean wholesale colour option for support pillows.",
+      "slug": "v-shape-pillowcase-navy",
+      "bestseller": true,
+      "category": "V Shape"
     },
     {
-      "title": "Pro Audio Mixer",
-      "url": "/shop/pro-audio-mixer",
+      "title": "Teal Booster Cushion",
+      "url": "/#booster-cushion",
       "type": "Product",
-      "image": "/assets/d0WfiurbzWveXWLHiSEUzCwvLM.png",
-      "keywords": ["pro", "audio", "mixer", "technology", "music"],
-      "price": 219.99,
-      "slug": "pro-audio-mixer"
+      "image": "/assets/products/booster-cushion.png",
+      "keywords": [
+        "teal",
+        "booster",
+        "cushion",
+        "wholesale",
+        "linen",
+        "bestseller"
+      ],
+      "description": "Tufted French-mattress booster with carry handle \u2014 thick support for floor seating and trade displays.",
+      "slug": "booster-cushion",
+      "bestseller": true,
+      "category": "Booster Cushions"
     },
     {
-      "title": "Potted Succulent Plant",
-      "url": "/shop/potted-succulent-plant",
+      "title": "Copper Booster Cushion",
+      "url": "/#booster-copper",
       "type": "Product",
-      "image": "/assets/jSqxgKoxQZr1zZomzhjmmO2ew.png",
-      "keywords": ["potted", "succulent", "plant", "home"],
-      "price": 24.99,
-      "slug": "potted-succulent-plant"
+      "image": "/assets/products/booster-copper.png",
+      "keywords": [
+        "copper",
+        "booster",
+        "cushion",
+        "wholesale",
+        "linen",
+        "bestseller"
+      ],
+      "description": "Warm copper tufted booster cushion with side handle \u2014 portable comfort that sells on colour and feel.",
+      "slug": "booster-copper",
+      "bestseller": true,
+      "category": "Booster Cushions"
     },
     {
-      "title": "Modern Lounge Armchair",
-      "url": "/shop/modern-lounge-armchair",
+      "title": "Maroon Booster Cushion",
+      "url": "/#booster-maroon",
       "type": "Product",
-      "image": "/assets/wQCYenRpKmc9i0iVibBrrmx47s.png",
-      "keywords": ["modern", "lounge", "armchair", "home", "furniture"],
-      "price": 299.99,
-      "slug": "modern-lounge-armchair"
+      "image": "/assets/products/booster-maroon.png",
+      "keywords": [
+        "maroon",
+        "booster",
+        "cushion",
+        "wholesale",
+        "linen",
+        "bestseller"
+      ],
+      "description": "Deep maroon booster with tufted top and carry handle \u2014 a bold wholesale colourway for seating ranges.",
+      "slug": "booster-maroon",
+      "bestseller": true,
+      "category": "Booster Cushions"
     },
     {
-      "title": "Home Collection",
-      "url": "/collections/home",
-      "type": "Collection",
-      "keywords": ["home", "collection", "plants", "furniture"],
-      "price": null,
-      "slug": "home"
+      "title": "Black Satin Stripe Fitted Sheet",
+      "url": "/#fitted-sheet",
+      "type": "Product",
+      "image": "/assets/products/fitted-sheet.png",
+      "keywords": [
+        "black",
+        "satin",
+        "stripe",
+        "fitted",
+        "sheet",
+        "wholesale",
+        "linen"
+      ],
+      "description": "Deep-fit satin stripe sheet with a hotel-ready finish \u2014 soft, tailored, and built for wholesale restocking.",
+      "slug": "fitted-sheet",
+      "bestseller": false,
+      "category": "Sheets"
     },
     {
-      "title": "Footwear Collection",
-      "url": "/collections/footwear",
-      "type": "Collection",
-      "keywords": ["footwear", "collection", "shoes", "sneakers", "boots"],
-      "price": null,
-      "slug": "footwear"
+      "title": "Cream Damask Stripe Pillowcase",
+      "url": "/#pillowcase",
+      "type": "Product",
+      "image": "/assets/products/pillowcase.png",
+      "keywords": [
+        "cream",
+        "damask",
+        "stripe",
+        "pillowcase",
+        "wholesale",
+        "linen"
+      ],
+      "description": "Subtle damask stripes in warm cream \u2014 a soft-touch wholesale pillowcase that elevates everyday bedding.",
+      "slug": "pillowcase",
+      "bestseller": false,
+      "category": "Pillowcases"
     },
     {
-      "title": "Technology Collection",
-      "url": "/collections/technology",
-      "type": "Collection",
-      "keywords": ["technology", "collection", "gadgets", "electronics"],
-      "price": null,
-      "slug": "technology"
+      "title": "Luxe Filled Bed Pillow",
+      "url": "/#filled-pillow",
+      "type": "Product",
+      "image": "/assets/products/filled-pillow.jpg",
+      "keywords": [
+        "luxe",
+        "filled",
+        "bed",
+        "pillow",
+        "wholesale",
+        "linen"
+      ],
+      "description": "Plump, piped hotel-style pillow with branded finish \u2014 soft loft designed for everyday wholesale demand.",
+      "slug": "filled-pillow",
+      "bestseller": false,
+      "category": "Pillows"
     },
     {
-      "title": "Collections",
-      "url": "/collections",
-      "type": "Page",
-      "keywords": ["collections", "shop", "categories"],
-      "price": null,
-      "slug": "collections"
+      "title": "Plush Filled Cushion",
+      "url": "/#filled-cushion",
+      "type": "Product",
+      "image": "/assets/products/filled-cushion.png",
+      "keywords": [
+        "plush",
+        "filled",
+        "cushion",
+        "wholesale",
+        "linen"
+      ],
+      "description": "Soft-filled square cushion with a clean, lounge-ready look \u2014 lightweight luxury for living spaces.",
+      "slug": "filled-cushion",
+      "bestseller": false,
+      "category": "Cushions"
     },
     {
-      "title": "Shop",
-      "url": "/shop",
-      "type": "Page",
-      "keywords": ["shop", "products", "store"],
-      "price": null,
-      "slug": "shop"
+      "title": "Charcoal Diamond Quilt Bedspread",
+      "url": "/#bedspread",
+      "type": "Product",
+      "image": "/assets/products/bedspread.png",
+      "keywords": [
+        "bedspread",
+        "charcoal",
+        "diamond",
+        "quilt",
+        "wholesale",
+        "linen"
+      ],
+      "description": "Diamond-quilted bedspread in deep charcoal \u2014 structured texture for bedroom ranges.",
+      "slug": "bedspread",
+      "bestseller": false,
+      "category": "Bedspreads"
     },
     {
-      "title": "Blog",
-      "url": "/blog",
-      "type": "Page",
-      "keywords": ["blog", "articles", "posts"],
-      "price": null,
-      "slug": "blog"
+      "title": "Dark Grey Quilted Pillowcases",
+      "url": "/#quilted-pillowcases",
+      "type": "Product",
+      "image": "/assets/products/quilted-pillowcases.png",
+      "keywords": [
+        "quilted",
+        "pillowcases",
+        "dark",
+        "grey",
+        "wholesale",
+        "linen"
+      ],
+      "description": "Diamond-quilt pillow shams in dark grey \u2014 matching texture for bedspread sets.",
+      "slug": "quilted-pillowcases",
+      "bestseller": false,
+      "category": "Pillowcases"
     },
     {
-      "title": "Support",
-      "url": "/support",
-      "type": "Page",
-      "keywords": ["support", "help", "faq", "questions"],
-      "price": null,
-      "slug": "support"
+      "title": "Reversible Bedspread \u2014 Black & Cream",
+      "url": "/#reversible-black-cream",
+      "type": "Product",
+      "image": "/assets/products/reversible-black-cream.jpg",
+      "keywords": [
+        "reversible",
+        "bedspread",
+        "black",
+        "cream",
+        "wholesale",
+        "linen"
+      ],
+      "description": "Two looks in one: reversible quilted bedspread pairing deep black with soft cream for flexible room styling.",
+      "slug": "reversible-black-cream",
+      "bestseller": false,
+      "category": "Bedspreads"
     },
     {
-      "title": "How to Make Your Social Media Posts Stand Out with Templates",
-      "url": "/blog/social-media-templates",
-      "type": "Blog",
-      "keywords": ["social media", "templates", "productivity", "posts"],
-      "price": null,
-      "slug": "social-media-templates"
+      "title": "Reversible Bedspread \u2014 Black & Grey",
+      "url": "/#reversible-black-grey",
+      "type": "Product",
+      "image": "/assets/products/reversible-black-grey.jpg",
+      "keywords": [
+        "reversible",
+        "bedspread",
+        "black",
+        "grey",
+        "wholesale",
+        "linen"
+      ],
+      "description": "Modern black-and-grey reversible quilt \u2014 dual-tone depth for contemporary wholesale bedroom ranges.",
+      "slug": "reversible-black-grey",
+      "bestseller": false,
+      "category": "Bedspreads"
     },
     {
-      "title": "The Beginner's Guide to Using Mockups for Your Brand",
-      "url": "/blog/mockups-beginners-guide",
-      "type": "Blog",
-      "keywords": ["mockups", "brand", "guides", "beginner"],
-      "price": null,
-      "slug": "mockups-beginners-guide"
+      "title": "Reversible Bedspread \u2014 Black & Red",
+      "url": "/#reversible-black-red",
+      "type": "Product",
+      "image": "/assets/products/reversible-black-red.jpg",
+      "keywords": [
+        "reversible",
+        "bedspread",
+        "black",
+        "red",
+        "wholesale",
+        "linen"
+      ],
+      "description": "Bold black-and-red reversible bedspread \u2014 high-contrast colourway for statement retail floors.",
+      "slug": "reversible-black-red",
+      "bestseller": false,
+      "category": "Bedspreads"
     },
     {
-      "title": "Why a Fast, Mobile-Friendly Store Matters for Your Customers",
-      "url": "/blog/mobile-friendly-store",
-      "type": "Blog",
-      "keywords": ["mobile", "store", "trends", "customers"],
-      "price": null,
-      "slug": "mobile-friendly-store"
+      "title": "Reversible Bedspread \u2014 Grey & Black",
+      "url": "/#reversible-grey-black",
+      "type": "Product",
+      "image": "/assets/products/reversible-grey-black.jpg",
+      "keywords": [
+        "reversible",
+        "bedspread",
+        "grey",
+        "black",
+        "wholesale",
+        "linen"
+      ],
+      "description": "Soft grey reversing to black \u2014 versatile quilted finish for neutral and modern schemes.",
+      "slug": "reversible-grey-black",
+      "bestseller": false,
+      "category": "Bedspreads"
     },
     {
-      "title": "Top Trends in Digital and Physical Product Design",
-      "url": "/blog/physical-product-design-trends",
-      "type": "Blog",
-      "keywords": ["trends", "product design", "digital", "physical"],
-      "price": null,
-      "slug": "physical-product-design-trends"
-    },
-    {
-      "title": "Behind the Scenes: How We Create Our Products",
-      "url": "/blog/behind-the-scenes",
-      "type": "Blog",
-      "keywords": ["behind the scenes", "products", "process"],
-      "price": null,
-      "slug": "behind-the-scenes"
-    },
-    {
-      "title": "Why High-Quality Digital Assets Are Worth It",
-      "url": "/blog/digital-assets",
-      "type": "Blog",
-      "keywords": ["digital assets", "quality", "guides"],
-      "price": null,
-      "slug": "digital-assets"
-    },
-    {
-      "title": "10 Creative Ways to Use Digital Backgrounds in Your Projects",
-      "url": "/blog/10-ways-to-use-digital-backgrounds",
-      "type": "Blog",
-      "keywords": ["digital backgrounds", "creative", "design"],
-      "price": null,
-      "slug": "10-ways-to-use-digital-backgrounds"
-    },
-    {
-      "title": "Privacy Policy",
-      "url": "/privacy-policy",
-      "type": "Page",
-      "keywords": ["privacy", "policy", "legal"],
-      "price": null,
-      "slug": "privacy-policy"
-    },
-    {
-      "title": "Terms & Conditions",
-      "url": "/terms-and-conditions",
-      "type": "Page",
-      "keywords": ["terms", "conditions", "legal"],
-      "price": null,
-      "slug": "terms-and-conditions"
+      "title": "Reversible Bedspread \u2014 Purple & Cream",
+      "url": "/#reversible-purple-cream",
+      "type": "Product",
+      "image": "/assets/products/reversible-purple-cream.jpg",
+      "keywords": [
+        "reversible",
+        "bedspread",
+        "purple",
+        "cream",
+        "wholesale",
+        "linen"
+      ],
+      "description": "Rich purple with cream reverse \u2014 warm dual tones for luxe hospitality and home retail.",
+      "slug": "reversible-purple-cream",
+      "bestseller": false,
+      "category": "Bedspreads"
     }
   ]
 }

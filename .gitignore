@@ -2,3 +2,7 @@ node_modules/
 __pycache__/
 *.pyc
 .DS_Store
+.tmp-venv/
+api/mail-config.php
+# Raw source photos — site uses optimized /assets/products
+assets/Luxe Linen/

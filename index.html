@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>APC Containers Pvt. Ltd.</title>
-  <meta name="description" content="APC Containers — quality containers and packaging solutions.">
+  <title>The Luxe Linen | Wholesale Bedding &amp; Home Textiles</title>
+  <meta name="description" content="The Luxe Linen — wholesale fitted sheets, pillowcases, pillows, toppers, cushions and bedspreads for retailers and trade buyers.">
   <link rel="icon" href="/assets/favicon.png" type="image/png" sizes="512x512">
   <link rel="shortcut icon" href="/assets/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/assets/favicon.png" sizes="512x512">
-  <meta property="og:site_name" content="APC Containers">
+  <meta property="og:site_name" content="The Luxe Linen">
   <meta property="og:image" content="/assets/favicon.png">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:image" content="/assets/favicon.png">
@@ -16,41 +16,39 @@
   {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "APC Containers",
+    "name": "The Luxe Linen",
     "url": "/",
-    "logo": "/assets/favicon.png"
+    "logo": "/assets/logo.png"
   }
   </script>
   <link rel="preload" href="/assets/fonts/Inter-400-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/Inter-500-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/css/style.css">
+  <script>
+    // Capture product slide hash, strip it, and pin to top before paint
+    // (otherwise refresh lands mid-hero on the #slide element)
+    if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+    window.__heroSlideHash = (location.hash || "").replace(/^#/, "");
+    if (window.__heroSlideHash) {
+      history.replaceState(null, "", location.pathname + location.search);
+    }
+    window.scrollTo(0, 0);
+  </script>
 </head>
 <body>
   <div class="page">
-    <section class="hero" id="hero">
-      <div class="hero-bg reveal reveal--hero" data-reveal-delay="1000" aria-hidden="true">
-        <video
-          class="hero-bg__video"
-          src="/assets/Cloth_02_(light_theme).mp4"
-          autoplay
-          loop
-          muted
-          playsinline
-          preload="auto"
-        ></video>
-        <div class="hero-bg__blur"></div>
-      </div>
+    <section class="hero hero--carousel" id="hero">
+      <div class="hero-bg hero-bg--carousel" aria-hidden="true"></div>
 
       <header class="header">
         <nav class="header__nav" aria-label="Main navigation">
           <div class="header__nav-inner">
             <div class="header__tab header__tab--logo">
-              <a href="/" class="header__logo" aria-label="APC Containers home">
+              <a href="/" class="header__logo" aria-label="The Luxe Linen home">
                 <img
-                  src="/assets/apc-logo.png"
-                  alt="APC Containers"
-                  width="64"
-                  height="42"
+                  src="/assets/logo.png"
+                  alt="The Luxe Linen"
+                  width="56" height="56"
                 >
               </a>
               <div class="header__corner header__corner--bl header__corner--tab" aria-hidden="true">
@@ -66,9 +64,7 @@
             </div>
 
             <ul class="header__links">
-              <li><a href="/shop">Shop</a></li>
-              <li><a href="/collections">Collections</a></li>
-              <li><a href="/blog">Blog</a></li>
+              <li><a href="/about-us">About Us</a></li>
               <li><a href="/support">Support</a></li>
             </ul>
 
@@ -76,11 +72,6 @@
               <div class="header__icons">
                 <button class="header__icon-btn" type="button" aria-label="Search">
                   <img class="header__icon-img" src="/assets/icons/magnifying-glass.svg" alt="" width="20" height="20" aria-hidden="true">
-                </button>
-
-                <button class="header__cart-btn" type="button" aria-label="Shopping cart, 0 items">
-                  <span class="header__cart-icon" aria-hidden="true"></span>
-                  <span class="header__cart-count">0</span>
                 </button>
 
                 <button class="header__menu-btn" type="button" aria-label="Open menu">
@@ -113,63 +104,550 @@
         </nav>
       </header>
 
-      <div class="hero__content">
-        <div class="hero__badge reveal reveal--hero" data-reveal-delay="1000">
-          <svg class="hero__badge-icon" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
-            <path d="M 10.225 15.986 L 15.035 14.945 C 15.035 14.945 13.299 3.203 13.285 3.125 C 13.273 3.048 13.209 2.997 13.145 2.997 C 13.08 2.997 11.859 2.907 11.859 2.907 C 11.859 2.907 11.009 2.057 10.899 1.966 C 10.876 1.945 10.848 1.928 10.819 1.917 L 10.209 15.986 Z M 7.807 7.537 C 7.807 7.537 7.267 7.254 6.624 7.254 C 5.659 7.254 5.621 7.858 5.621 8.015 C 5.621 8.836 7.781 9.158 7.781 11.101 C 7.781 12.631 6.821 13.607 5.511 13.607 C 3.941 13.607 3.151 12.631 3.151 12.631 L 3.581 11.24 C 3.581 11.24 4.411 11.951 5.101 11.951 C 5.27 11.956 5.435 11.893 5.557 11.777 C 5.679 11.66 5.749 11.498 5.751 11.329 C 5.751 10.25 3.982 10.2 3.982 8.423 C 3.959 6.932 5.029 5.479 7.2 5.479 C 8.038 5.479 8.45 5.72 8.45 5.72 L 7.82 7.53 Z M 7.447 0.553 C 7.537 0.553 7.627 0.579 7.717 0.643 C 7.061 0.953 6.341 1.736 6.045 3.305 C 5.627 3.44 5.207 3.568 4.785 3.69 C 5.131 2.5 5.967 0.56 7.447 0.56 Z M 8.27 2.519 L 8.27 2.609 C 7.767 2.764 7.215 2.932 6.674 3.1 C 6.985 1.915 7.563 1.337 8.064 1.119 C 8.193 1.453 8.27 1.903 8.27 2.519 Z M 8.629 1.03 C 9.092 1.079 9.39 1.608 9.582 2.2 C 9.349 2.276 9.092 2.354 8.81 2.444 L 8.81 2.276 C 8.81 1.775 8.746 1.362 8.629 1.029 Z M 10.624 1.889 C 10.611 1.889 10.584 1.903 10.572 1.903 C 10.56 1.903 10.379 1.953 10.096 2.043 C 9.814 1.221 9.312 0.463 8.424 0.463 L 8.347 0.463 C 8.09 0.139 7.779 0 7.51 0 C 5.439 0 4.45 2.585 4.14 3.897 C 3.344 4.141 2.765 4.321 2.7 4.347 C 2.25 4.489 2.237 4.501 2.185 4.927 C 2.135 5.235 0.965 14.302 0.965 14.302 L 10.006 16 Z" fill="#000000"/>
-          </svg>
-          <span>Powered by Shopify</span>
+      <div
+        class="fluid-carousel"
+        id="fluid-carousel"
+        tabindex="0"
+        role="region"
+        aria-roledescription="carousel"
+        aria-label="Products"
+      >
+                <div class="fluid-carousel__ambient" aria-hidden="true">
+          <img class="fluid-carousel__ambient-img" src="/assets/products/topper-plush.png" alt="">
+        </div>
+        <div class="fluid-carousel__track">
+          <div class="fluid-carousel__slide" id="topper-plush" data-index="0">
+            <img src="/assets/products/topper-plush.png" alt="Plush Baffle-Box Mattress Topper" width="800" height="500" draggable="false" loading="eager" decoding="async">
+            <div class="fluid-carousel__caption">
+              <span class="fluid-carousel__eyebrow">Best Seller</span>
+              <h2 class="fluid-carousel__title">Plush Baffle-Box Mattress Topper</h2>
+            </div>
+          </div>
+          <div class="fluid-carousel__slide" id="topper-10cm" data-index="1">
+            <img src="/assets/products/topper-10cm.png" alt="10cm Thick Quilted Mattress Topper" width="800" height="500" draggable="false" loading="eager" decoding="async">
+            <div class="fluid-carousel__caption">
+              <span class="fluid-carousel__eyebrow">Best Seller</span>
+              <h2 class="fluid-carousel__title">10cm Thick Quilted Mattress Topper</h2>
+            </div>
+          </div>
+          <div class="fluid-carousel__slide" id="topper-easy-fit" data-index="2">
+            <img src="/assets/products/topper-easy-fit.png" alt="Easy-Fit Mattress Topper" width="800" height="500" draggable="false" loading="eager" decoding="async">
+            <div class="fluid-carousel__caption">
+              <span class="fluid-carousel__eyebrow">Best Seller</span>
+              <h2 class="fluid-carousel__title">Easy-Fit Mattress Topper</h2>
+            </div>
+          </div>
+          <div class="fluid-carousel__slide" id="v-shape-pillow" data-index="3">
+            <img src="/assets/products/v-shape-pillow.jpg" alt="V-Shape Support Pillow" width="800" height="500" draggable="false" loading="eager" decoding="async">
+            <div class="fluid-carousel__caption">
+              <span class="fluid-carousel__eyebrow">Best Seller</span>
+              <h2 class="fluid-carousel__title">V-Shape Support Pillow</h2>
+            </div>
+          </div>
+          <div class="fluid-carousel__slide" id="v-shape-pillowcase" data-index="4">
+            <img src="/assets/products/v-shape-pillowcase.png" alt="Chocolate V-Shape Pillowcase" width="800" height="500" draggable="false" loading="eager" decoding="async">
+            <div class="fluid-carousel__caption">
+              <span class="fluid-carousel__eyebrow">Best Seller</span>
+              <h2 class="fluid-carousel__title">Chocolate V-Shape Pillowcase</h2>
+            </div>
+          </div>
+          <div class="fluid-carousel__slide" id="v-shape-pillowcase-navy" data-index="5">
+            <img src="/assets/products/v-shape-pillowcase-navy.png" alt="Navy V-Shape Pillowcase" width="800" height="500" draggable="false" loading="eager" decoding="async">
+            <div class="fluid-carousel__caption">
+              <span class="fluid-carousel__eyebrow">Best Seller</span>
+              <h2 class="fluid-carousel__title">Navy V-Shape Pillowcase</h2>
+            </div>
+          </div>
+          <div class="fluid-carousel__slide" id="booster-cushion" data-index="6">
+            <img src="/assets/products/booster-cushion.png" alt="Teal Booster Cushion" width="800" height="500" draggable="false" loading="eager" decoding="async">
+            <div class="fluid-carousel__caption">
+              <span class="fluid-carousel__eyebrow">Best Seller</span>
+              <h2 class="fluid-carousel__title">Teal Booster Cushion</h2>
+            </div>
+          </div>
+          <div class="fluid-carousel__slide" id="booster-copper" data-index="7">
+            <img src="/assets/products/booster-copper.png" alt="Copper Booster Cushion" width="800" height="500" draggable="false" loading="eager" decoding="async">
+            <div class="fluid-carousel__caption">
+              <span class="fluid-carousel__eyebrow">Best Seller</span>
+              <h2 class="fluid-carousel__title">Copper Booster Cushion</h2>
+            </div>
+          </div>
+          <div class="fluid-carousel__slide" id="booster-maroon" data-index="8">
+            <img src="/assets/products/booster-maroon.png" alt="Maroon Booster Cushion" width="800" height="500" draggable="false" loading="eager" decoding="async">
+            <div class="fluid-carousel__caption">
+              <span class="fluid-carousel__eyebrow">Best Seller</span>
+              <h2 class="fluid-carousel__title">Maroon Booster Cushion</h2>
+            </div>
+          </div>
+          <div class="fluid-carousel__slide" id="fitted-sheet" data-index="9">
+            <img src="/assets/products/fitted-sheet.png" alt="Black Satin Stripe Fitted Sheet" width="800" height="500" draggable="false" loading="eager" decoding="async">
+            <div class="fluid-carousel__caption">
+              <span class="fluid-carousel__eyebrow">Sheets</span>
+              <h2 class="fluid-carousel__title">Black Satin Stripe Fitted Sheet</h2>
+            </div>
+          </div>
+          <div class="fluid-carousel__slide" id="pillowcase" data-index="10">
+            <img src="/assets/products/pillowcase.png" alt="Cream Damask Stripe Pillowcase" width="800" height="500" draggable="false" loading="eager" decoding="async">
+            <div class="fluid-carousel__caption">
+              <span class="fluid-carousel__eyebrow">Pillowcases</span>
+              <h2 class="fluid-carousel__title">Cream Damask Stripe Pillowcase</h2>
+            </div>
+          </div>
+          <div class="fluid-carousel__slide" id="filled-pillow" data-index="11">
+            <img src="/assets/products/filled-pillow.jpg" alt="Luxe Filled Bed Pillow" width="800" height="500" draggable="false" loading="eager" decoding="async">
+            <div class="fluid-carousel__caption">
+              <span class="fluid-carousel__eyebrow">Pillows</span>
+              <h2 class="fluid-carousel__title">Luxe Filled Bed Pillow</h2>
+            </div>
+          </div>
+          <div class="fluid-carousel__slide" id="filled-cushion" data-index="12">
+            <img src="/assets/products/filled-cushion.png" alt="Plush Filled Cushion" width="800" height="500" draggable="false" loading="eager" decoding="async">
+            <div class="fluid-carousel__caption">
+              <span class="fluid-carousel__eyebrow">Cushions</span>
+              <h2 class="fluid-carousel__title">Plush Filled Cushion</h2>
+            </div>
+          </div>
+          <div class="fluid-carousel__slide" id="bedspread" data-index="13">
+            <img src="/assets/products/bedspread.png" alt="Charcoal Diamond Quilt Bedspread" width="800" height="500" draggable="false" loading="eager" decoding="async">
+            <div class="fluid-carousel__caption">
+              <span class="fluid-carousel__eyebrow">Bedspreads</span>
+              <h2 class="fluid-carousel__title">Charcoal Diamond Quilt Bedspread</h2>
+            </div>
+          </div>
+          <div class="fluid-carousel__slide" id="quilted-pillowcases" data-index="14">
+            <img src="/assets/products/quilted-pillowcases.png" alt="Dark Grey Quilted Pillowcases" width="800" height="500" draggable="false" loading="eager" decoding="async">
+            <div class="fluid-carousel__caption">
+              <span class="fluid-carousel__eyebrow">Pillowcases</span>
+              <h2 class="fluid-carousel__title">Dark Grey Quilted Pillowcases</h2>
+            </div>
+          </div>
+          <div class="fluid-carousel__slide" id="reversible-black-cream" data-index="15">
+            <img src="/assets/products/reversible-black-cream.jpg" alt="Reversible Bedspread — Black &amp; Cream" width="800" height="500" draggable="false" loading="eager" decoding="async">
+            <div class="fluid-carousel__caption">
+              <span class="fluid-carousel__eyebrow">Bedspreads</span>
+              <h2 class="fluid-carousel__title">Reversible Bedspread — Black &amp; Cream</h2>
+            </div>
+          </div>
+          <div class="fluid-carousel__slide" id="reversible-black-grey" data-index="16">
+            <img src="/assets/products/reversible-black-grey.jpg" alt="Reversible Bedspread — Black &amp; Grey" width="800" height="500" draggable="false" loading="eager" decoding="async">
+            <div class="fluid-carousel__caption">
+              <span class="fluid-carousel__eyebrow">Bedspreads</span>
+              <h2 class="fluid-carousel__title">Reversible Bedspread — Black &amp; Grey</h2>
+            </div>
+          </div>
+          <div class="fluid-carousel__slide" id="reversible-black-red" data-index="17">
+            <img src="/assets/products/reversible-black-red.jpg" alt="Reversible Bedspread — Black &amp; Red" width="800" height="500" draggable="false" loading="eager" decoding="async">
+            <div class="fluid-carousel__caption">
+              <span class="fluid-carousel__eyebrow">Bedspreads</span>
+              <h2 class="fluid-carousel__title">Reversible Bedspread — Black &amp; Red</h2>
+            </div>
+          </div>
+          <div class="fluid-carousel__slide" id="reversible-grey-black" data-index="18">
+            <img src="/assets/products/reversible-grey-black.jpg" alt="Reversible Bedspread — Grey &amp; Black" width="800" height="500" draggable="false" loading="eager" decoding="async">
+            <div class="fluid-carousel__caption">
+              <span class="fluid-carousel__eyebrow">Bedspreads</span>
+              <h2 class="fluid-carousel__title">Reversible Bedspread — Grey &amp; Black</h2>
+            </div>
+          </div>
+          <div class="fluid-carousel__slide" id="reversible-purple-cream" data-index="19">
+            <img src="/assets/products/reversible-purple-cream.jpg" alt="Reversible Bedspread — Purple &amp; Cream" width="800" height="500" draggable="false" loading="eager" decoding="async">
+            <div class="fluid-carousel__caption">
+              <span class="fluid-carousel__eyebrow">Bedspreads</span>
+              <h2 class="fluid-carousel__title">Reversible Bedspread — Purple &amp; Cream</h2>
+            </div>
+          </div>
         </div>
 
-        <div class="hero__text">
-          <h1 class="hero__title" data-reveal-words="hero" data-reveal-words-base-delay="150" data-words-split="true">
-            <span class="reveal-word">The</span> <span class="hero__title-accent"><span class="reveal-word">beautiful</span></span> <span class="reveal-word">way</span> <span class="reveal-word">to</span> <span class="reveal-word">sell</span> <span class="reveal-word">anything</span> <span class="reveal-word">with</span> <span class="reveal-word">Framer.</span>
-          </h1>
-          <p class="hero__subtitle" data-reveal-words="hero" data-reveal-words-base-delay="1100" data-words-split="true">
-            <span class="reveal-word">Designed</span> <span class="reveal-word">with</span> <span class="reveal-word">Framer,</span> <span class="reveal-word">this</span> <span class="reveal-word">template</span> <span class="reveal-word">makes</span> <span class="reveal-word">it</span> <span class="reveal-word">easy</span> <span class="reveal-word">to</span> <span class="reveal-word">turn</span> <span class="reveal-word">your</span> <span class="reveal-word">website</span> <span class="reveal-word">into</span> <span class="reveal-word">a</span> <span class="reveal-word">powerful</span> <span class="reveal-word">ecommerce</span> <span class="reveal-word">store.</span>
-          </p>
+        <div class="fluid-carousel__nav">
+          <button class="fluid-carousel__btn" type="button" data-dir="-1" aria-label="Previous slide">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="15 18 9 12 15 6"/>
+            </svg>
+          </button>
+          <button class="fluid-carousel__btn" type="button" data-dir="1" aria-label="Next slide">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="9 18 15 12 9 6"/>
+            </svg>
+          </button>
         </div>
-
-        <a href="/shop" class="hero__cta reveal reveal--hero" data-reveal-delay="1000">
-          <span class="hero__cta-fill" aria-hidden="true">
-            <span class="hero__cta-icon">
-              <span class="hero__cta-icon-rotate">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
-                  <path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"/>
-                </svg>
-              </span>
-            </span>
-          </span>
-          <span class="hero__cta-text">Shop Products</span>
-        </a>
       </div>
+    </section>
 
-  
+
+
+    <section class="popular popular--bestsellers" id="bestsellers" aria-labelledby="bestsellers-title">
+      <div class="popular__inner">
+        <div class="popular__header reveal">
+          <div class="popular__intro">
+            <h2 class="popular__title" id="bestsellers-title">Best Sellers</h2>
+            <p class="popular__subtitle">Toppers, V-shape pillows, and booster cushions — the wholesale ranges that move first.</p>
+          </div>
+        </div>
+
+        <div class="popular__grid popular__grid--bestsellers reveal" data-reveal-delay="120">
+          <article class="product-card" data-category="toppers">
+            <a href="#topper-plush" class="product-card__image-link card-hover">
+              <img
+                src="/assets/products/topper-plush.png"
+                alt="Plush Baffle-Box Mattress Topper"
+                width="400"
+                height="400"
+                loading="lazy"
+              >
+                <span class="product-card__badge">Best Seller</span>
+              <div class="card-action card-action--product" aria-hidden="true">
+                <div class="card-action__shape">
+                  <span class="card-action__scoop card-action__scoop--a" aria-hidden="true">
+                    <img src="/assets/icons/corner-scoop.svg" alt="" width="18" height="18">
+                  </span>
+                  <span class="card-action__scoop card-action__scoop--b" aria-hidden="true">
+                    <img src="/assets/icons/corner-scoop.svg" alt="" width="18" height="18">
+                  </span>
+                  <span class="card-action__btn">
+                    <span class="card-action__icon">
+                      <span class="card-action__icon-rotate">
+                        <img src="/assets/icons/arrow-right.svg" alt="" width="20" height="20" aria-hidden="true">
+                      </span>
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </a>
+            <div class="product-card__content">
+              <a href="#topper-plush" class="product-card__info">
+                <h3 class="product-card__name">Plush Baffle-Box Mattress Topper</h3>
+                <div class="product-card__meta">
+                  <span class="product-card__category">Toppers</span>
+                  <span class="product-card__price">Wholesale</span>
+                </div>
+              </a>
+            </div>
+          </article>
+          <article class="product-card" data-category="toppers">
+            <a href="#topper-10cm" class="product-card__image-link card-hover">
+              <img
+                src="/assets/products/topper-10cm.png"
+                alt="10cm Thick Quilted Mattress Topper"
+                width="400"
+                height="400"
+                loading="lazy"
+              >
+                <span class="product-card__badge">Best Seller</span>
+              <div class="card-action card-action--product" aria-hidden="true">
+                <div class="card-action__shape">
+                  <span class="card-action__scoop card-action__scoop--a" aria-hidden="true">
+                    <img src="/assets/icons/corner-scoop.svg" alt="" width="18" height="18">
+                  </span>
+                  <span class="card-action__scoop card-action__scoop--b" aria-hidden="true">
+                    <img src="/assets/icons/corner-scoop.svg" alt="" width="18" height="18">
+                  </span>
+                  <span class="card-action__btn">
+                    <span class="card-action__icon">
+                      <span class="card-action__icon-rotate">
+                        <img src="/assets/icons/arrow-right.svg" alt="" width="20" height="20" aria-hidden="true">
+                      </span>
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </a>
+            <div class="product-card__content">
+              <a href="#topper-10cm" class="product-card__info">
+                <h3 class="product-card__name">10cm Thick Quilted Mattress Topper</h3>
+                <div class="product-card__meta">
+                  <span class="product-card__category">Toppers</span>
+                  <span class="product-card__price">Wholesale</span>
+                </div>
+              </a>
+            </div>
+          </article>
+          <article class="product-card" data-category="toppers">
+            <a href="#topper-easy-fit" class="product-card__image-link card-hover">
+              <img
+                src="/assets/products/topper-easy-fit.png"
+                alt="Easy-Fit Mattress Topper"
+                width="400"
+                height="400"
+                loading="lazy"
+              >
+                <span class="product-card__badge">Best Seller</span>
+              <div class="card-action card-action--product" aria-hidden="true">
+                <div class="card-action__shape">
+                  <span class="card-action__scoop card-action__scoop--a" aria-hidden="true">
+                    <img src="/assets/icons/corner-scoop.svg" alt="" width="18" height="18">
+                  </span>
+                  <span class="card-action__scoop card-action__scoop--b" aria-hidden="true">
+                    <img src="/assets/icons/corner-scoop.svg" alt="" width="18" height="18">
+                  </span>
+                  <span class="card-action__btn">
+                    <span class="card-action__icon">
+                      <span class="card-action__icon-rotate">
+                        <img src="/assets/icons/arrow-right.svg" alt="" width="20" height="20" aria-hidden="true">
+                      </span>
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </a>
+            <div class="product-card__content">
+              <a href="#topper-easy-fit" class="product-card__info">
+                <h3 class="product-card__name">Easy-Fit Mattress Topper</h3>
+                <div class="product-card__meta">
+                  <span class="product-card__category">Toppers</span>
+                  <span class="product-card__price">Wholesale</span>
+                </div>
+              </a>
+            </div>
+          </article>
+          <article class="product-card" data-category="v-shape">
+            <a href="#v-shape-pillow" class="product-card__image-link card-hover">
+              <img
+                src="/assets/products/v-shape-pillow.jpg"
+                alt="V-Shape Support Pillow"
+                width="400"
+                height="400"
+                loading="lazy"
+              >
+                <span class="product-card__badge">Best Seller</span>
+              <div class="card-action card-action--product" aria-hidden="true">
+                <div class="card-action__shape">
+                  <span class="card-action__scoop card-action__scoop--a" aria-hidden="true">
+                    <img src="/assets/icons/corner-scoop.svg" alt="" width="18" height="18">
+                  </span>
+                  <span class="card-action__scoop card-action__scoop--b" aria-hidden="true">
+                    <img src="/assets/icons/corner-scoop.svg" alt="" width="18" height="18">
+                  </span>
+                  <span class="card-action__btn">
+                    <span class="card-action__icon">
+                      <span class="card-action__icon-rotate">
+                        <img src="/assets/icons/arrow-right.svg" alt="" width="20" height="20" aria-hidden="true">
+                      </span>
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </a>
+            <div class="product-card__content">
+              <a href="#v-shape-pillow" class="product-card__info">
+                <h3 class="product-card__name">V-Shape Support Pillow</h3>
+                <div class="product-card__meta">
+                  <span class="product-card__category">V Shape</span>
+                  <span class="product-card__price">Wholesale</span>
+                </div>
+              </a>
+            </div>
+          </article>
+          <article class="product-card" data-category="v-shape">
+            <a href="#v-shape-pillowcase" class="product-card__image-link card-hover">
+              <img
+                src="/assets/products/v-shape-pillowcase.png"
+                alt="Chocolate V-Shape Pillowcase"
+                width="400"
+                height="400"
+                loading="lazy"
+              >
+                <span class="product-card__badge">Best Seller</span>
+              <div class="card-action card-action--product" aria-hidden="true">
+                <div class="card-action__shape">
+                  <span class="card-action__scoop card-action__scoop--a" aria-hidden="true">
+                    <img src="/assets/icons/corner-scoop.svg" alt="" width="18" height="18">
+                  </span>
+                  <span class="card-action__scoop card-action__scoop--b" aria-hidden="true">
+                    <img src="/assets/icons/corner-scoop.svg" alt="" width="18" height="18">
+                  </span>
+                  <span class="card-action__btn">
+                    <span class="card-action__icon">
+                      <span class="card-action__icon-rotate">
+                        <img src="/assets/icons/arrow-right.svg" alt="" width="20" height="20" aria-hidden="true">
+                      </span>
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </a>
+            <div class="product-card__content">
+              <a href="#v-shape-pillowcase" class="product-card__info">
+                <h3 class="product-card__name">Chocolate V-Shape Pillowcase</h3>
+                <div class="product-card__meta">
+                  <span class="product-card__category">V Shape</span>
+                  <span class="product-card__price">Wholesale</span>
+                </div>
+              </a>
+            </div>
+          </article>
+          <article class="product-card" data-category="v-shape">
+            <a href="#v-shape-pillowcase-navy" class="product-card__image-link card-hover">
+              <img
+                src="/assets/products/v-shape-pillowcase-navy.png"
+                alt="Navy V-Shape Pillowcase"
+                width="400"
+                height="400"
+                loading="lazy"
+              >
+                <span class="product-card__badge">Best Seller</span>
+              <div class="card-action card-action--product" aria-hidden="true">
+                <div class="card-action__shape">
+                  <span class="card-action__scoop card-action__scoop--a" aria-hidden="true">
+                    <img src="/assets/icons/corner-scoop.svg" alt="" width="18" height="18">
+                  </span>
+                  <span class="card-action__scoop card-action__scoop--b" aria-hidden="true">
+                    <img src="/assets/icons/corner-scoop.svg" alt="" width="18" height="18">
+                  </span>
+                  <span class="card-action__btn">
+                    <span class="card-action__icon">
+                      <span class="card-action__icon-rotate">
+                        <img src="/assets/icons/arrow-right.svg" alt="" width="20" height="20" aria-hidden="true">
+                      </span>
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </a>
+            <div class="product-card__content">
+              <a href="#v-shape-pillowcase-navy" class="product-card__info">
+                <h3 class="product-card__name">Navy V-Shape Pillowcase</h3>
+                <div class="product-card__meta">
+                  <span class="product-card__category">V Shape</span>
+                  <span class="product-card__price">Wholesale</span>
+                </div>
+              </a>
+            </div>
+          </article>
+          <article class="product-card" data-category="booster-cushions">
+            <a href="#booster-cushion" class="product-card__image-link card-hover">
+              <img
+                src="/assets/products/booster-cushion.png"
+                alt="Teal Booster Cushion"
+                width="400"
+                height="400"
+                loading="lazy"
+              >
+                <span class="product-card__badge">Best Seller</span>
+              <div class="card-action card-action--product" aria-hidden="true">
+                <div class="card-action__shape">
+                  <span class="card-action__scoop card-action__scoop--a" aria-hidden="true">
+                    <img src="/assets/icons/corner-scoop.svg" alt="" width="18" height="18">
+                  </span>
+                  <span class="card-action__scoop card-action__scoop--b" aria-hidden="true">
+                    <img src="/assets/icons/corner-scoop.svg" alt="" width="18" height="18">
+                  </span>
+                  <span class="card-action__btn">
+                    <span class="card-action__icon">
+                      <span class="card-action__icon-rotate">
+                        <img src="/assets/icons/arrow-right.svg" alt="" width="20" height="20" aria-hidden="true">
+                      </span>
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </a>
+            <div class="product-card__content">
+              <a href="#booster-cushion" class="product-card__info">
+                <h3 class="product-card__name">Teal Booster Cushion</h3>
+                <div class="product-card__meta">
+                  <span class="product-card__category">Booster Cushions</span>
+                  <span class="product-card__price">Wholesale</span>
+                </div>
+              </a>
+            </div>
+          </article>
+          <article class="product-card" data-category="booster-cushions">
+            <a href="#booster-copper" class="product-card__image-link card-hover">
+              <img
+                src="/assets/products/booster-copper.png"
+                alt="Copper Booster Cushion"
+                width="400"
+                height="400"
+                loading="lazy"
+              >
+                <span class="product-card__badge">Best Seller</span>
+              <div class="card-action card-action--product" aria-hidden="true">
+                <div class="card-action__shape">
+                  <span class="card-action__scoop card-action__scoop--a" aria-hidden="true">
+                    <img src="/assets/icons/corner-scoop.svg" alt="" width="18" height="18">
+                  </span>
+                  <span class="card-action__scoop card-action__scoop--b" aria-hidden="true">
+                    <img src="/assets/icons/corner-scoop.svg" alt="" width="18" height="18">
+                  </span>
+                  <span class="card-action__btn">
+                    <span class="card-action__icon">
+                      <span class="card-action__icon-rotate">
+                        <img src="/assets/icons/arrow-right.svg" alt="" width="20" height="20" aria-hidden="true">
+                      </span>
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </a>
+            <div class="product-card__content">
+              <a href="#booster-copper" class="product-card__info">
+                <h3 class="product-card__name">Copper Booster Cushion</h3>
+                <div class="product-card__meta">
+                  <span class="product-card__category">Booster Cushions</span>
+                  <span class="product-card__price">Wholesale</span>
+                </div>
+              </a>
+            </div>
+          </article>
+          <article class="product-card" data-category="booster-cushions">
+            <a href="#booster-maroon" class="product-card__image-link card-hover">
+              <img
+                src="/assets/products/booster-maroon.png"
+                alt="Maroon Booster Cushion"
+                width="400"
+                height="400"
+                loading="lazy"
+              >
+                <span class="product-card__badge">Best Seller</span>
+              <div class="card-action card-action--product" aria-hidden="true">
+                <div class="card-action__shape">
+                  <span class="card-action__scoop card-action__scoop--a" aria-hidden="true">
+                    <img src="/assets/icons/corner-scoop.svg" alt="" width="18" height="18">
+                  </span>
+                  <span class="card-action__scoop card-action__scoop--b" aria-hidden="true">
+                    <img src="/assets/icons/corner-scoop.svg" alt="" width="18" height="18">
+                  </span>
+                  <span class="card-action__btn">
+                    <span class="card-action__icon">
+                      <span class="card-action__icon-rotate">
+                        <img src="/assets/icons/arrow-right.svg" alt="" width="20" height="20" aria-hidden="true">
+                      </span>
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </a>
+            <div class="product-card__content">
+              <a href="#booster-maroon" class="product-card__info">
+                <h3 class="product-card__name">Maroon Booster Cushion</h3>
+                <div class="product-card__meta">
+                  <span class="product-card__category">Booster Cushions</span>
+                  <span class="product-card__price">Wholesale</span>
+                </div>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
     </section>
 
     <div class="spacer" aria-hidden="true"></div>
 
-    <section class="popular" id="most-popular" aria-labelledby="popular-title">
+    <section class="popular" id="products" aria-labelledby="products-title">
       <div class="popular__inner">
         <div class="popular__header reveal">
           <div class="popular__intro">
-            <h2 class="popular__title" id="popular-title">Most Popular</h2>
-            <p class="popular__subtitle">Showcase your most popular products, front and center.</p>
+            <h2 class="popular__title" id="products-title">More Ranges</h2>
+            <p class="popular__subtitle">Sheets, pillows, cushions, and reversible bedspreads for wholesale buyers.</p>
           </div>
-          <a href="/shop" class="popular__link">
-            View All
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" width="16" height="16" aria-hidden="true">
-              <path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"/>
-            </svg>
-          </a>
         </div>
 
         <div class="popular__grid reveal" data-reveal-delay="120">
-          <article class="product-card">
-            <a href="/shop/retro-handheld-console" class="product-card__image-link card-hover">
+          <article class="product-card" data-category="sheets">
+            <a href="#fitted-sheet" class="product-card__image-link card-hover">
               <img
-                src="/assets/oCDAVYb409OovtE2SNLVIPK7zxk.png"
-                alt="Retro Handheld Console"
+                src="/assets/products/fitted-sheet.png"
+                alt="Black Satin Stripe Fitted Sheet"
                 width="400"
                 height="400"
                 loading="lazy"
@@ -193,21 +671,20 @@
               </div>
             </a>
             <div class="product-card__content">
-              <a href="/shop/retro-handheld-console" class="product-card__info">
-                <h3 class="product-card__name">Retro Handheld Console</h3>
+              <a href="#fitted-sheet" class="product-card__info">
+                <h3 class="product-card__name">Black Satin Stripe Fitted Sheet</h3>
                 <div class="product-card__meta">
-                  <span class="product-card__category">Technology</span>
-                  <span class="product-card__price">USD $59.99</span>
+                  <span class="product-card__category">Sheets</span>
+                  <span class="product-card__price">Wholesale</span>
                 </div>
               </a>
             </div>
           </article>
-
-          <article class="product-card">
-            <a href="/shop/horizon-glow-sneakers" class="product-card__image-link card-hover">
+          <article class="product-card" data-category="pillowcases">
+            <a href="#pillowcase" class="product-card__image-link card-hover">
               <img
-                src="/assets/TaiLqg44CMxGOXKWtD4HkafU.png"
-                alt="Horizon Glow Sneakers"
+                src="/assets/products/pillowcase.png"
+                alt="Cream Damask Stripe Pillowcase"
                 width="400"
                 height="400"
                 loading="lazy"
@@ -231,21 +708,20 @@
               </div>
             </a>
             <div class="product-card__content">
-              <a href="/shop/horizon-glow-sneakers" class="product-card__info">
-                <h3 class="product-card__name">Horizon Glow Sneakers</h3>
+              <a href="#pillowcase" class="product-card__info">
+                <h3 class="product-card__name">Cream Damask Stripe Pillowcase</h3>
                 <div class="product-card__meta">
-                  <span class="product-card__category">Footwear</span>
-                  <span class="product-card__price">USD $129.99</span>
+                  <span class="product-card__category">Pillowcases</span>
+                  <span class="product-card__price">Wholesale</span>
                 </div>
               </a>
             </div>
           </article>
-
-          <article class="product-card">
-            <a href="/shop/tropical-paradise-plant" class="product-card__image-link card-hover">
+          <article class="product-card" data-category="pillows">
+            <a href="#filled-pillow" class="product-card__image-link card-hover">
               <img
-                src="/assets/tElJe5z6jmy6md1MRCKy40PRUc.png"
-                alt="Tropical Paradise Plant"
+                src="/assets/products/filled-pillow.jpg"
+                alt="Luxe Filled Bed Pillow"
                 width="400"
                 height="400"
                 loading="lazy"
@@ -269,11 +745,307 @@
               </div>
             </a>
             <div class="product-card__content">
-              <a href="/shop/tropical-paradise-plant" class="product-card__info">
-                <h3 class="product-card__name">Tropical Paradise Plant</h3>
+              <a href="#filled-pillow" class="product-card__info">
+                <h3 class="product-card__name">Luxe Filled Bed Pillow</h3>
                 <div class="product-card__meta">
-                  <span class="product-card__category">Home</span>
-                  <span class="product-card__price">USD $39.99</span>
+                  <span class="product-card__category">Pillows</span>
+                  <span class="product-card__price">Wholesale</span>
+                </div>
+              </a>
+            </div>
+          </article>
+          <article class="product-card" data-category="cushions">
+            <a href="#filled-cushion" class="product-card__image-link card-hover">
+              <img
+                src="/assets/products/filled-cushion.png"
+                alt="Plush Filled Cushion"
+                width="400"
+                height="400"
+                loading="lazy"
+              >
+              <div class="card-action card-action--product" aria-hidden="true">
+                <div class="card-action__shape">
+                  <span class="card-action__scoop card-action__scoop--a" aria-hidden="true">
+                    <img src="/assets/icons/corner-scoop.svg" alt="" width="18" height="18">
+                  </span>
+                  <span class="card-action__scoop card-action__scoop--b" aria-hidden="true">
+                    <img src="/assets/icons/corner-scoop.svg" alt="" width="18" height="18">
+                  </span>
+                  <span class="card-action__btn">
+                    <span class="card-action__icon">
+                      <span class="card-action__icon-rotate">
+                        <img src="/assets/icons/arrow-right.svg" alt="" width="20" height="20" aria-hidden="true">
+                      </span>
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </a>
+            <div class="product-card__content">
+              <a href="#filled-cushion" class="product-card__info">
+                <h3 class="product-card__name">Plush Filled Cushion</h3>
+                <div class="product-card__meta">
+                  <span class="product-card__category">Cushions</span>
+                  <span class="product-card__price">Wholesale</span>
+                </div>
+              </a>
+            </div>
+          </article>
+          <article class="product-card" data-category="bedspreads">
+            <a href="#bedspread" class="product-card__image-link card-hover">
+              <img
+                src="/assets/products/bedspread.png"
+                alt="Charcoal Diamond Quilt Bedspread"
+                width="400"
+                height="400"
+                loading="lazy"
+              >
+              <div class="card-action card-action--product" aria-hidden="true">
+                <div class="card-action__shape">
+                  <span class="card-action__scoop card-action__scoop--a" aria-hidden="true">
+                    <img src="/assets/icons/corner-scoop.svg" alt="" width="18" height="18">
+                  </span>
+                  <span class="card-action__scoop card-action__scoop--b" aria-hidden="true">
+                    <img src="/assets/icons/corner-scoop.svg" alt="" width="18" height="18">
+                  </span>
+                  <span class="card-action__btn">
+                    <span class="card-action__icon">
+                      <span class="card-action__icon-rotate">
+                        <img src="/assets/icons/arrow-right.svg" alt="" width="20" height="20" aria-hidden="true">
+                      </span>
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </a>
+            <div class="product-card__content">
+              <a href="#bedspread" class="product-card__info">
+                <h3 class="product-card__name">Charcoal Diamond Quilt Bedspread</h3>
+                <div class="product-card__meta">
+                  <span class="product-card__category">Bedspreads</span>
+                  <span class="product-card__price">Wholesale</span>
+                </div>
+              </a>
+            </div>
+          </article>
+          <article class="product-card" data-category="pillowcases">
+            <a href="#quilted-pillowcases" class="product-card__image-link card-hover">
+              <img
+                src="/assets/products/quilted-pillowcases.png"
+                alt="Dark Grey Quilted Pillowcases"
+                width="400"
+                height="400"
+                loading="lazy"
+              >
+              <div class="card-action card-action--product" aria-hidden="true">
+                <div class="card-action__shape">
+                  <span class="card-action__scoop card-action__scoop--a" aria-hidden="true">
+                    <img src="/assets/icons/corner-scoop.svg" alt="" width="18" height="18">
+                  </span>
+                  <span class="card-action__scoop card-action__scoop--b" aria-hidden="true">
+                    <img src="/assets/icons/corner-scoop.svg" alt="" width="18" height="18">
+                  </span>
+                  <span class="card-action__btn">
+                    <span class="card-action__icon">
+                      <span class="card-action__icon-rotate">
+                        <img src="/assets/icons/arrow-right.svg" alt="" width="20" height="20" aria-hidden="true">
+                      </span>
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </a>
+            <div class="product-card__content">
+              <a href="#quilted-pillowcases" class="product-card__info">
+                <h3 class="product-card__name">Dark Grey Quilted Pillowcases</h3>
+                <div class="product-card__meta">
+                  <span class="product-card__category">Pillowcases</span>
+                  <span class="product-card__price">Wholesale</span>
+                </div>
+              </a>
+            </div>
+          </article>
+          <article class="product-card" data-category="bedspreads">
+            <a href="#reversible-black-cream" class="product-card__image-link card-hover">
+              <img
+                src="/assets/products/reversible-black-cream.jpg"
+                alt="Reversible Bedspread — Black &amp; Cream"
+                width="400"
+                height="400"
+                loading="lazy"
+              >
+              <div class="card-action card-action--product" aria-hidden="true">
+                <div class="card-action__shape">
+                  <span class="card-action__scoop card-action__scoop--a" aria-hidden="true">
+                    <img src="/assets/icons/corner-scoop.svg" alt="" width="18" height="18">
+                  </span>
+                  <span class="card-action__scoop card-action__scoop--b" aria-hidden="true">
+                    <img src="/assets/icons/corner-scoop.svg" alt="" width="18" height="18">
+                  </span>
+                  <span class="card-action__btn">
+                    <span class="card-action__icon">
+                      <span class="card-action__icon-rotate">
+                        <img src="/assets/icons/arrow-right.svg" alt="" width="20" height="20" aria-hidden="true">
+                      </span>
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </a>
+            <div class="product-card__content">
+              <a href="#reversible-black-cream" class="product-card__info">
+                <h3 class="product-card__name">Reversible Bedspread — Black &amp; Cream</h3>
+                <div class="product-card__meta">
+                  <span class="product-card__category">Bedspreads</span>
+                  <span class="product-card__price">Wholesale</span>
+                </div>
+              </a>
+            </div>
+          </article>
+          <article class="product-card" data-category="bedspreads">
+            <a href="#reversible-black-grey" class="product-card__image-link card-hover">
+              <img
+                src="/assets/products/reversible-black-grey.jpg"
+                alt="Reversible Bedspread — Black &amp; Grey"
+                width="400"
+                height="400"
+                loading="lazy"
+              >
+              <div class="card-action card-action--product" aria-hidden="true">
+                <div class="card-action__shape">
+                  <span class="card-action__scoop card-action__scoop--a" aria-hidden="true">
+                    <img src="/assets/icons/corner-scoop.svg" alt="" width="18" height="18">
+                  </span>
+                  <span class="card-action__scoop card-action__scoop--b" aria-hidden="true">
+                    <img src="/assets/icons/corner-scoop.svg" alt="" width="18" height="18">
+                  </span>
+                  <span class="card-action__btn">
+                    <span class="card-action__icon">
+                      <span class="card-action__icon-rotate">
+                        <img src="/assets/icons/arrow-right.svg" alt="" width="20" height="20" aria-hidden="true">
+                      </span>
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </a>
+            <div class="product-card__content">
+              <a href="#reversible-black-grey" class="product-card__info">
+                <h3 class="product-card__name">Reversible Bedspread — Black &amp; Grey</h3>
+                <div class="product-card__meta">
+                  <span class="product-card__category">Bedspreads</span>
+                  <span class="product-card__price">Wholesale</span>
+                </div>
+              </a>
+            </div>
+          </article>
+          <article class="product-card" data-category="bedspreads">
+            <a href="#reversible-black-red" class="product-card__image-link card-hover">
+              <img
+                src="/assets/products/reversible-black-red.jpg"
+                alt="Reversible Bedspread — Black &amp; Red"
+                width="400"
+                height="400"
+                loading="lazy"
+              >
+              <div class="card-action card-action--product" aria-hidden="true">
+                <div class="card-action__shape">
+                  <span class="card-action__scoop card-action__scoop--a" aria-hidden="true">
+                    <img src="/assets/icons/corner-scoop.svg" alt="" width="18" height="18">
+                  </span>
+                  <span class="card-action__scoop card-action__scoop--b" aria-hidden="true">
+                    <img src="/assets/icons/corner-scoop.svg" alt="" width="18" height="18">
+                  </span>
+                  <span class="card-action__btn">
+                    <span class="card-action__icon">
+                      <span class="card-action__icon-rotate">
+                        <img src="/assets/icons/arrow-right.svg" alt="" width="20" height="20" aria-hidden="true">
+                      </span>
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </a>
+            <div class="product-card__content">
+              <a href="#reversible-black-red" class="product-card__info">
+                <h3 class="product-card__name">Reversible Bedspread — Black &amp; Red</h3>
+                <div class="product-card__meta">
+                  <span class="product-card__category">Bedspreads</span>
+                  <span class="product-card__price">Wholesale</span>
+                </div>
+              </a>
+            </div>
+          </article>
+          <article class="product-card" data-category="bedspreads">
+            <a href="#reversible-grey-black" class="product-card__image-link card-hover">
+              <img
+                src="/assets/products/reversible-grey-black.jpg"
+                alt="Reversible Bedspread — Grey &amp; Black"
+                width="400"
+                height="400"
+                loading="lazy"
+              >
+              <div class="card-action card-action--product" aria-hidden="true">
+                <div class="card-action__shape">
+                  <span class="card-action__scoop card-action__scoop--a" aria-hidden="true">
+                    <img src="/assets/icons/corner-scoop.svg" alt="" width="18" height="18">
+                  </span>
+                  <span class="card-action__scoop card-action__scoop--b" aria-hidden="true">
+                    <img src="/assets/icons/corner-scoop.svg" alt="" width="18" height="18">
+                  </span>
+                  <span class="card-action__btn">
+                    <span class="card-action__icon">
+                      <span class="card-action__icon-rotate">
+                        <img src="/assets/icons/arrow-right.svg" alt="" width="20" height="20" aria-hidden="true">
+                      </span>
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </a>
+            <div class="product-card__content">
+              <a href="#reversible-grey-black" class="product-card__info">
+                <h3 class="product-card__name">Reversible Bedspread — Grey &amp; Black</h3>
+                <div class="product-card__meta">
+                  <span class="product-card__category">Bedspreads</span>
+                  <span class="product-card__price">Wholesale</span>
+                </div>
+              </a>
+            </div>
+          </article>
+          <article class="product-card" data-category="bedspreads">
+            <a href="#reversible-purple-cream" class="product-card__image-link card-hover">
+              <img
+                src="/assets/products/reversible-purple-cream.jpg"
+                alt="Reversible Bedspread — Purple &amp; Cream"
+                width="400"
+                height="400"
+                loading="lazy"
+              >
+              <div class="card-action card-action--product" aria-hidden="true">
+                <div class="card-action__shape">
+                  <span class="card-action__scoop card-action__scoop--a" aria-hidden="true">
+                    <img src="/assets/icons/corner-scoop.svg" alt="" width="18" height="18">
+                  </span>
+                  <span class="card-action__scoop card-action__scoop--b" aria-hidden="true">
+                    <img src="/assets/icons/corner-scoop.svg" alt="" width="18" height="18">
+                  </span>
+                  <span class="card-action__btn">
+                    <span class="card-action__icon">
+                      <span class="card-action__icon-rotate">
+                        <img src="/assets/icons/arrow-right.svg" alt="" width="20" height="20" aria-hidden="true">
+                      </span>
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </a>
+            <div class="product-card__content">
+              <a href="#reversible-purple-cream" class="product-card__info">
+                <h3 class="product-card__name">Reversible Bedspread — Purple &amp; Cream</h3>
+                <div class="product-card__meta">
+                  <span class="product-card__category">Bedspreads</span>
+                  <span class="product-card__price">Wholesale</span>
                 </div>
               </a>
             </div>
@@ -317,9 +1089,9 @@
               <img
                 class="testimonials__avatar testimonials__avatar--active"
                 data-slide="0"
-                data-quote="Showcase customer testimonials that build trust and inspire confidence in your products."
-                data-author="Your Customer"
-                src="/assets/4xOqsaG9Qn3OT6HvtyKhl9KOoWY.png"
+                data-quote="Consistent quality and reliable wholesale supply — our retail customers notice the difference."
+                data-author="Retail Partner"
+                src="/assets/logo.png"
                 alt=""
                 width="100"
                 height="100"
@@ -328,9 +1100,9 @@
               <img
                 class="testimonials__avatar"
                 data-slide="1"
-                data-quote="Showcase customer testimonials that build trust and inspire confidence in your products."
-                data-author="Your Customer"
-                src="/assets/XB8s5Btp8gJ0QrUvAFXXD5vXPeU.png"
+                data-quote="Trade pricing that works, with ranges our hospitality clients reorder every season."
+                data-author="Hospitality Buyer"
+                src="/assets/logo.png"
                 alt=""
                 width="100"
                 height="100"
@@ -339,9 +1111,9 @@
               <img
                 class="testimonials__avatar"
                 data-slide="2"
-                data-quote="Showcase customer testimonials that build trust and inspire confidence in your products."
-                data-author="Your Customer"
-                src="/assets/Lu1xB2saHLKbEWEf6qQFuz93ejg.png"
+                data-quote="From fitted sheets to V-shape pillows — one wholesaler covering our full bedding lineup."
+                data-author="Home Store Owner"
+                src="/assets/logo.png"
                 alt=""
                 width="100"
                 height="100"
@@ -349,9 +1121,9 @@
               >
             </div>
             <div class="testimonials__quote-track">
-              <h2 class="testimonials__quote testimonials__text-slide testimonials__text-slide--active" data-slide="0">Showcase customer testimonials that build trust and inspire confidence in your products.</h2>
-              <h2 class="testimonials__quote testimonials__text-slide" data-slide="1">Showcase customer testimonials that build trust and inspire confidence in your products.</h2>
-              <h2 class="testimonials__quote testimonials__text-slide" data-slide="2">Showcase customer testimonials that build trust and inspire confidence in your products.</h2>
+              <h2 class="testimonials__quote testimonials__text-slide testimonials__text-slide--active" data-slide="0">Consistent quality and reliable wholesale supply — our retail customers notice the difference.</h2>
+              <h2 class="testimonials__quote testimonials__text-slide" data-slide="1">Trade pricing that works, with ranges our hospitality clients reorder every season.</h2>
+              <h2 class="testimonials__quote testimonials__text-slide" data-slide="2">From fitted sheets to V-shape pillows — one wholesaler covering our full bedding lineup.</h2>
             </div>
           </div>
 
@@ -364,232 +1136,27 @@
               <svg viewBox="0 0 40 40" width="20" height="20" aria-hidden="true"><path d="M 18.097 2.289 C 18.693 0.441 21.307 0.441 21.903 2.289 L 25.136 12.312 C 25.403 13.14 26.174 13.7 27.044 13.698 L 37.575 13.675 C 39.517 13.671 40.325 16.158 38.751 17.296 L 30.218 23.467 C 29.513 23.977 29.219 24.884 29.489 25.71 L 32.765 35.719 C 33.37 37.565 31.254 39.101 29.686 37.957 L 21.179 31.748 C 20.477 31.235 19.523 31.235 18.821 31.748 L 10.314 37.957 C 8.746 39.101 6.63 37.565 7.235 35.719 L 10.511 25.71 C 10.781 24.884 10.487 23.977 9.782 23.467 L 1.249 17.296 C -0.325 16.158 0.483 13.671 2.425 13.675 L 12.956 13.698 C 13.826 13.7 14.597 13.14 14.864 12.312 Z" fill="currentColor"/></svg>
             </div>
             <div class="testimonials__author-track" aria-live="polite">
-              <p class="testimonials__author testimonials__text-slide testimonials__text-slide--active" data-slide="0">Your Customer</p>
-              <p class="testimonials__author testimonials__text-slide" data-slide="1">Your Customer</p>
-              <p class="testimonials__author testimonials__text-slide" data-slide="2">Your Customer</p>
+              <p class="testimonials__author testimonials__text-slide testimonials__text-slide--active" data-slide="0">Retail Partner</p>
+              <p class="testimonials__author testimonials__text-slide" data-slide="1">Hospitality Buyer</p>
+              <p class="testimonials__author testimonials__text-slide" data-slide="2">Home Store Owner</p>
             </div>
           </div>
         </div>
 
-        <div class="testimonials__logos reveal" data-reveal-delay="180">
-          <p class="testimonials__logos-label">Feature client logos to build trust and credibility for your brand:</p>
-          <div class="testimonials__logos-marquee" aria-hidden="false">
-            <div class="testimonials__logos-track">
-              <div class="testimonials__logos-set">
-                <img src="/assets/logos/logo-1.svg" alt="" width="159" height="18">
-                <img src="/assets/logos/logo-2.svg" alt="" width="87" height="20">
-                <span class="testimonials__logo-group">
-                  <img src="/assets/logos/logo-3.svg" alt="" width="80" height="20">
-                  <img src="/assets/logos/logo-4.svg" alt="" width="37" height="25">
-                </span>
-                <img src="/assets/logos/logo-5.svg" alt="" width="84" height="22">
-              </div>
-              <div class="testimonials__logos-set" aria-hidden="true">
-                <img src="/assets/logos/logo-1.svg" alt="" width="159" height="18">
-                <img src="/assets/logos/logo-2.svg" alt="" width="87" height="20">
-                <span class="testimonials__logo-group">
-                  <img src="/assets/logos/logo-3.svg" alt="" width="80" height="20">
-                  <img src="/assets/logos/logo-4.svg" alt="" width="37" height="25">
-                </span>
-                <img src="/assets/logos/logo-5.svg" alt="" width="84" height="22">
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
-    <div class="spacer" aria-hidden="true"></div>
-
-    <section class="collections" id="collections" aria-labelledby="collections-title">
-      <div class="collections__inner">
-        <div class="popular__header reveal">
-          <div class="popular__intro">
-            <h2 class="popular__title" id="collections-title">Our Collections</h2>
-            <p class="popular__subtitle">Showcase all of the different collections you have to offer.</p>
-          </div>
-          <a href="/collections" class="popular__link">
-            View All
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" width="16" height="16" aria-hidden="true">
-              <path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"/>
-            </svg>
-          </a>
-        </div>
-
-        <div class="collections__grid">
-          <article class="collection-card reveal">
-            <a href="/collections/home" class="collection-card__link card-hover">
-              <div class="card-action card-action--collection" aria-hidden="true">
-                <div class="card-action__shape">
-                  <span class="card-action__scoop card-action__scoop--a" aria-hidden="true">
-                    <img src="/assets/icons/corner-scoop.svg" alt="" width="18" height="18">
-                  </span>
-                  <span class="card-action__scoop card-action__scoop--b" aria-hidden="true">
-                    <img src="/assets/icons/corner-scoop.svg" alt="" width="18" height="18">
-                  </span>
-                  <span class="card-action__btn">
-                    <span class="card-action__icon">
-                      <span class="card-action__icon-rotate">
-                        <img src="/assets/icons/arrow-right.svg" alt="" width="20" height="20" aria-hidden="true">
-                      </span>
-                    </span>
-                  </span>
-                </div>
-              </div>
-              <div class="collection-card__image-wrap">
-                <img
-                  src="/assets/kP7PfaRbatwMj2wiEWywOMAMSSo.png"
-                  alt="Home collection"
-                  width="400"
-                  height="284"
-                  loading="lazy"
-                >
-              </div>
-              <h3 class="collection-card__title">Home</h3>
-            </a>
-          </article>
-
-          <article class="collection-card reveal">
-            <a href="/collections/footwear" class="collection-card__link card-hover">
-              <div class="card-action card-action--collection" aria-hidden="true">
-                <div class="card-action__shape">
-                  <span class="card-action__scoop card-action__scoop--a" aria-hidden="true">
-                    <img src="/assets/icons/corner-scoop.svg" alt="" width="18" height="18">
-                  </span>
-                  <span class="card-action__scoop card-action__scoop--b" aria-hidden="true">
-                    <img src="/assets/icons/corner-scoop.svg" alt="" width="18" height="18">
-                  </span>
-                  <span class="card-action__btn">
-                    <span class="card-action__icon">
-                      <span class="card-action__icon-rotate">
-                        <img src="/assets/icons/arrow-right.svg" alt="" width="20" height="20" aria-hidden="true">
-                      </span>
-                    </span>
-                  </span>
-                </div>
-              </div>
-              <div class="collection-card__image-wrap">
-                <img
-                  src="/assets/46tgWmYaR2EYE1UEPcyh284W2c.png"
-                  alt="Footwear collection"
-                  width="400"
-                  height="284"
-                  loading="lazy"
-                >
-              </div>
-              <h3 class="collection-card__title">Footwear</h3>
-            </a>
-          </article>
-
-          <article class="collection-card reveal">
-            <a href="/collections/technology" class="collection-card__link card-hover">
-              <div class="card-action card-action--collection" aria-hidden="true">
-                <div class="card-action__shape">
-                  <span class="card-action__scoop card-action__scoop--a" aria-hidden="true">
-                    <img src="/assets/icons/corner-scoop.svg" alt="" width="18" height="18">
-                  </span>
-                  <span class="card-action__scoop card-action__scoop--b" aria-hidden="true">
-                    <img src="/assets/icons/corner-scoop.svg" alt="" width="18" height="18">
-                  </span>
-                  <span class="card-action__btn">
-                    <span class="card-action__icon">
-                      <span class="card-action__icon-rotate">
-                        <img src="/assets/icons/arrow-right.svg" alt="" width="20" height="20" aria-hidden="true">
-                      </span>
-                    </span>
-                  </span>
-                </div>
-              </div>
-              <div class="collection-card__image-wrap">
-                <img
-                  src="/assets/62NelkkmTRqU8sGn3bS4qcYz2E.png"
-                  alt="Technology collection"
-                  width="400"
-                  height="284"
-                  loading="lazy"
-                >
-              </div>
-              <h3 class="collection-card__title">Technology</h3>
-            </a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <div class="spacer" aria-hidden="true"></div>
-
-    <section class="showcase" id="showcase" aria-labelledby="showcase-title">
-      <div class="showcase__card reveal">
-        <div class="showcase__video-wrap" aria-hidden="true">
-          <video
-            class="showcase__video"
-            id="showcase-video"
-            src="/assets/rfC1p1gUmOqGA6GUrdSJt8IjRA4.mp4"
-            autoplay
-            loop
-            muted
-            playsinline
-            preload="auto"
-          ></video>
-        </div>
-
-        <div class="showcase__content">
-          <h2 class="showcase__title" data-reveal-words data-reveal-words-base-delay="100" id="showcase-title" data-words-split="true"><span class="reveal-word">Showcase</span> <span class="reveal-word">your</span> <span class="reveal-word">products</span> <span class="reveal-word">in</span> <span class="reveal-word">action</span> <span class="reveal-word">and</span> <span class="reveal-word">outline</span> <span class="reveal-word">their</span> <span class="reveal-word">benefits.</span></h2>
-        </div>
-
-        <button class="showcase__play-tab is-playing" type="button" id="showcase-play" aria-label="Pause video">
-          <span class="showcase__play-btn">
-            <img class="showcase__play-icon showcase__play-icon--play" src="/assets/icons/play.svg" alt="" width="20" height="20" aria-hidden="true">
-            <img class="showcase__play-icon showcase__play-icon--pause" src="/assets/icons/pause.svg" alt="" width="20" height="20" aria-hidden="true">
-          </span>
-          <div class="showcase__corner showcase__corner--bottom" aria-hidden="true">
-            <svg viewBox="0 0 18 18" width="18" height="18">
-              <path d="M 0 0 L 0 18 C 0 8.059 8.059 0 18 0 Z" fill="#ffffff"/>
-            </svg>
-          </div>
-          <div class="showcase__corner showcase__corner--left" aria-hidden="true">
-            <svg viewBox="0 0 18 18" width="18" height="18">
-              <path d="M 0 0 L 0 18 C 0 8.059 8.059 0 18 0 Z" fill="#ffffff"/>
-            </svg>
-          </div>
-        </button>
-      </div>
-    </section>
 
     <div class="spacer" aria-hidden="true"></div>
 
     <section class="features" id="features" aria-labelledby="features-title">
       <div class="features__inner">
         <div class="features__header reveal">
-          <h2 class="features__title" id="features-title">Highlight what makes you stand out</h2>
-          <p class="features__subtitle">Use this section to show off the key features like these.</p>
+          <h2 class="features__title" id="features-title">Why wholesale with us</h2>
+          <p class="features__subtitle">Quality linen ranges built for retailers who need stock they can trust.</p>
         </div>
 
         <div class="features__grid reveal" data-reveal-delay="120">
-          <article class="feature-card">
-            <div class="feature-card__icon-tab" aria-hidden="true">
-              <div class="feature-card__icon-shape">
-                <span class="feature-card__icon-circle">
-                  <img src="/assets/icons/lightning.svg" alt="" width="20" height="20" aria-hidden="true">
-                </span>
-                <div class="feature-card__corner feature-card__corner--bl" aria-hidden="true">
-                  <svg viewBox="0 0 18 18" width="18" height="18">
-                    <path d="M 0 0 L 0 18 C 0 8.059 8.059 0 18 0 Z" fill="#ffffff"/>
-                  </svg>
-                </div>
-                <div class="feature-card__corner feature-card__corner--tr" aria-hidden="true">
-                  <svg viewBox="0 0 18 18" width="18" height="18">
-                    <path d="M 0 0 L 0 18 C 0 8.059 8.059 0 18 0 Z" fill="#ffffff"/>
-                  </svg>
-                </div>
-              </div>
-            </div>
-            <div class="feature-card__text">
-              <h3 class="feature-card__title">Instant Digital Downloads</h3>
-              <p class="feature-card__desc">Access your digital product purchase immediately after checkout.</p>
-            </div>
-          </article>
-
           <article class="feature-card">
             <div class="feature-card__icon-tab" aria-hidden="true">
               <div class="feature-card__icon-shape">
@@ -609,8 +1176,8 @@
               </div>
             </div>
             <div class="feature-card__text">
-              <h3 class="feature-card__title">Premium Quality Materials</h3>
-              <p class="feature-card__desc">Products crafted with only the finest materials for long-lasting quality.</p>
+              <h3 class="feature-card__title">Premium Fabric Quality</h3>
+              <p class="feature-card__desc">Soft, durable bedding designed to look and feel premium at retail and hospitality scale.</p>
             </div>
           </article>
 
@@ -618,7 +1185,7 @@
             <div class="feature-card__icon-tab" aria-hidden="true">
               <div class="feature-card__icon-shape">
                 <span class="feature-card__icon-circle">
-                  <img src="/assets/icons/fast-forward.svg" alt="" width="20" height="20" aria-hidden="true">
+                  <img src="/assets/icons/lightning.svg" alt="" width="20" height="20" aria-hidden="true">
                 </span>
                 <div class="feature-card__corner feature-card__corner--bl" aria-hidden="true">
                   <svg viewBox="0 0 18 18" width="18" height="18">
@@ -633,187 +1200,44 @@
               </div>
             </div>
             <div class="feature-card__text">
-              <h3 class="feature-card__title">Fast &amp; Secure Shipping</h3>
-              <p class="feature-card__desc">Fast and secure shipping with complete tracking on all physical product orders.</p>
+              <h3 class="feature-card__title">Trade Pricing</h3>
+              <p class="feature-card__desc">Competitive wholesale rates across sheets, pillows, toppers, cushions, and bedspreads.</p>
             </div>
           </article>
-        </div>
-      </div>
-    </section>
 
-    <div class="spacer" aria-hidden="true"></div>
-
-    <section class="blog" id="blog" aria-labelledby="blog-title">
-      <div class="blog__inner">
-        <div class="popular__header reveal">
-          <div class="popular__intro">
-            <h2 class="popular__title" id="blog-title">Explore the blog</h2>
-            <p class="popular__subtitle">Share insights, boost SEO, and build trust with your audience.</p>
-          </div>
-          <a href="/blog" class="popular__link">
-            View Posts
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" width="16" height="16" aria-hidden="true">
-              <path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"/>
-            </svg>
-          </a>
-        </div>
-
-        <article class="blog-featured card-hover reveal" data-reveal-delay="120">
-          <div class="blog-featured__surface">
-            <a href="/blog/10-ways-to-use-digital-backgrounds" class="blog-featured__image-link">
-              <div class="blog-featured__badge-tab" aria-hidden="true">
-                <span class="blog-featured__badge">Must Read</span>
-                <div class="blog-featured__corner blog-featured__corner--br" aria-hidden="true">
-                  <svg viewBox="0 0 18 18" width="18" height="18">
-                    <path d="M 0 0 L 0 18 C 0 8.059 8.059 0 18 0 Z" fill="#ffffff"/>
-                  </svg>
-                </div>
-                <div class="blog-featured__corner blog-featured__corner--tr" aria-hidden="true">
-                  <svg viewBox="0 0 18 18" width="18" height="18">
-                    <path d="M 0 0 L 0 18 C 0 8.059 8.059 0 18 0 Z" fill="#ffffff"/>
-                  </svg>
-                </div>
-              </div>
-              <img
-                src="/assets/YeURr9qDfbzMOh972TLXs1JzVrM.avif"
-                alt=""
-                width="600"
-                height="400"
-                loading="lazy"
-              >
-            </a>
-
-            <div class="blog-featured__content">
-              <a href="/blog/10-ways-to-use-digital-backgrounds" class="blog-featured__text">
-                <h3 class="blog-featured__title">10 Creative Ways to Use Digital Backgrounds in Your Projects</h3>
-                <p class="blog-featured__excerpt">Discover unique and inspiring ways to incorporate digital backgrounds into your designs, from websites to social media.</p>
-              </a>
-
-              <div class="blog-featured__meta">
-                <div class="blog-featured__author">
-                  <img
-                    class="blog-featured__avatar"
-                    src="/assets/g5D0x27ea3HsjqC2pEnqN5fevwg.jpg"
-                    alt=""
-                    width="32"
-                    height="32"
-                    loading="lazy"
-                  >
-                  <div class="blog-featured__author-info">
-                    <p class="blog-featured__author-name">Written by Sarah Miller</p>
-                    <p class="blog-featured__author-role">Graphic Designer</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <a href="/blog/10-ways-to-use-digital-backgrounds" class="card-action card-action--product card-action--link blog-featured__action" aria-label="Read article">
-            <div class="card-action__shape">
-              <span class="card-action__scoop card-action__scoop--a" aria-hidden="true">
-                <img src="/assets/icons/corner-scoop.svg" alt="" width="18" height="18">
-              </span>
-              <span class="card-action__scoop card-action__scoop--b" aria-hidden="true">
-                <img src="/assets/icons/corner-scoop.svg" alt="" width="18" height="18">
-              </span>
-              <span class="card-action__btn">
-                <span class="card-action__icon">
-                  <span class="card-action__icon-rotate">
-                    <img src="/assets/icons/arrow-right.svg" alt="" width="20" height="20" aria-hidden="true">
-                  </span>
+          <article class="feature-card">
+            <div class="feature-card__icon-tab" aria-hidden="true">
+              <div class="feature-card__icon-shape">
+                <span class="feature-card__icon-circle">
+                  <img src="/assets/icons/truck.svg" alt="" width="20" height="20" aria-hidden="true">
                 </span>
-              </span>
+                <div class="feature-card__corner feature-card__corner--bl" aria-hidden="true">
+                  <svg viewBox="0 0 18 18" width="18" height="18">
+                    <path d="M 0 0 L 0 18 C 0 8.059 8.059 0 18 0 Z" fill="#ffffff"/>
+                  </svg>
+                </div>
+                <div class="feature-card__corner feature-card__corner--tr" aria-hidden="true">
+                  <svg viewBox="0 0 18 18" width="18" height="18">
+                    <path d="M 0 0 L 0 18 C 0 8.059 8.059 0 18 0 Z" fill="#ffffff"/>
+                  </svg>
+                </div>
+              </div>
             </div>
-          </a>
-        </article>
-
-        <div class="blog__grid reveal" data-reveal-delay="180">
-          <article class="blog-card">
-            <a href="/blog/social-media-templates" class="blog-card__image-link card-hover">
-              <div class="blog-card__badge-tab" aria-hidden="true">
-                <span class="blog-card__badge">Productivity</span>
-                <div class="blog-card__corner blog-card__corner--br" aria-hidden="true">
-                  <svg viewBox="0 0 18 18" width="18" height="18">
-                    <path d="M 0 0 L 0 18 C 0 8.059 8.059 0 18 0 Z" fill="#ffffff"/>
-                  </svg>
-                </div>
-                <div class="blog-card__corner blog-card__corner--tr" aria-hidden="true">
-                  <svg viewBox="0 0 18 18" width="18" height="18">
-                    <path d="M 0 0 L 0 18 C 0 8.059 8.059 0 18 0 Z" fill="#ffffff"/>
-                  </svg>
-                </div>
-              </div>
-              <img
-                src="/assets/WYToAaMLcRcweKrAL0X2g8lssU.png"
-                alt=""
-                width="400"
-                height="267"
-                loading="lazy"
-              >
-            </a>
-            <a href="/blog/social-media-templates" class="blog-card__title">How to Make Your Social Media Posts Stand Out with Templates</a>
-          </article>
-
-          <article class="blog-card">
-            <a href="/blog/mockups-beginners-guide" class="blog-card__image-link card-hover">
-              <div class="blog-card__badge-tab" aria-hidden="true">
-                <span class="blog-card__badge">Guides</span>
-                <div class="blog-card__corner blog-card__corner--br" aria-hidden="true">
-                  <svg viewBox="0 0 18 18" width="18" height="18">
-                    <path d="M 0 0 L 0 18 C 0 8.059 8.059 0 18 0 Z" fill="#ffffff"/>
-                  </svg>
-                </div>
-                <div class="blog-card__corner blog-card__corner--tr" aria-hidden="true">
-                  <svg viewBox="0 0 18 18" width="18" height="18">
-                    <path d="M 0 0 L 0 18 C 0 8.059 8.059 0 18 0 Z" fill="#ffffff"/>
-                  </svg>
-                </div>
-              </div>
-              <img
-                src="/assets/P5i0HiCYva4tClR57KyB0jWaq8E.png"
-                alt=""
-                width="400"
-                height="267"
-                loading="lazy"
-              >
-            </a>
-            <a href="/blog/mockups-beginners-guide" class="blog-card__title">The Beginner&rsquo;s Guide to Using Mockups for Your Brand</a>
-          </article>
-
-          <article class="blog-card">
-            <a href="/blog/mobile-friendly-store" class="blog-card__image-link card-hover">
-              <div class="blog-card__badge-tab" aria-hidden="true">
-                <span class="blog-card__badge">Trends</span>
-                <div class="blog-card__corner blog-card__corner--br" aria-hidden="true">
-                  <svg viewBox="0 0 18 18" width="18" height="18">
-                    <path d="M 0 0 L 0 18 C 0 8.059 8.059 0 18 0 Z" fill="#ffffff"/>
-                  </svg>
-                </div>
-                <div class="blog-card__corner blog-card__corner--tr" aria-hidden="true">
-                  <svg viewBox="0 0 18 18" width="18" height="18">
-                    <path d="M 0 0 L 0 18 C 0 8.059 8.059 0 18 0 Z" fill="#ffffff"/>
-                  </svg>
-                </div>
-              </div>
-              <img
-                src="/assets/ZuZNJXHilGW5jzE1Qgvldb8Ko.png"
-                alt=""
-                width="400"
-                height="267"
-                loading="lazy"
-              >
-            </a>
-            <a href="/blog/mobile-friendly-store" class="blog-card__title">Why a Fast, Mobile-Friendly Store Matters for Your Customers</a>
+            <div class="feature-card__text">
+              <h3 class="feature-card__title">Reliable Fulfilment</h3>
+              <p class="feature-card__desc">Dependable wholesale supply so your shelves stay stocked with best-selling linen ranges.</p>
+            </div>
           </article>
         </div>
       </div>
     </section>
+
 
     <div class="spacer" aria-hidden="true"></div>
 
     <footer class="footer reveal">
       <div class="footer__logo-tab">
-        <a href="/" class="footer__logo" aria-label="APC Containers home"><img src="/assets/apc-logo.png" alt="APC Containers" width="64" height="42"></a>
+        <a href="/" class="footer__logo" aria-label="The Luxe Linen home"><img src="/assets/logo.png" alt="The Luxe Linen" width="56" height="56"></a>
         <div class="footer__corner footer__corner--bl" aria-hidden="true">
           <svg viewBox="0 0 18 18" width="18" height="18">
             <path d="M 0 0 L 0 18 C 0 8.059 8.059 0 18 0 Z" fill="#ffffff"/>
@@ -830,8 +1254,15 @@
         <div class="footer__main">
           <div class="footer__newsletter">
             <div class="footer__newsletter-content">
-              <h3 class="footer__heading">Join our newsletter and get 20% off your first purchase with us.</h3>
-              <form class="footer__form" action="#" method="post">
+              <h3 class="footer__heading">Join our wholesale list for new ranges and trade offers.</h3>
+              <form
+                class="footer__form"
+                data-contact-form
+                data-form-type="newsletter"
+                action="/api/contact.php"
+                method="post"
+              >
+                <input class="form-honeypot" type="text" name="fax_number" value="" tabindex="-1" autocomplete="off" aria-hidden="true">
                 <input
                   type="email"
                   name="email"
@@ -841,21 +1272,21 @@
                   required
                 >
                 <button type="submit" class="footer__submit">Join</button>
+                <p class="form-status form-status--footer" data-form-status hidden></p>
               </form>
             </div>
             <p class="footer__credit">
-              Created by &copy; 2024
+              The Luxe Linen &copy; 2026
             </p>
           </div>
 
           <div class="footer__sitemap">
             <div class="footer__column">
               <p class="footer__column-title">Pages</p>
-              <ul class="footer__links">
+                                                        <ul class="footer__links">
                 <li><a href="/">Home</a></li>
-                <li><a href="/shop">Shop</a></li>
-                <li><a href="/collections">Collections</a></li>
-                <li><a href="/blog">Blog</a></li>
+                <li><a href="/about-us">About Us</a></li>
+                <li><a href="/support">Support</a></li>
               </ul>
             </div>
             <div class="footer__column">
@@ -877,7 +1308,9 @@
 
   <script src="/js/animations.js"></script>
   <script src="/js/main.js"></script>
+  <script src="/js/fluid-carousel.js"></script>
+  <script src="/js/contact-form.js"></script>
   <script src="/js/search-cart.js"></script>
-  <script src="/js/promo-modal.js"></script>
+  <script src="/js/product-lightbox.js"></script>
 </body>
 </html>
