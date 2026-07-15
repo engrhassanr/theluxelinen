@@ -25,14 +25,13 @@
   <link rel="preload" href="/assets/fonts/Inter-500-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/css/style.css">
   <script>
-    // Capture product slide hash, strip it, and pin to top before paint
-    // (otherwise refresh lands mid-hero on the #slide element)
+    // Strip legacy #slide hashes before paint (no mid-hero jump on load)
     if ("scrollRestoration" in history) history.scrollRestoration = "manual";
     window.__heroSlideHash = (location.hash || "").replace(/^#/, "");
     if (window.__heroSlideHash) {
       history.replaceState(null, "", location.pathname + location.search);
+      window.scrollTo(0, 0);
     }
-    window.scrollTo(0, 0);
   </script>
 </head>
 <body>
@@ -116,140 +115,140 @@
           <img class="fluid-carousel__ambient-img" src="/assets/products/topper-plush.png" alt="">
         </div>
         <div class="fluid-carousel__track">
-          <div class="fluid-carousel__slide" id="topper-plush" data-index="0">
+          <div class="fluid-carousel__slide" data-slide-id="topper-plush" data-index="0">
             <img src="/assets/products/topper-plush.png" alt="Plush Baffle-Box Mattress Topper" width="800" height="500" draggable="false" loading="eager" decoding="async">
             <div class="fluid-carousel__caption">
               <span class="fluid-carousel__eyebrow">Best Seller</span>
               <h2 class="fluid-carousel__title">Plush Baffle-Box Mattress Topper</h2>
             </div>
           </div>
-          <div class="fluid-carousel__slide" id="topper-10cm" data-index="1">
+          <div class="fluid-carousel__slide" data-slide-id="topper-10cm" data-index="1">
             <img src="/assets/products/topper-10cm.png" alt="10cm Thick Quilted Mattress Topper" width="800" height="500" draggable="false" loading="eager" decoding="async">
             <div class="fluid-carousel__caption">
               <span class="fluid-carousel__eyebrow">Best Seller</span>
               <h2 class="fluid-carousel__title">10cm Thick Quilted Mattress Topper</h2>
             </div>
           </div>
-          <div class="fluid-carousel__slide" id="topper-easy-fit" data-index="2">
+          <div class="fluid-carousel__slide" data-slide-id="topper-easy-fit" data-index="2">
             <img src="/assets/products/topper-easy-fit.png" alt="Easy-Fit Mattress Topper" width="800" height="500" draggable="false" loading="eager" decoding="async">
             <div class="fluid-carousel__caption">
               <span class="fluid-carousel__eyebrow">Best Seller</span>
               <h2 class="fluid-carousel__title">Easy-Fit Mattress Topper</h2>
             </div>
           </div>
-          <div class="fluid-carousel__slide" id="v-shape-pillow" data-index="3">
+          <div class="fluid-carousel__slide" data-slide-id="v-shape-pillow" data-index="3">
             <img src="/assets/products/v-shape-pillow.jpg" alt="V-Shape Support Pillow" width="800" height="500" draggable="false" loading="eager" decoding="async">
             <div class="fluid-carousel__caption">
               <span class="fluid-carousel__eyebrow">Best Seller</span>
               <h2 class="fluid-carousel__title">V-Shape Support Pillow</h2>
             </div>
           </div>
-          <div class="fluid-carousel__slide" id="v-shape-pillowcase" data-index="4">
+          <div class="fluid-carousel__slide" data-slide-id="v-shape-pillowcase" data-index="4">
             <img src="/assets/products/v-shape-pillowcase.png" alt="Chocolate V-Shape Pillowcase" width="800" height="500" draggable="false" loading="eager" decoding="async">
             <div class="fluid-carousel__caption">
               <span class="fluid-carousel__eyebrow">Best Seller</span>
               <h2 class="fluid-carousel__title">Chocolate V-Shape Pillowcase</h2>
             </div>
           </div>
-          <div class="fluid-carousel__slide" id="v-shape-pillowcase-navy" data-index="5">
+          <div class="fluid-carousel__slide" data-slide-id="v-shape-pillowcase-navy" data-index="5">
             <img src="/assets/products/v-shape-pillowcase-navy.png" alt="Navy V-Shape Pillowcase" width="800" height="500" draggable="false" loading="eager" decoding="async">
             <div class="fluid-carousel__caption">
               <span class="fluid-carousel__eyebrow">Best Seller</span>
               <h2 class="fluid-carousel__title">Navy V-Shape Pillowcase</h2>
             </div>
           </div>
-          <div class="fluid-carousel__slide" id="booster-cushion" data-index="6">
+          <div class="fluid-carousel__slide" data-slide-id="booster-cushion" data-index="6">
             <img src="/assets/products/booster-cushion.png" alt="Teal Booster Cushion" width="800" height="500" draggable="false" loading="eager" decoding="async">
             <div class="fluid-carousel__caption">
               <span class="fluid-carousel__eyebrow">Best Seller</span>
               <h2 class="fluid-carousel__title">Teal Booster Cushion</h2>
             </div>
           </div>
-          <div class="fluid-carousel__slide" id="booster-copper" data-index="7">
+          <div class="fluid-carousel__slide" data-slide-id="booster-copper" data-index="7">
             <img src="/assets/products/booster-copper.png" alt="Copper Booster Cushion" width="800" height="500" draggable="false" loading="eager" decoding="async">
             <div class="fluid-carousel__caption">
               <span class="fluid-carousel__eyebrow">Best Seller</span>
               <h2 class="fluid-carousel__title">Copper Booster Cushion</h2>
             </div>
           </div>
-          <div class="fluid-carousel__slide" id="booster-maroon" data-index="8">
+          <div class="fluid-carousel__slide" data-slide-id="booster-maroon" data-index="8">
             <img src="/assets/products/booster-maroon.png" alt="Maroon Booster Cushion" width="800" height="500" draggable="false" loading="eager" decoding="async">
             <div class="fluid-carousel__caption">
               <span class="fluid-carousel__eyebrow">Best Seller</span>
               <h2 class="fluid-carousel__title">Maroon Booster Cushion</h2>
             </div>
           </div>
-          <div class="fluid-carousel__slide" id="fitted-sheet" data-index="9">
+          <div class="fluid-carousel__slide" data-slide-id="fitted-sheet" data-index="9">
             <img src="/assets/products/fitted-sheet.png" alt="Black Satin Stripe Fitted Sheet" width="800" height="500" draggable="false" loading="eager" decoding="async">
             <div class="fluid-carousel__caption">
               <span class="fluid-carousel__eyebrow">Sheets</span>
               <h2 class="fluid-carousel__title">Black Satin Stripe Fitted Sheet</h2>
             </div>
           </div>
-          <div class="fluid-carousel__slide" id="pillowcase" data-index="10">
+          <div class="fluid-carousel__slide" data-slide-id="pillowcase" data-index="10">
             <img src="/assets/products/pillowcase.png" alt="Cream Damask Stripe Pillowcase" width="800" height="500" draggable="false" loading="eager" decoding="async">
             <div class="fluid-carousel__caption">
               <span class="fluid-carousel__eyebrow">Pillowcases</span>
               <h2 class="fluid-carousel__title">Cream Damask Stripe Pillowcase</h2>
             </div>
           </div>
-          <div class="fluid-carousel__slide" id="filled-pillow" data-index="11">
+          <div class="fluid-carousel__slide" data-slide-id="filled-pillow" data-index="11">
             <img src="/assets/products/filled-pillow.jpg" alt="Luxe Filled Bed Pillow" width="800" height="500" draggable="false" loading="eager" decoding="async">
             <div class="fluid-carousel__caption">
               <span class="fluid-carousel__eyebrow">Pillows</span>
               <h2 class="fluid-carousel__title">Luxe Filled Bed Pillow</h2>
             </div>
           </div>
-          <div class="fluid-carousel__slide" id="filled-cushion" data-index="12">
+          <div class="fluid-carousel__slide" data-slide-id="filled-cushion" data-index="12">
             <img src="/assets/products/filled-cushion.png" alt="Plush Filled Cushion" width="800" height="500" draggable="false" loading="eager" decoding="async">
             <div class="fluid-carousel__caption">
               <span class="fluid-carousel__eyebrow">Cushions</span>
               <h2 class="fluid-carousel__title">Plush Filled Cushion</h2>
             </div>
           </div>
-          <div class="fluid-carousel__slide" id="bedspread" data-index="13">
+          <div class="fluid-carousel__slide" data-slide-id="bedspread" data-index="13">
             <img src="/assets/products/bedspread.png" alt="Charcoal Diamond Quilt Bedspread" width="800" height="500" draggable="false" loading="eager" decoding="async">
             <div class="fluid-carousel__caption">
               <span class="fluid-carousel__eyebrow">Bedspreads</span>
               <h2 class="fluid-carousel__title">Charcoal Diamond Quilt Bedspread</h2>
             </div>
           </div>
-          <div class="fluid-carousel__slide" id="quilted-pillowcases" data-index="14">
+          <div class="fluid-carousel__slide" data-slide-id="quilted-pillowcases" data-index="14">
             <img src="/assets/products/quilted-pillowcases.png" alt="Dark Grey Quilted Pillowcases" width="800" height="500" draggable="false" loading="eager" decoding="async">
             <div class="fluid-carousel__caption">
               <span class="fluid-carousel__eyebrow">Pillowcases</span>
               <h2 class="fluid-carousel__title">Dark Grey Quilted Pillowcases</h2>
             </div>
           </div>
-          <div class="fluid-carousel__slide" id="reversible-black-cream" data-index="15">
+          <div class="fluid-carousel__slide" data-slide-id="reversible-black-cream" data-index="15">
             <img src="/assets/products/reversible-black-cream.jpg" alt="Reversible Bedspread — Black &amp; Cream" width="800" height="500" draggable="false" loading="eager" decoding="async">
             <div class="fluid-carousel__caption">
               <span class="fluid-carousel__eyebrow">Bedspreads</span>
               <h2 class="fluid-carousel__title">Reversible Bedspread — Black &amp; Cream</h2>
             </div>
           </div>
-          <div class="fluid-carousel__slide" id="reversible-black-grey" data-index="16">
+          <div class="fluid-carousel__slide" data-slide-id="reversible-black-grey" data-index="16">
             <img src="/assets/products/reversible-black-grey.jpg" alt="Reversible Bedspread — Black &amp; Grey" width="800" height="500" draggable="false" loading="eager" decoding="async">
             <div class="fluid-carousel__caption">
               <span class="fluid-carousel__eyebrow">Bedspreads</span>
               <h2 class="fluid-carousel__title">Reversible Bedspread — Black &amp; Grey</h2>
             </div>
           </div>
-          <div class="fluid-carousel__slide" id="reversible-black-red" data-index="17">
+          <div class="fluid-carousel__slide" data-slide-id="reversible-black-red" data-index="17">
             <img src="/assets/products/reversible-black-red.jpg" alt="Reversible Bedspread — Black &amp; Red" width="800" height="500" draggable="false" loading="eager" decoding="async">
             <div class="fluid-carousel__caption">
               <span class="fluid-carousel__eyebrow">Bedspreads</span>
               <h2 class="fluid-carousel__title">Reversible Bedspread — Black &amp; Red</h2>
             </div>
           </div>
-          <div class="fluid-carousel__slide" id="reversible-grey-black" data-index="18">
+          <div class="fluid-carousel__slide" data-slide-id="reversible-grey-black" data-index="18">
             <img src="/assets/products/reversible-grey-black.jpg" alt="Reversible Bedspread — Grey &amp; Black" width="800" height="500" draggable="false" loading="eager" decoding="async">
             <div class="fluid-carousel__caption">
               <span class="fluid-carousel__eyebrow">Bedspreads</span>
               <h2 class="fluid-carousel__title">Reversible Bedspread — Grey &amp; Black</h2>
             </div>
           </div>
-          <div class="fluid-carousel__slide" id="reversible-purple-cream" data-index="19">
+          <div class="fluid-carousel__slide" data-slide-id="reversible-purple-cream" data-index="19">
             <img src="/assets/products/reversible-purple-cream.jpg" alt="Reversible Bedspread — Purple &amp; Cream" width="800" height="500" draggable="false" loading="eager" decoding="async">
             <div class="fluid-carousel__caption">
               <span class="fluid-carousel__eyebrow">Bedspreads</span>
@@ -286,7 +285,7 @@
 
         <div class="popular__grid popular__grid--bestsellers reveal" data-reveal-delay="120">
           <article class="product-card" data-category="toppers">
-            <a href="#topper-plush" class="product-card__image-link card-hover">
+            <a data-slide="topper-plush" class="product-card__image-link card-hover" role="button" tabindex="0">
               <img
                 src="/assets/products/topper-plush.png"
                 alt="Plush Baffle-Box Mattress Topper"
@@ -314,7 +313,7 @@
               </div>
             </a>
             <div class="product-card__content">
-              <a href="#topper-plush" class="product-card__info">
+              <a data-slide="topper-plush" class="product-card__info" role="button" tabindex="0">
                 <h3 class="product-card__name">Plush Baffle-Box Mattress Topper</h3>
                 <div class="product-card__meta">
                   <span class="product-card__category">Toppers</span>
@@ -324,7 +323,7 @@
             </div>
           </article>
           <article class="product-card" data-category="toppers">
-            <a href="#topper-10cm" class="product-card__image-link card-hover">
+            <a data-slide="topper-10cm" class="product-card__image-link card-hover" role="button" tabindex="0">
               <img
                 src="/assets/products/topper-10cm.png"
                 alt="10cm Thick Quilted Mattress Topper"
@@ -352,7 +351,7 @@
               </div>
             </a>
             <div class="product-card__content">
-              <a href="#topper-10cm" class="product-card__info">
+              <a data-slide="topper-10cm" class="product-card__info" role="button" tabindex="0">
                 <h3 class="product-card__name">10cm Thick Quilted Mattress Topper</h3>
                 <div class="product-card__meta">
                   <span class="product-card__category">Toppers</span>
@@ -362,7 +361,7 @@
             </div>
           </article>
           <article class="product-card" data-category="toppers">
-            <a href="#topper-easy-fit" class="product-card__image-link card-hover">
+            <a data-slide="topper-easy-fit" class="product-card__image-link card-hover" role="button" tabindex="0">
               <img
                 src="/assets/products/topper-easy-fit.png"
                 alt="Easy-Fit Mattress Topper"
@@ -390,7 +389,7 @@
               </div>
             </a>
             <div class="product-card__content">
-              <a href="#topper-easy-fit" class="product-card__info">
+              <a data-slide="topper-easy-fit" class="product-card__info" role="button" tabindex="0">
                 <h3 class="product-card__name">Easy-Fit Mattress Topper</h3>
                 <div class="product-card__meta">
                   <span class="product-card__category">Toppers</span>
@@ -400,7 +399,7 @@
             </div>
           </article>
           <article class="product-card" data-category="v-shape">
-            <a href="#v-shape-pillow" class="product-card__image-link card-hover">
+            <a data-slide="v-shape-pillow" class="product-card__image-link card-hover" role="button" tabindex="0">
               <img
                 src="/assets/products/v-shape-pillow.jpg"
                 alt="V-Shape Support Pillow"
@@ -428,7 +427,7 @@
               </div>
             </a>
             <div class="product-card__content">
-              <a href="#v-shape-pillow" class="product-card__info">
+              <a data-slide="v-shape-pillow" class="product-card__info" role="button" tabindex="0">
                 <h3 class="product-card__name">V-Shape Support Pillow</h3>
                 <div class="product-card__meta">
                   <span class="product-card__category">V Shape</span>
@@ -438,7 +437,7 @@
             </div>
           </article>
           <article class="product-card" data-category="v-shape">
-            <a href="#v-shape-pillowcase" class="product-card__image-link card-hover">
+            <a data-slide="v-shape-pillowcase" class="product-card__image-link card-hover" role="button" tabindex="0">
               <img
                 src="/assets/products/v-shape-pillowcase.png"
                 alt="Chocolate V-Shape Pillowcase"
@@ -466,7 +465,7 @@
               </div>
             </a>
             <div class="product-card__content">
-              <a href="#v-shape-pillowcase" class="product-card__info">
+              <a data-slide="v-shape-pillowcase" class="product-card__info" role="button" tabindex="0">
                 <h3 class="product-card__name">Chocolate V-Shape Pillowcase</h3>
                 <div class="product-card__meta">
                   <span class="product-card__category">V Shape</span>
@@ -476,7 +475,7 @@
             </div>
           </article>
           <article class="product-card" data-category="v-shape">
-            <a href="#v-shape-pillowcase-navy" class="product-card__image-link card-hover">
+            <a data-slide="v-shape-pillowcase-navy" class="product-card__image-link card-hover" role="button" tabindex="0">
               <img
                 src="/assets/products/v-shape-pillowcase-navy.png"
                 alt="Navy V-Shape Pillowcase"
@@ -504,7 +503,7 @@
               </div>
             </a>
             <div class="product-card__content">
-              <a href="#v-shape-pillowcase-navy" class="product-card__info">
+              <a data-slide="v-shape-pillowcase-navy" class="product-card__info" role="button" tabindex="0">
                 <h3 class="product-card__name">Navy V-Shape Pillowcase</h3>
                 <div class="product-card__meta">
                   <span class="product-card__category">V Shape</span>
@@ -514,7 +513,7 @@
             </div>
           </article>
           <article class="product-card" data-category="booster-cushions">
-            <a href="#booster-cushion" class="product-card__image-link card-hover">
+            <a data-slide="booster-cushion" class="product-card__image-link card-hover" role="button" tabindex="0">
               <img
                 src="/assets/products/booster-cushion.png"
                 alt="Teal Booster Cushion"
@@ -542,7 +541,7 @@
               </div>
             </a>
             <div class="product-card__content">
-              <a href="#booster-cushion" class="product-card__info">
+              <a data-slide="booster-cushion" class="product-card__info" role="button" tabindex="0">
                 <h3 class="product-card__name">Teal Booster Cushion</h3>
                 <div class="product-card__meta">
                   <span class="product-card__category">Booster Cushions</span>
@@ -552,7 +551,7 @@
             </div>
           </article>
           <article class="product-card" data-category="booster-cushions">
-            <a href="#booster-copper" class="product-card__image-link card-hover">
+            <a data-slide="booster-copper" class="product-card__image-link card-hover" role="button" tabindex="0">
               <img
                 src="/assets/products/booster-copper.png"
                 alt="Copper Booster Cushion"
@@ -580,7 +579,7 @@
               </div>
             </a>
             <div class="product-card__content">
-              <a href="#booster-copper" class="product-card__info">
+              <a data-slide="booster-copper" class="product-card__info" role="button" tabindex="0">
                 <h3 class="product-card__name">Copper Booster Cushion</h3>
                 <div class="product-card__meta">
                   <span class="product-card__category">Booster Cushions</span>
@@ -590,7 +589,7 @@
             </div>
           </article>
           <article class="product-card" data-category="booster-cushions">
-            <a href="#booster-maroon" class="product-card__image-link card-hover">
+            <a data-slide="booster-maroon" class="product-card__image-link card-hover" role="button" tabindex="0">
               <img
                 src="/assets/products/booster-maroon.png"
                 alt="Maroon Booster Cushion"
@@ -618,7 +617,7 @@
               </div>
             </a>
             <div class="product-card__content">
-              <a href="#booster-maroon" class="product-card__info">
+              <a data-slide="booster-maroon" class="product-card__info" role="button" tabindex="0">
                 <h3 class="product-card__name">Maroon Booster Cushion</h3>
                 <div class="product-card__meta">
                   <span class="product-card__category">Booster Cushions</span>
@@ -644,7 +643,7 @@
 
         <div class="popular__grid reveal" data-reveal-delay="120">
           <article class="product-card" data-category="sheets">
-            <a href="#fitted-sheet" class="product-card__image-link card-hover">
+            <a data-slide="fitted-sheet" class="product-card__image-link card-hover" role="button" tabindex="0">
               <img
                 src="/assets/products/fitted-sheet.png"
                 alt="Black Satin Stripe Fitted Sheet"
@@ -671,7 +670,7 @@
               </div>
             </a>
             <div class="product-card__content">
-              <a href="#fitted-sheet" class="product-card__info">
+              <a data-slide="fitted-sheet" class="product-card__info" role="button" tabindex="0">
                 <h3 class="product-card__name">Black Satin Stripe Fitted Sheet</h3>
                 <div class="product-card__meta">
                   <span class="product-card__category">Sheets</span>
@@ -681,7 +680,7 @@
             </div>
           </article>
           <article class="product-card" data-category="pillowcases">
-            <a href="#pillowcase" class="product-card__image-link card-hover">
+            <a data-slide="pillowcase" class="product-card__image-link card-hover" role="button" tabindex="0">
               <img
                 src="/assets/products/pillowcase.png"
                 alt="Cream Damask Stripe Pillowcase"
@@ -708,7 +707,7 @@
               </div>
             </a>
             <div class="product-card__content">
-              <a href="#pillowcase" class="product-card__info">
+              <a data-slide="pillowcase" class="product-card__info" role="button" tabindex="0">
                 <h3 class="product-card__name">Cream Damask Stripe Pillowcase</h3>
                 <div class="product-card__meta">
                   <span class="product-card__category">Pillowcases</span>
@@ -718,7 +717,7 @@
             </div>
           </article>
           <article class="product-card" data-category="pillows">
-            <a href="#filled-pillow" class="product-card__image-link card-hover">
+            <a data-slide="filled-pillow" class="product-card__image-link card-hover" role="button" tabindex="0">
               <img
                 src="/assets/products/filled-pillow.jpg"
                 alt="Luxe Filled Bed Pillow"
@@ -745,7 +744,7 @@
               </div>
             </a>
             <div class="product-card__content">
-              <a href="#filled-pillow" class="product-card__info">
+              <a data-slide="filled-pillow" class="product-card__info" role="button" tabindex="0">
                 <h3 class="product-card__name">Luxe Filled Bed Pillow</h3>
                 <div class="product-card__meta">
                   <span class="product-card__category">Pillows</span>
@@ -755,7 +754,7 @@
             </div>
           </article>
           <article class="product-card" data-category="cushions">
-            <a href="#filled-cushion" class="product-card__image-link card-hover">
+            <a data-slide="filled-cushion" class="product-card__image-link card-hover" role="button" tabindex="0">
               <img
                 src="/assets/products/filled-cushion.png"
                 alt="Plush Filled Cushion"
@@ -782,7 +781,7 @@
               </div>
             </a>
             <div class="product-card__content">
-              <a href="#filled-cushion" class="product-card__info">
+              <a data-slide="filled-cushion" class="product-card__info" role="button" tabindex="0">
                 <h3 class="product-card__name">Plush Filled Cushion</h3>
                 <div class="product-card__meta">
                   <span class="product-card__category">Cushions</span>
@@ -792,7 +791,7 @@
             </div>
           </article>
           <article class="product-card" data-category="bedspreads">
-            <a href="#bedspread" class="product-card__image-link card-hover">
+            <a data-slide="bedspread" class="product-card__image-link card-hover" role="button" tabindex="0">
               <img
                 src="/assets/products/bedspread.png"
                 alt="Charcoal Diamond Quilt Bedspread"
@@ -819,7 +818,7 @@
               </div>
             </a>
             <div class="product-card__content">
-              <a href="#bedspread" class="product-card__info">
+              <a data-slide="bedspread" class="product-card__info" role="button" tabindex="0">
                 <h3 class="product-card__name">Charcoal Diamond Quilt Bedspread</h3>
                 <div class="product-card__meta">
                   <span class="product-card__category">Bedspreads</span>
@@ -829,7 +828,7 @@
             </div>
           </article>
           <article class="product-card" data-category="pillowcases">
-            <a href="#quilted-pillowcases" class="product-card__image-link card-hover">
+            <a data-slide="quilted-pillowcases" class="product-card__image-link card-hover" role="button" tabindex="0">
               <img
                 src="/assets/products/quilted-pillowcases.png"
                 alt="Dark Grey Quilted Pillowcases"
@@ -856,7 +855,7 @@
               </div>
             </a>
             <div class="product-card__content">
-              <a href="#quilted-pillowcases" class="product-card__info">
+              <a data-slide="quilted-pillowcases" class="product-card__info" role="button" tabindex="0">
                 <h3 class="product-card__name">Dark Grey Quilted Pillowcases</h3>
                 <div class="product-card__meta">
                   <span class="product-card__category">Pillowcases</span>
@@ -866,7 +865,7 @@
             </div>
           </article>
           <article class="product-card" data-category="bedspreads">
-            <a href="#reversible-black-cream" class="product-card__image-link card-hover">
+            <a data-slide="reversible-black-cream" class="product-card__image-link card-hover" role="button" tabindex="0">
               <img
                 src="/assets/products/reversible-black-cream.jpg"
                 alt="Reversible Bedspread — Black &amp; Cream"
@@ -893,7 +892,7 @@
               </div>
             </a>
             <div class="product-card__content">
-              <a href="#reversible-black-cream" class="product-card__info">
+              <a data-slide="reversible-black-cream" class="product-card__info" role="button" tabindex="0">
                 <h3 class="product-card__name">Reversible Bedspread — Black &amp; Cream</h3>
                 <div class="product-card__meta">
                   <span class="product-card__category">Bedspreads</span>
@@ -903,7 +902,7 @@
             </div>
           </article>
           <article class="product-card" data-category="bedspreads">
-            <a href="#reversible-black-grey" class="product-card__image-link card-hover">
+            <a data-slide="reversible-black-grey" class="product-card__image-link card-hover" role="button" tabindex="0">
               <img
                 src="/assets/products/reversible-black-grey.jpg"
                 alt="Reversible Bedspread — Black &amp; Grey"
@@ -930,7 +929,7 @@
               </div>
             </a>
             <div class="product-card__content">
-              <a href="#reversible-black-grey" class="product-card__info">
+              <a data-slide="reversible-black-grey" class="product-card__info" role="button" tabindex="0">
                 <h3 class="product-card__name">Reversible Bedspread — Black &amp; Grey</h3>
                 <div class="product-card__meta">
                   <span class="product-card__category">Bedspreads</span>
@@ -940,7 +939,7 @@
             </div>
           </article>
           <article class="product-card" data-category="bedspreads">
-            <a href="#reversible-black-red" class="product-card__image-link card-hover">
+            <a data-slide="reversible-black-red" class="product-card__image-link card-hover" role="button" tabindex="0">
               <img
                 src="/assets/products/reversible-black-red.jpg"
                 alt="Reversible Bedspread — Black &amp; Red"
@@ -967,7 +966,7 @@
               </div>
             </a>
             <div class="product-card__content">
-              <a href="#reversible-black-red" class="product-card__info">
+              <a data-slide="reversible-black-red" class="product-card__info" role="button" tabindex="0">
                 <h3 class="product-card__name">Reversible Bedspread — Black &amp; Red</h3>
                 <div class="product-card__meta">
                   <span class="product-card__category">Bedspreads</span>
@@ -977,7 +976,7 @@
             </div>
           </article>
           <article class="product-card" data-category="bedspreads">
-            <a href="#reversible-grey-black" class="product-card__image-link card-hover">
+            <a data-slide="reversible-grey-black" class="product-card__image-link card-hover" role="button" tabindex="0">
               <img
                 src="/assets/products/reversible-grey-black.jpg"
                 alt="Reversible Bedspread — Grey &amp; Black"
@@ -1004,7 +1003,7 @@
               </div>
             </a>
             <div class="product-card__content">
-              <a href="#reversible-grey-black" class="product-card__info">
+              <a data-slide="reversible-grey-black" class="product-card__info" role="button" tabindex="0">
                 <h3 class="product-card__name">Reversible Bedspread — Grey &amp; Black</h3>
                 <div class="product-card__meta">
                   <span class="product-card__category">Bedspreads</span>
@@ -1014,7 +1013,7 @@
             </div>
           </article>
           <article class="product-card" data-category="bedspreads">
-            <a href="#reversible-purple-cream" class="product-card__image-link card-hover">
+            <a data-slide="reversible-purple-cream" class="product-card__image-link card-hover" role="button" tabindex="0">
               <img
                 src="/assets/products/reversible-purple-cream.jpg"
                 alt="Reversible Bedspread — Purple &amp; Cream"
@@ -1041,7 +1040,7 @@
               </div>
             </a>
             <div class="product-card__content">
-              <a href="#reversible-purple-cream" class="product-card__info">
+              <a data-slide="reversible-purple-cream" class="product-card__info" role="button" tabindex="0">
                 <h3 class="product-card__name">Reversible Bedspread — Purple &amp; Cream</h3>
                 <div class="product-card__meta">
                   <span class="product-card__category">Bedspreads</span>
@@ -1252,52 +1251,48 @@
 
       <div class="footer__inner">
         <div class="footer__main">
-          <div class="footer__newsletter">
-            <div class="footer__newsletter-content">
-              <h3 class="footer__heading">Join our wholesale list for new ranges and trade offers.</h3>
-              <form
-                class="footer__form"
-                data-contact-form
-                data-form-type="newsletter"
-                action="/api/contact.php"
-                method="post"
-              >
-                <input class="form-honeypot" type="text" name="fax_number" value="" tabindex="-1" autocomplete="off" aria-hidden="true">
-                <input
-                  type="email"
-                  name="email"
-                  class="footer__input"
-                  placeholder="Your Email Address"
-                  autocomplete="email"
-                  required
-                >
-                <button type="submit" class="footer__submit">Join</button>
-                <p class="form-status form-status--footer" data-form-status hidden></p>
-              </form>
-            </div>
-            <p class="footer__credit">
-              The Luxe Linen &copy; 2026
-            </p>
-          </div>
-
-          <div class="footer__sitemap">
-            <div class="footer__column">
-              <p class="footer__column-title">Pages</p>
-                                                        <ul class="footer__links">
-                <li><a href="/">Home</a></li>
-                <li><a href="/about-us">About Us</a></li>
-                <li><a href="/support">Support</a></li>
-              </ul>
-            </div>
-            <div class="footer__column">
-              <p class="footer__column-title">Information</p>
+          <div class="footer__top">
+            <div class="footer__column footer__column--contact">
+              <p class="footer__column-title">Contact</p>
               <ul class="footer__links">
-                <li><a href="/terms-and-conditions">Terms &amp; Conditions</a></li>
-                <li><a href="/privacy-policy">Privacy policy</a></li>
-                <li><a href="/support">Support</a></li>
-                <li><a href="/404">404</a></li>
+                <li><a href="mailto:info@theluxelinen.ie">info@theluxelinen.ie</a></li>
+                <li><a href="tel:+353892719347">+353 89 271 9347</a></li>
               </ul>
             </div>
+            <div class="footer__sitemap">
+              <div class="footer__column">
+                <p class="footer__column-title">Pages</p>
+                <ul class="footer__links">
+                  <li><a href="/">Home</a></li>
+                  <li><a href="/about-us">About Us</a></li>
+                  <li><a href="/support">Support</a></li>
+                </ul>
+              </div>
+              <div class="footer__column">
+                <p class="footer__column-title">Information</p>
+                <ul class="footer__links">
+                  <li><a href="/terms-and-conditions">Terms &amp; Conditions</a></li>
+                  <li><a href="/privacy-policy">Privacy policy</a></li>
+                  <li><a href="/404">404</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer__bottom">
+            <p class="footer__credit">
+              theluxelinen &copy; 2026
+            </p>
+            <a
+              class="footer__social"
+              href="https://www.instagram.com/theluxelinen"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" width="18" height="18">
+                <path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"/>
+              </svg>
+            </a>
           </div>
         </div>
       </div>
@@ -1311,6 +1306,5 @@
   <script src="/js/fluid-carousel.js"></script>
   <script src="/js/contact-form.js"></script>
   <script src="/js/search-cart.js"></script>
-  <script src="/js/product-lightbox.js"></script>
 </body>
 </html>

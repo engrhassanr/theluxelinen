@@ -1,9 +1,22 @@
-# The Luxe Linen static site — Apache / cPanel / Hostinger
+# The Luxe Linen — Apache / cPanel / Hostinger
 
-DirectoryIndex index.html
+DirectoryIndex index.html index.php
 
-# Custom 404 page
-ErrorDocument 404 /404/
+# Disable directory listings
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # /about-us → /about-us/ when that folder has index.html
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}/index.html -f
+  RewriteRule ^(.+[^/])$ /$1/ [R=301,L]
+</IfModule>
+
+# Custom 404 page (existing page at /404/index.html)
+ErrorDocument 404 /404/index.html
 
 # Removed commerce routes — send old URLs home
 RedirectMatch 301 ^/blog(/.*)?$ /
@@ -11,16 +24,13 @@ RedirectMatch 301 ^/shop(/.*)?$ /
 RedirectMatch 301 ^/collections(/.*)?$ /
 RedirectMatch 301 ^/cart(/.*)?$ /
 
-# Disable directory listings
-Options -Indexes
-
 # MIME types for modern assets
 AddType image/avif avif
 AddType video/mp4 mp4
 AddType font/woff2 woff2
 AddType application/json json
 
-# Cache static assets (optional — improves performance)
+# Cache static assets
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresByType text/css "access plus 1 month"

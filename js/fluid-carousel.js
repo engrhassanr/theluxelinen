@@ -2,7 +2,7 @@
   const root = document.getElementById("fluid-carousel");
   if (!root) return;
 
-  // Slides use id="#…"; stop browser from jumping the page on every hash hit
+  // No fragment ids on slides — old #slide hashes used to yank scroll mid-page
   if ("scrollRestoration" in history) {
     history.scrollRestoration = "manual";
   }
@@ -23,22 +23,21 @@
   // Flat transforms only on phones — avoid 3D perspective push on iOS
   const phoneMq = window.matchMedia("(max-width: 809.98px)");
 
+  function slideKey(slide) {
+    return slide.getAttribute("data-slide-id") || slide.id || "";
+  }
+
+  function findSlideIndex(id) {
+    if (!id) return -1;
+    return slides.findIndex((slide) => slideKey(slide) === id);
+  }
+
   function indexFromHash() {
     const id =
       (typeof window.__heroSlideHash === "string" && window.__heroSlideHash) ||
       window.location.hash.replace(/^#/, "");
-    if (!id) return 0;
-    const match = slides.findIndex((slide) => slide.id === id);
+    const match = findSlideIndex(id);
     return match >= 0 ? match : 0;
-  }
-
-  function pinPageToTop() {
-    window.scrollTo(0, 0);
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
-    if (window.__lenis?.scrollTo) {
-      window.__lenis.scrollTo(0, { immediate: true });
-    }
   }
 
   let index = indexFromHash();
@@ -186,7 +185,6 @@
       slide.style.pointerEvents = s.interactive ? "auto" : "none";
       slide.classList.toggle("is-active", isActive);
       slide.setAttribute("aria-hidden", isActive ? "false" : "true");
-      slide.tabIndex = isActive ? 0 : -1;
     });
 
     if (instant) {
@@ -318,52 +316,56 @@
     });
   });
 
-  function goToSlideId(id, { scroll = false } = {}) {
-    const i = slides.findIndex((s) => s.id === id);
+  function goToSlideId(id) {
+    const i = findSlideIndex(id);
     if (i < 0) return false;
     goTo(i);
-    if (scroll) {
-      const hero = document.getElementById("hero");
-      if (hero) {
-        const rect = hero.getBoundingClientRect();
-        // Only scroll if hero is mostly off-screen (avoid jump loops)
-        if (rect.bottom < 80 || rect.top > window.innerHeight * 0.4) {
-          hero.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-      }
-    }
     return true;
   }
 
-  // Stop native #slide-id jumps (refresh was landing mid-hero)
-  document.querySelectorAll('a[href^="#"]').forEach((link) => {
-    const id = link.getAttribute("href")?.slice(1);
-    if (!id || !slides.some((s) => s.id === id)) return;
-    link.addEventListener("click", (e) => {
+  function onProductSlideActivate(id) {
+    if (!goToSlideId(id)) return;
+    // User-initiated only — bring hero into view once, never auto-loop
+    const hero = document.getElementById("hero");
+    if (!hero) return;
+    const rect = hero.getBoundingClientRect();
+    if (rect.bottom < 80 || rect.top > window.innerHeight * 0.35) {
+      if (window.__lenis?.scrollTo) {
+        window.__lenis.scrollTo(hero, { offset: 0, duration: 1.1 });
+      } else {
+        hero.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+  }
+
+  // Product cards sync the carousel — no href / no hash / no page jump
+  document.querySelectorAll("[data-slide]").forEach((el) => {
+    const id = el.getAttribute("data-slide");
+    if (!id || findSlideIndex(id) < 0) return;
+
+    el.addEventListener("click", (e) => {
       e.preventDefault();
-      // Image links open the lightbox — don't also jump the carousel
-      if (link.classList.contains("product-card__image-link")) return;
-      goToSlideId(id, { scroll: false });
-      // Don't put #slide in the URL — refresh would scroll mid-hero again
+      onProductSlideActivate(id);
+    });
+
+    el.addEventListener("keydown", (e) => {
+      if (e.key !== "Enter" && e.key !== " ") return;
+      e.preventDefault();
+      onProductSlideActivate(id);
     });
   });
 
   // Sync from captured hash (already stripped in <head>)
   if (window.__heroSlideHash) {
-    goToSlideId(window.__heroSlideHash, { scroll: false });
+    goToSlideId(window.__heroSlideHash);
     window.__heroSlideHash = "";
   }
 
-  pinPageToTop();
-  window.addEventListener("load", pinPageToTop);
-  window.addEventListener("commerce:lenis-ready", pinPageToTop);
-
   window.addEventListener("hashchange", () => {
     const id = location.hash.slice(1);
-    if (!id || !slides.some((s) => s.id === id)) return;
-    goToSlideId(id, { scroll: false });
+    if (!id || findSlideIndex(id) < 0) return;
+    goToSlideId(id);
     history.replaceState(null, "", location.pathname + location.search);
-    pinPageToTop();
   });
 
   buttons.forEach((btn) => {

@@ -30,8 +30,7 @@
 
     return (
       body.classList.contains("commerce-panel-open") ||
-      body.classList.contains("mobile-nav-open") ||
-      body.classList.contains("product-lightbox-open")
+      body.classList.contains("mobile-nav-open")
     );
   }
 
@@ -48,9 +47,6 @@
 
         window.__lenis = lenis;
         window.dispatchEvent(new CustomEvent("commerce:lenis-ready", { detail: lenis }));
-        if (document.getElementById("fluid-carousel")) {
-          lenis.scrollTo(0, { immediate: true });
-        }
 
         const syncScrollState = () => {
           if (shouldStopSmoothScroll()) {
