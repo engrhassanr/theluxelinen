@@ -3743,8 +3743,8 @@ body.cart-open .header__cart-btn {
   }
 
   .feature-card {
-    min-height: 180px;
-    padding: 24px;
+    min-height: 200px;
+    padding: 80px 24px 24px;
   }
 
   .blog-featured {
@@ -4722,7 +4722,7 @@ body.cart-open .header__cart-btn {
 
   .features--product .feature-card {
     min-height: 220px;
-    padding: 32px;
+    padding: 80px 32px 32px;
   }
 
   .product-featured,
