@@ -13,6 +13,7 @@
 
     let mobileHeaderFixed = false;
     let desktopHeaderFixed = false;
+    let mobileHeaderHome = null;
 
     function isMobileNav() {
       return mobileNavQuery.matches;
@@ -29,6 +30,27 @@
       header.style.removeProperty("width");
       header.style.removeProperty("max-width");
       header.style.removeProperty("transform");
+    }
+
+    function rememberMobileHeaderHome() {
+      if (mobileHeaderHome) return;
+      mobileHeaderHome = {
+        parent: header.parentNode,
+        next: header.nextSibling,
+      };
+    }
+
+    function restoreMobileHeaderHome() {
+      if (!mobileHeaderHome?.parent || !mobileHeaderHome.parent.isConnected) {
+        mobileHeaderHome = null;
+        return;
+      }
+
+      const { parent, next } = mobileHeaderHome;
+      if (header.parentNode !== parent) {
+        parent.insertBefore(header, next);
+      }
+      mobileHeaderHome = null;
     }
 
     function measureAnchor() {
@@ -70,6 +92,12 @@
 
     function applyMobileFixed() {
       cancelHeaderMotion();
+      clearInlineHeaderStyles();
+      // Escape overflow:hidden ancestors (hero/page-hero) so fixed sticks on iOS/mobile
+      rememberMobileHeaderHome();
+      if (header.parentNode !== document.body) {
+        document.body.appendChild(header);
+      }
       header.classList.add("header--fixed");
       mobileHeaderFixed = true;
     }
@@ -81,6 +109,8 @@
 
       window.dispatchEvent(new CustomEvent("commerce:close-mobile-nav"));
       header.classList.remove("header--fixed", "header--exiting", "header--entering");
+      restoreMobileHeaderHome();
+      clearInlineHeaderStyles();
       mobileHeaderFixed = false;
     }
 
@@ -188,6 +218,9 @@
     mobileNavQuery.addEventListener("change", () => {
       cancelHeaderMotion();
       header.classList.remove("header--fixed", "header--entering", "header--exiting");
+      if (mobileHeaderFixed) {
+        restoreMobileHeaderHome();
+      }
       mobileHeaderFixed = false;
       desktopHeaderFixed = false;
       clearInlineHeaderStyles();
