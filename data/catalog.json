@@ -1,66 +1,24 @@
 {
   "items": [
     {
-      "title": "Plush Baffle-Box Mattress Topper",
+      "title": "Mattress Topper",
       "url": "/#topper-plush",
       "type": "Product",
       "image": "/assets/products/topper-plush.png",
       "keywords": [
-        "plush",
-        "baffle",
-        "box",
         "mattress",
         "topper",
         "wholesale",
         "linen",
         "bestseller"
       ],
-      "description": "Thick baffle-box topper with secure elastic straps \u2014 cloud loft comfort for beds that need a luxury upgrade.",
+      "description": "Plush quilted mattress topper with secure elastic straps.",
       "slug": "topper-plush",
-      "bestseller": true,
+      "bestseller": false,
       "category": "Toppers"
     },
     {
-      "title": "10cm Thick Quilted Mattress Topper",
-      "url": "/#topper-10cm",
-      "type": "Product",
-      "image": "/assets/products/topper-10cm.png",
-      "keywords": [
-        "10cm",
-        "thick",
-        "quilted",
-        "mattress",
-        "topper",
-        "wholesale",
-        "linen",
-        "bestseller"
-      ],
-      "description": "Best-selling 10cm quilted topper with non-slip straps and square stitching \u2014 cloud loft that stays put all night.",
-      "slug": "topper-10cm",
-      "bestseller": true,
-      "category": "Toppers"
-    },
-    {
-      "title": "Easy-Fit Mattress Topper",
-      "url": "/#topper-easy-fit",
-      "type": "Product",
-      "image": "/assets/products/topper-easy-fit.png",
-      "keywords": [
-        "easy",
-        "fit",
-        "mattress",
-        "topper",
-        "wholesale",
-        "linen",
-        "bestseller"
-      ],
-      "description": "Quilted mattress topper with elasticated straps for a fast, secure fit \u2014 more comfort, less fuss.",
-      "slug": "topper-easy-fit",
-      "bestseller": true,
-      "category": "Toppers"
-    },
-    {
-      "title": "V-Shape Support Pillow",
+      "title": "V-Shape Pillow",
       "url": "/#v-shape-pillow",
       "type": "Product",
       "image": "/assets/products/v-shape-pillow.jpg",
@@ -79,40 +37,38 @@
       "category": "V Shape"
     },
     {
-      "title": "Chocolate V-Shape Pillowcase",
-      "url": "/#v-shape-pillowcase",
+      "title": "V-Shape Pillow",
+      "url": "/#v-shape-pillow-2",
       "type": "Product",
       "image": "/assets/products/v-shape-pillowcase.png",
       "keywords": [
-        "chocolate",
         "v",
         "shape",
-        "pillowcase",
+        "pillow",
         "wholesale",
         "linen",
         "bestseller"
       ],
-      "description": "Matching V-shape cover in rich chocolate brown \u2014 soft, form-fitting, and ready for trade colour ranges.",
-      "slug": "v-shape-pillowcase",
+      "description": "V-shape pillow range in a soft fabric finish.",
+      "slug": "v-shape-pillow-2",
       "bestseller": true,
       "category": "V Shape"
     },
     {
-      "title": "Navy V-Shape Pillowcase",
-      "url": "/#v-shape-pillowcase-navy",
+      "title": "V-Shape Pillow",
+      "url": "/#v-shape-pillow-3",
       "type": "Product",
       "image": "/assets/products/v-shape-pillowcase-navy.png",
       "keywords": [
-        "navy",
         "v",
         "shape",
-        "pillowcase",
+        "pillow",
         "wholesale",
         "linen",
         "bestseller"
       ],
-      "description": "Deep navy V-shape cover with matching form \u2014 a clean wholesale colour option for support pillows.",
-      "slug": "v-shape-pillowcase-navy",
+      "description": "V-shape pillow range in a soft fabric finish.",
+      "slug": "v-shape-pillow-3",
       "bestseller": true,
       "category": "V Shape"
     },
@@ -243,130 +199,123 @@
       "category": "Cushions"
     },
     {
-      "title": "Charcoal Diamond Quilt Bedspread",
+      "title": "Bedspread",
       "url": "/#bedspread",
       "type": "Product",
       "image": "/assets/products/bedspread.png",
       "keywords": [
         "bedspread",
-        "charcoal",
-        "diamond",
         "quilt",
         "wholesale",
         "linen"
       ],
-      "description": "Diamond-quilted bedspread in deep charcoal \u2014 structured texture for bedroom ranges.",
+      "description": "Diamond-quilted bedspread \u2014 structured texture for bedroom ranges.",
       "slug": "bedspread",
       "bestseller": false,
       "category": "Bedspreads"
     },
     {
-      "title": "Dark Grey Quilted Pillowcases",
+      "title": "Quilted Pillowcases",
       "url": "/#quilted-pillowcases",
       "type": "Product",
       "image": "/assets/products/quilted-pillowcases.png",
       "keywords": [
         "quilted",
         "pillowcases",
-        "dark",
-        "grey",
         "wholesale",
         "linen"
       ],
-      "description": "Diamond-quilt pillow shams in dark grey \u2014 matching texture for bedspread sets.",
+      "description": "Diamond-quilt pillow shams \u2014 matching texture for bedspread sets.",
       "slug": "quilted-pillowcases",
       "bestseller": false,
       "category": "Pillowcases"
     },
     {
-      "title": "Bedspread \u2014 Black & Cream",
+      "title": "Bedspread",
       "url": "/#reversible-black-cream",
       "type": "Product",
       "image": "/assets/products/reversible-black-cream.jpg",
       "keywords": [
         "reversible",
         "bedspread",
-        "black",
-        "cream",
         "wholesale",
         "linen"
       ],
-      "description": "Two looks in one: reversible quilted bedspread pairing deep black with soft cream for flexible room styling.",
+      "description": "Two looks in one: reversible quilted bedspread for flexible room styling.",
       "slug": "reversible-black-cream",
       "bestseller": false,
       "category": "Bedspreads"
     },
     {
-      "title": "Bedspread \u2014 Black & Grey",
+      "title": "Bedspread",
       "url": "/#reversible-black-grey",
       "type": "Product",
       "image": "/assets/products/reversible-black-grey.jpg",
       "keywords": [
         "reversible",
         "bedspread",
-        "black",
-        "grey",
         "wholesale",
         "linen"
       ],
-      "description": "Modern black-and-grey reversible quilt \u2014 dual-tone depth for contemporary wholesale bedroom ranges.",
+      "description": "Modern reversible quilt \u2014 dual-tone depth for contemporary wholesale bedroom ranges.",
       "slug": "reversible-black-grey",
       "bestseller": false,
       "category": "Bedspreads"
     },
     {
-      "title": "Bedspread \u2014 Black & Red",
-      "url": "/#reversible-black-red",
+      "title": "Mattress Topper",
+      "url": "/#topper-grey-lifestyle",
       "type": "Product",
-      "image": "/assets/products/reversible-black-red.jpg",
+      "image": "/assets/products/topper-grey.png",
       "keywords": [
-        "reversible",
-        "bedspread",
-        "black",
-        "red",
-        "wholesale",
-        "linen"
-      ],
-      "description": "Bold black-and-red reversible bedspread \u2014 high-contrast colourway for statement retail floors.",
-      "slug": "reversible-black-red",
-      "bestseller": false,
-      "category": "Bedspreads"
-    },
-    {
-      "title": "Bedspread \u2014 Grey & Black",
-      "url": "/#reversible-grey-black",
-      "type": "Product",
-      "image": "/assets/products/reversible-grey-black.jpg",
-      "keywords": [
-        "reversible",
-        "bedspread",
         "grey",
-        "black",
+        "mattress",
+        "topper",
         "wholesale",
         "linen"
       ],
-      "description": "Soft grey reversing to black \u2014 versatile quilted finish for neutral and modern schemes.",
-      "slug": "reversible-grey-black",
+      "description": "Grey quilted mattress topper shown in a bedroom setting.",
+      "slug": "topper-grey-lifestyle",
       "bestseller": false,
-      "category": "Bedspreads"
+      "category": "Toppers"
     },
     {
-      "title": "Bedspread \u2014 Purple & Cream",
-      "url": "/#reversible-purple-cream",
+      "title": "Tote Bags",
+      "url": "/#tote-bags",
       "type": "Product",
-      "image": "/assets/products/reversible-purple-cream.jpg",
+      "image": "/assets/products/tote-bags.jpeg",
       "keywords": [
-        "reversible",
-        "bedspread",
-        "purple",
-        "cream",
+        "tote",
+        "bags",
+        "black",
+        "pink",
+        "blue",
         "wholesale",
         "linen"
       ],
-      "description": "Rich purple with cream reverse \u2014 warm dual tones for luxe hospitality and home retail.",
-      "slug": "reversible-purple-cream",
+      "description": "Reusable tote bags available with black, pink, and blue prints.",
+      "slug": "tote-bags",
       "bestseller": false,
-      "category": "Bedspreads"
+      "category": "Tote Bags"
+    },
+    {
+      "title": "Tote Bags",
+      "url": "/#tote-bags-lifestyle",
+      "type": "Product",
+      "image": "/assets/products/tote-bags-lifestyle.jpeg",
+      "keywords": [
+        "tote",
+        "bags",
+        "black",
+        "pink",
+        "blue",
+        "wholesale",
+        "linen"
+      ],
+      "description": "Reusable tote bags showing all available print colors.",
+      "slug": "tote-bags-lifestyle",
+      "bestseller": false,
+      "category": "Tote Bags"
     }
   ]
 }
