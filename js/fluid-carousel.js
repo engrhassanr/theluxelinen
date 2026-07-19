@@ -16,7 +16,6 @@
   const STEP_Z = 160;
   const STEP_ROT = 10;
   const STEP_SCALE = 0.18;
-  const STEP_BLUR = 10;
   const MAX_VISIBLE = 2;
   const AUTOPLAY_MS = 4500;
   const EASE = "cubic-bezier(0.23, 1, 0.32, 1)";
@@ -128,11 +127,10 @@
     const rot = flat ? 0 : -o * STEP_ROT;
     const scale = Math.max(phone ? 0.78 : 0.62, 1 - clamped * (phone ? 0.14 : STEP_SCALE));
     const opacity = Math.max(0, 1 - clamped * 0.55);
-    const blur = flat ? 0 : clamped * STEP_BLUR;
     const zIndex = 100 - Math.round(clamped * 1);
     const interactive = abs < 1.35;
 
-    return { x, z, rot, scale, opacity, blur, zIndex, interactive, phone, flat };
+    return { x, z, rot, scale, opacity, zIndex, interactive, phone, flat };
   }
 
   function syncAmbient() {
@@ -149,11 +147,16 @@
   }
 
   function warmNearbyImages() {
+    // Prefetch the visible stack (±2) so autoplay/swipe never hits empty slides
     for (let d = -2; d <= 2; d++) {
       const img = slides[wrap(index + d)]?.querySelector("img");
       if (!img) continue;
       if (img.loading === "lazy") img.loading = "eager";
-      if (typeof img.decode === "function") {
+      if (!img.complete) {
+        const warm = new Image();
+        warm.decoding = "async";
+        warm.src = img.currentSrc || img.getAttribute("src") || "";
+      } else if (typeof img.decode === "function") {
         img.decode().catch(() => {});
       }
     }
@@ -181,7 +184,7 @@
       }
       slide.style.zIndex = String(s.zIndex);
       slide.style.opacity = String(s.opacity);
-      slide.style.filter = s.blur > 0.1 ? `blur(${s.blur}px)` : "blur(0px)";
+      slide.style.filter = "none";
       slide.style.pointerEvents = s.interactive ? "auto" : "none";
       slide.classList.toggle("is-active", isActive);
       slide.setAttribute("aria-hidden", isActive ? "false" : "true");
@@ -191,7 +194,7 @@
       // Force reflow then restore transitions
       void root.offsetHeight;
       slides.forEach((slide) => {
-        slide.style.transition = `transform 0.8s ${EASE}, opacity 0.8s ${EASE}, filter 0.8s ${EASE}`;
+        slide.style.transition = `transform 0.65s ${EASE}, opacity 0.65s ${EASE}`;
       });
     }
 
@@ -430,10 +433,8 @@
 
   requestAnimationFrame(() => {
     slides.forEach((slide) => {
-      slide.style.transition = `transform 0.8s ${EASE}, opacity 0.8s ${EASE}, filter 0.8s ${EASE}`;
+      slide.style.transition = `transform 0.65s ${EASE}, opacity 0.65s ${EASE}`;
       slide.style.willChange = "auto";
-      const img = slide.querySelector("img");
-      if (img) img.loading = "eager";
     });
     lockHeroHeight({ force: true });
     render(0);
