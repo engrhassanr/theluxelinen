@@ -1,1 +1,286 @@
-!function(){const e=window.matchMedia("(prefers-reduced-motion: reduce)").matches;function t(){return new Promise((e,t)=>{if(window.Lenis)return void e(window.Lenis);const r=document.createElement("script");r.src=`${function(){const e=document.currentScript;return e?.src?e.src.replace(/\/[^/]*$/,"/"):"/js/"}()}vendor/lenis.min.js`,r.onload=()=>e(window.Lenis),r.onerror=t,document.head.appendChild(r)})}function r(e){window.requestAnimationFrame(()=>{window.requestAnimationFrame(e)})}function a(e){if("true"===e.dataset.wordsSplit||e.querySelector(".reveal-word"))return void(e.dataset.wordsSplit="true");Array.from(e.childNodes).forEach(t=>{if(t.nodeType===Node.TEXT_NODE){const r=t.textContent.split(/(\s+)/),a=document.createDocumentFragment();return r.forEach(e=>{if(!e)return;if(/^\s+$/.test(e))return void a.appendChild(document.createTextNode(e));const t=document.createElement("span");t.className="reveal-word",t.textContent=e,a.appendChild(t)}),void e.replaceChild(a,t)}t.nodeType===Node.ELEMENT_NODE&&a(t)}),e.dataset.wordsSplit="true"}function o(e,t){e.style.setProperty("--reveal-delay",`${t}ms`)}function n(e,t){const a=Number(t.baseDelay)||0,n=Number(t.stagger)||45,s=e.querySelectorAll(".reveal-word");s.forEach((e,t)=>{o(e,a+t*n)}),r(()=>{s.forEach(e=>{e.classList.add("is-visible")})})}function s(e,t){e.querySelectorAll("[data-reveal-words]:not([data-reveal-words='hero'])").forEach(e=>{c(e,t)})}function c(e,t){e.hasAttribute("data-reveal-words")&&"hero"!==e.dataset.revealWords&&(a(e),n(e,{baseDelay:t+(Number(e.dataset.revealWordsBaseDelay)||0),stagger:40}))}function l(e){const t=Number(e.dataset.revealDelay)||0;o(e,t),r(()=>{e.classList.add("is-visible"),c(e,0),s(e,0)})}const d={threshold:.08,rootMargin:"0px 0px -4% 0px"};function i(){document.querySelectorAll("[data-reveal-stagger]").forEach(e=>{const t=Number(e.dataset.revealStagger)||80,a=Number(e.dataset.revealStaggerBase)||0,n=Array.from(e.children);n.forEach(e=>{e.classList.add("reveal")});const l=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&(!function(e,t,a){e.forEach((e,r)=>{o(e,t+r*a)}),r(()=>{e.forEach(e=>{e.classList.add("is-visible"),c(e,0),s(e,0)})})}(n,a,t),l.unobserve(e.target))})},d);l.observe(e)})}let u=!1;t().then(e=>{const t=new e({autoRaf:!0,smoothWheel:!0,lerp:.1,wheelMultiplier:1,touchMultiplier:1.15});window.__lenis=t,window.dispatchEvent(new CustomEvent("commerce:lenis-ready",{detail:t}));const r=()=>{!function(){const e=document.body;return e.classList.contains("commerce-panel-open")||e.classList.contains("mobile-nav-open")}()?t.start():t.stop()};return r(),new MutationObserver(r).observe(document.body,{attributes:!0,attributeFilter:["class"]}),t}).catch(()=>null),function(){if(!u){if(u=!0,e)return document.querySelectorAll(".reveal, [data-reveal-words]").forEach(e=>{e.classList.add("is-visible")}),void document.querySelectorAll(".reveal-word").forEach(e=>{e.classList.add("is-visible")});document.querySelectorAll("[data-reveal-words]:not([data-reveal-words='hero'])").forEach(e=>{a(e)}),document.querySelectorAll(".reveal--hero").forEach(l),document.querySelectorAll("[data-reveal-words='hero']").forEach(e=>{a(e),n(e,{baseDelay:Number(e.dataset.revealWordsBaseDelay)||150,stagger:50})}),i(),function(){const e=document.querySelectorAll(".reveal:not(.reveal--hero)");if(!e.length)return;const t=new Set,r=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&!t.has(e.target)&&(t.add(e.target),l(e.target),r.unobserve(e.target))})},d);e.forEach(e=>{e.closest("[data-reveal-stagger]")||r.observe(e)})}()}}()}();
+(function () {
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function getScriptBase() {
+    const current = document.currentScript;
+    if (current?.src) {
+      return current.src.replace(/\/[^/]*$/, "/");
+    }
+
+    return "/js/";
+  }
+
+  function loadLenis() {
+    return new Promise((resolve, reject) => {
+      if (window.Lenis) {
+        resolve(window.Lenis);
+        return;
+      }
+
+      const script = document.createElement("script");
+      script.src = `${getScriptBase()}vendor/lenis.min.js`;
+      script.onload = () => resolve(window.Lenis);
+      script.onerror = reject;
+      document.head.appendChild(script);
+    });
+  }
+
+  function shouldStopSmoothScroll() {
+    const body = document.body;
+
+    return (
+      body.classList.contains("commerce-panel-open") ||
+      body.classList.contains("mobile-nav-open")
+    );
+  }
+
+  function initSmoothScroll() {
+    return loadLenis()
+      .then((Lenis) => {
+        const lenis = new Lenis({
+          autoRaf: true,
+          smoothWheel: true,
+          lerp: 0.1,
+          wheelMultiplier: 1,
+          touchMultiplier: 1.15,
+        });
+
+        window.__lenis = lenis;
+        window.dispatchEvent(new CustomEvent("commerce:lenis-ready", { detail: lenis }));
+
+        const syncScrollState = () => {
+          if (shouldStopSmoothScroll()) {
+            lenis.stop();
+            return;
+          }
+
+          lenis.start();
+        };
+
+        syncScrollState();
+
+        const bodyObserver = new MutationObserver(syncScrollState);
+        bodyObserver.observe(document.body, {
+          attributes: true,
+          attributeFilter: ["class"],
+        });
+
+        return lenis;
+      })
+      .catch(() => null);
+  }
+
+  function nextFrame(callback) {
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(callback);
+    });
+  }
+
+  function splitWords(element) {
+    if (element.dataset.wordsSplit === "true" || element.querySelector(".reveal-word")) {
+      element.dataset.wordsSplit = "true";
+      return;
+    }
+
+    const nodes = Array.from(element.childNodes);
+
+    nodes.forEach((node) => {
+      if (node.nodeType === Node.TEXT_NODE) {
+        const parts = node.textContent.split(/(\s+)/);
+        const fragment = document.createDocumentFragment();
+
+        parts.forEach((part) => {
+          if (!part) return;
+
+          if (/^\s+$/.test(part)) {
+            fragment.appendChild(document.createTextNode(part));
+            return;
+          }
+
+          const span = document.createElement("span");
+          span.className = "reveal-word";
+          span.textContent = part;
+          fragment.appendChild(span);
+        });
+
+        element.replaceChild(fragment, node);
+        return;
+      }
+
+      if (node.nodeType === Node.ELEMENT_NODE) {
+        splitWords(node);
+      }
+    });
+
+    element.dataset.wordsSplit = "true";
+  }
+
+  function setRevealDelay(element, delayMs) {
+    element.style.setProperty("--reveal-delay", `${delayMs}ms`);
+  }
+
+  function revealWords(element, options) {
+    const baseDelay = Number(options.baseDelay) || 0;
+    const stagger = Number(options.stagger) || 45;
+    const words = element.querySelectorAll(".reveal-word");
+
+    words.forEach((word, index) => {
+      setRevealDelay(word, baseDelay + index * stagger);
+    });
+
+    nextFrame(() => {
+      words.forEach((word) => {
+        word.classList.add("is-visible");
+      });
+    });
+  }
+
+  function triggerNestedWordReveals(container, delay) {
+    container.querySelectorAll("[data-reveal-words]:not([data-reveal-words='hero'])").forEach((element) => {
+      revealWordsOnElement(element, delay);
+    });
+  }
+
+  function revealWordsOnElement(element, extraDelay) {
+    if (!element.hasAttribute("data-reveal-words") || element.dataset.revealWords === "hero") {
+      return;
+    }
+
+    splitWords(element);
+
+    revealWords(element, {
+      baseDelay: extraDelay + (Number(element.dataset.revealWordsBaseDelay) || 0),
+      stagger: 40,
+    });
+  }
+
+  function revealElement(element) {
+    const delay = Number(element.dataset.revealDelay) || 0;
+    setRevealDelay(element, delay);
+
+    nextFrame(() => {
+      element.classList.add("is-visible");
+      revealWordsOnElement(element, 0);
+      triggerNestedWordReveals(element, 0);
+    });
+  }
+
+  function revealStaggeredChildren(children, baseDelay, stagger) {
+    children.forEach((child, index) => {
+      setRevealDelay(child, baseDelay + index * stagger);
+    });
+
+    nextFrame(() => {
+      children.forEach((child) => {
+        child.classList.add("is-visible");
+        revealWordsOnElement(child, 0);
+        triggerNestedWordReveals(child, 0);
+      });
+    });
+  }
+
+  function initScrollWordSplits() {
+    document.querySelectorAll("[data-reveal-words]:not([data-reveal-words='hero'])").forEach((element) => {
+      splitWords(element);
+    });
+  }
+
+  function initHeroAnimations() {
+    document.querySelectorAll(".reveal--hero").forEach(revealElement);
+
+    document.querySelectorAll("[data-reveal-words='hero']").forEach((element) => {
+      splitWords(element);
+      revealWords(element, {
+        baseDelay: Number(element.dataset.revealWordsBaseDelay) || 150,
+        stagger: 50,
+      });
+    });
+  }
+
+  const observerOptions = {
+    threshold: 0.08,
+    rootMargin: "0px 0px -4% 0px",
+  };
+
+  function initStaggerGroups() {
+    const groups = document.querySelectorAll("[data-reveal-stagger]");
+
+    groups.forEach((group) => {
+      const stagger = Number(group.dataset.revealStagger) || 80;
+      const baseDelay = Number(group.dataset.revealStaggerBase) || 0;
+      const children = Array.from(group.children);
+
+      children.forEach((child) => {
+        child.classList.add("reveal");
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          revealStaggeredChildren(children, baseDelay, stagger);
+          observer.unobserve(entry.target);
+        });
+      }, observerOptions);
+
+      observer.observe(group);
+    });
+  }
+
+  function initScrollReveals() {
+    const revealItems = document.querySelectorAll(".reveal:not(.reveal--hero)");
+
+    if (!revealItems.length) return;
+
+    const observed = new Set();
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting || observed.has(entry.target)) return;
+        observed.add(entry.target);
+        revealElement(entry.target);
+        observer.unobserve(entry.target);
+      });
+    }, observerOptions);
+
+    revealItems.forEach((item) => {
+      if (item.closest("[data-reveal-stagger]")) return;
+      observer.observe(item);
+    });
+  }
+
+  let revealInitialized = false;
+
+  function initRevealAnimations() {
+    if (revealInitialized) return;
+    revealInitialized = true;
+
+    if (prefersReducedMotion) {
+      document.querySelectorAll(".reveal, [data-reveal-words]").forEach((el) => {
+        el.classList.add("is-visible");
+      });
+      document.querySelectorAll(".reveal-word").forEach((el) => {
+        el.classList.add("is-visible");
+      });
+      return;
+    }
+
+    initScrollWordSplits();
+    initHeroAnimations();
+    initStaggerGroups();
+    initScrollReveals();
+  }
+
+  initRevealAnimations();
+
+  // Lenis after first paint — don't block search/lightbox/UI
+  const startLenis = () => {
+    if (prefersReducedMotion) return;
+    initSmoothScroll();
+  };
+  if ("requestIdleCallback" in window) {
+    window.requestIdleCallback(startLenis, { timeout: 2000 });
+  } else {
+    window.setTimeout(startLenis, 200);
+  }
+})();
