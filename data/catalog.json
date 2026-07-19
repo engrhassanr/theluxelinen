@@ -4,7 +4,7 @@
       "title": "Mattress Topper",
       "url": "/#topper-plush",
       "type": "Product",
-      "image": "/assets/products/topper-plush.webp",
+      "image": "/assets/products/sm/topper-plush.webp",
       "keywords": [
         "mattress",
         "topper",
@@ -21,7 +21,7 @@
       "title": "V-Shape Pillow",
       "url": "/#v-shape-pillow",
       "type": "Product",
-      "image": "/assets/products/v-shape-pillow.webp",
+      "image": "/assets/products/sm/v-shape-pillow.webp",
       "keywords": [
         "v",
         "shape",
@@ -40,7 +40,7 @@
       "title": "V-Shape Pillow",
       "url": "/#v-shape-pillow-2",
       "type": "Product",
-      "image": "/assets/products/v-shape-pillowcase.webp",
+      "image": "/assets/products/sm/v-shape-pillowcase.webp",
       "keywords": [
         "v",
         "shape",
@@ -58,7 +58,7 @@
       "title": "V-Shape Pillow",
       "url": "/#v-shape-pillow-3",
       "type": "Product",
-      "image": "/assets/products/v-shape-pillowcase-navy.webp",
+      "image": "/assets/products/sm/v-shape-pillowcase-navy.webp",
       "keywords": [
         "v",
         "shape",
@@ -76,7 +76,7 @@
       "title": "Teal Booster Cushion",
       "url": "/#booster-cushion",
       "type": "Product",
-      "image": "/assets/products/booster-cushion.webp",
+      "image": "/assets/products/sm/booster-cushion.webp",
       "keywords": [
         "teal",
         "booster",
@@ -94,7 +94,7 @@
       "title": "Copper Booster Cushion",
       "url": "/#booster-copper",
       "type": "Product",
-      "image": "/assets/products/booster-copper.webp",
+      "image": "/assets/products/sm/booster-copper.webp",
       "keywords": [
         "copper",
         "booster",
@@ -112,7 +112,7 @@
       "title": "Maroon Booster Cushion",
       "url": "/#booster-maroon",
       "type": "Product",
-      "image": "/assets/products/booster-maroon.webp",
+      "image": "/assets/products/sm/booster-maroon.webp",
       "keywords": [
         "maroon",
         "booster",
@@ -130,7 +130,7 @@
       "title": "Black Satin Stripe Fitted Sheet",
       "url": "/#fitted-sheet",
       "type": "Product",
-      "image": "/assets/products/fitted-sheet.webp",
+      "image": "/assets/products/sm/fitted-sheet.webp",
       "keywords": [
         "black",
         "satin",
@@ -149,7 +149,7 @@
       "title": "Cream Damask Stripe Pillowcase",
       "url": "/#pillowcase",
       "type": "Product",
-      "image": "/assets/products/pillowcase.webp",
+      "image": "/assets/products/sm/pillowcase.webp",
       "keywords": [
         "cream",
         "damask",
@@ -167,7 +167,7 @@
       "title": "Luxe Filled Bed Pillow",
       "url": "/#filled-pillow",
       "type": "Product",
-      "image": "/assets/products/filled-pillow.webp",
+      "image": "/assets/products/sm/filled-pillow.webp",
       "keywords": [
         "luxe",
         "filled",
@@ -185,7 +185,7 @@
       "title": "Plush Filled Cushion",
       "url": "/#filled-cushion",
       "type": "Product",
-      "image": "/assets/products/filled-cushion.webp",
+      "image": "/assets/products/sm/filled-cushion.webp",
       "keywords": [
         "plush",
         "filled",
@@ -202,7 +202,7 @@
       "title": "Bedspread",
       "url": "/#bedspread",
       "type": "Product",
-      "image": "/assets/products/bedspread.webp",
+      "image": "/assets/products/sm/bedspread.webp",
       "keywords": [
         "bedspread",
         "quilt",
@@ -218,7 +218,7 @@
       "title": "Quilted Pillowcases",
       "url": "/#quilted-pillowcases",
       "type": "Product",
-      "image": "/assets/products/quilted-pillowcases.webp",
+      "image": "/assets/products/sm/quilted-pillowcases.webp",
       "keywords": [
         "quilted",
         "pillowcases",
@@ -234,7 +234,7 @@
       "title": "Bedspread",
       "url": "/#reversible-black-cream",
       "type": "Product",
-      "image": "/assets/products/reversible-black-cream.webp",
+      "image": "/assets/products/sm/reversible-black-cream.webp",
       "keywords": [
         "reversible",
         "bedspread",
@@ -250,7 +250,7 @@
       "title": "Bedspread",
       "url": "/#reversible-black-grey",
       "type": "Product",
-      "image": "/assets/products/reversible-black-grey.webp",
+      "image": "/assets/products/sm/reversible-black-grey.webp",
       "keywords": [
         "reversible",
         "bedspread",
@@ -266,7 +266,7 @@
       "title": "Mattress Topper",
       "url": "/#topper-grey-lifestyle",
       "type": "Product",
-      "image": "/assets/products/topper-grey.webp",
+      "image": "/assets/products/sm/topper-grey.webp",
       "keywords": [
         "grey",
         "mattress",
@@ -283,7 +283,7 @@
       "title": "Tote Bags",
       "url": "/#tote-bags",
       "type": "Product",
-      "image": "/assets/products/tote-bags.webp",
+      "image": "/assets/products/sm/tote-bags.webp",
       "keywords": [
         "tote",
         "bags",
@@ -302,7 +302,7 @@
       "title": "Tote Bags",
       "url": "/#tote-bags-lifestyle",
       "type": "Product",
-      "image": "/assets/products/tote-bags-lifestyle.webp",
+      "image": "/assets/products/sm/tote-bags-lifestyle.webp",
       "keywords": [
         "tote",
         "bags",

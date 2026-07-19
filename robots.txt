@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Disallow: /api/
+Disallow: /404
+Disallow: /404/
+
+Sitemap: https://theluxelinen.ie/sitemap.xml
