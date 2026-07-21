@@ -10,3 +10,4 @@
 .about__cta{display:flex;justify-content:flex-start;width:100%}
 .about__cta-link.hero__cta{background-color:var(--purple-light)}
 .card-action__btn{cursor:pointer;pointer-events:auto}
+.header--fixed .header__nav{background-color:var(--white)}
