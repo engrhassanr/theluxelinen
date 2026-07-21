@@ -9,3 +9,4 @@
 .hero__cta-text{position:relative;z-index:1;font-family:var(--font);font-size:16px;font-weight:500;font-feature-settings:var(--font-features);letter-spacing:-0.04em;line-height:150%;white-space:nowrap;user-select:none}
 .about__cta{display:flex;justify-content:flex-start;width:100%}
 .about__cta-link.hero__cta{background-color:var(--purple-light)}
+.card-action__btn{cursor:pointer;pointer-events:auto}
